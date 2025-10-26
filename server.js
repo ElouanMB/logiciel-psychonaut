@@ -12,6 +12,10 @@ const RESULTS_DIR = path.resolve(ROOT, 'results');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(ROOT, 'public')));
+// Expose ressources/ so images can be used in the UI
+app.use('/ressources', express.static(path.join(ROOT, 'ressources')));
+// Expose results/ for direct downloads
+app.use('/results', express.static(path.join(ROOT, 'results')));
 
 function listResults() {
   if (!fs.existsSync(RESULTS_DIR)) return [];
@@ -56,6 +60,41 @@ app.get('/api/results/file', (req, res) => {
     if (!fs.existsSync(p)) return res.status(404).json({ ok: false, error: 'Not found' });
     const content = JSON.parse(fs.readFileSync(p, 'utf8'));
     res.json({ ok: true, file: safe, result: content });
+  } catch (e) {
+    res.status(500).json({ ok: false, error: e.message });
+  }
+});
+
+// Delete a result file
+app.delete('/api/results/file', (req, res) => {
+  try {
+    const name = req.query.name || '';
+    if (!name) return res.status(400).json({ ok: false, error: 'Missing name' });
+    const safe = path.basename(name);
+    const p = path.join(RESULTS_DIR, safe);
+    if (!fs.existsSync(p)) return res.status(404).json({ ok: false, error: 'Not found' });
+    fs.unlinkSync(p);
+    res.json({ ok: true, deleted: safe });
+  } catch (e) {
+    res.status(500).json({ ok: false, error: e.message });
+  }
+});
+
+// Rename a result file
+app.post('/api/results/rename', (req, res) => {
+  try {
+    const oldName = (req.body.oldName || '').trim();
+    let newName = (req.body.newName || '').trim();
+    if (!oldName || !newName) return res.status(400).json({ ok: false, error: 'Missing names' });
+    const safeOld = path.basename(oldName);
+    if (!newName.toLowerCase().endsWith('.json')) newName += '.json';
+    const safeNew = path.basename(newName);
+    const pOld = path.join(RESULTS_DIR, safeOld);
+    const pNew = path.join(RESULTS_DIR, safeNew);
+    if (!fs.existsSync(pOld)) return res.status(404).json({ ok: false, error: 'Source not found' });
+    if (fs.existsSync(pNew)) return res.status(409).json({ ok: false, error: 'Target exists' });
+    fs.renameSync(pOld, pNew);
+    res.json({ ok: true, from: safeOld, to: safeNew });
   } catch (e) {
     res.status(500).json({ ok: false, error: e.message });
   }

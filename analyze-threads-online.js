@@ -109,36 +109,35 @@ function normalizeWhitespace(s) { return (s || '').replace(/[\u00A0\s]+/g, ' ').
 function extractIdentifiersAll(title) {
   const found = [];
   const have = new Set();
-  const add = (type, raw, canonical) => {
-    if (!have.has(type + '|' + canonical)) {
-      have.add(type + '|' + canonical);
-      found.push({ type, raw, canonical });
+  const add = (raw, canonical) => {
+    if (!have.has(canonical)) {
+      have.add(canonical);
+      found.push({ raw, canonical });
     }
   };
   // DrugLab: YYYY-NNNN
   const reDrug = /(\b\d{4}-\d{3,6}\b)/g;
   let m;
   while ((m = reDrug.exec(title)) !== null) {
-    add('druglab', m[1], m[1]);
+    add(m[1], m[1]);
   }
   // PSYCHO digits (with or without brackets)
   const rePsy = /PSYCHO\s*(\d{5,7})/gi;
   while ((m = rePsy.exec(title)) !== null) {
     const n = m[1];
-    add('autre', `PSYCHO${n}`, `PSYCHO${n}`);
+    add(`PSYCHO${n}`, `PSYCHO${n}`);
   }
   // Digits inside brackets like [255496]
   const reInBr = /\[(\d{5,7})\]/g;
   while ((m = reInBr.exec(title)) !== null) {
     const n = m[1];
-    add('autre', `[${n}]`, `PSYCHO${n}`);
+    add(`[${n}]`, `PSYCHO${n}`);
   }
   // Standalone bare digits (avoid double counting)
   const reBare = /(\b\d{5,7}\b)/g;
   while ((m = reBare.exec(title)) !== null) {
     const n = m[1];
-    // Skip if already found as part of PSYCHO or brackets
-    add('autre', n, `PSYCHO${n}`);
+    add(n, `PSYCHO${n}`);
   }
   return found;
 }
@@ -278,15 +277,13 @@ async function main() {
   for (const t of allThreads) {
     const enriched = [];
     for (const id of t.identifiers) {
-      if (id.type === 'autre') {
-        const found = await checkPsychoactif(http, id.canonical, psychoBase);
-        enriched.push({ ...id, psychoUrl: buildPsyUrl(id.canonical, psychoBase), psychoFound: found });
-      } else if (id.type === 'druglab') {
-        // DrugLab: vérifier l'existence de la page de résultat sur druglab.fr
+      const isDruglab = /^\d{4}-\d{3,6}$/.test(id.canonical);
+      if (isDruglab) {
         const { found, url } = await checkDruglab(http, id.canonical, druglabBase);
         enriched.push({ ...id, druglabUrl: url, druglabFound: found });
       } else {
-        enriched.push({ ...id });
+        const found = await checkPsychoactif(http, id.canonical, psychoBase);
+        enriched.push({ ...id, psychoUrl: buildPsyUrl(id.canonical, psychoBase), psychoFound: found });
       }
     }
     results.push({
@@ -301,8 +298,8 @@ async function main() {
 
   // Affichage
   const flatIds = results.flatMap(t => t.identifiers.map(i => i));
-  const druglabCount = flatIds.filter(i => i.type === 'druglab').length;
-  const autreCount = flatIds.filter(i => i.type === 'autre').length;
+  const druglabCount = flatIds.filter(i => i.druglabUrl).length;
+  const autreCount = flatIds.filter(i => i.psychoUrl).length;
   const missingCount = results.filter(r => r.identifiers.length === 0).length;
   console.log(`Threads parcourus: ${results.length} (ouverts et fermés)`);
   console.log(`- Sans identifiant détecté: ${missingCount}`);
@@ -316,17 +313,18 @@ async function main() {
     if (r.identifiers && r.identifiers.length) {
       console.log(`  - Identifiants:`);
       for (const id of r.identifiers) {
-        console.log(`    • ${id.raw} (canonique: ${id.canonical}) — ${id.type === 'druglab' ? 'DrugLab' : 'Autre'}`);
+        const kind = id.druglabUrl ? 'DrugLab' : (id.psychoUrl ? 'Autre' : '');
+        console.log(`    • ${id.raw} (canonique: ${id.canonical})${kind ? ' — ' + kind : ''}`);
       }
     }
-    const psychoIds = r.identifiers.filter(i => i.type === 'autre' && i.psychoUrl);
+    const psychoIds = r.identifiers.filter(i => i.psychoUrl);
     if (psychoIds.length) {
       console.log(`  - Psychoactif:`);
       for (const i of psychoIds) {
         console.log(`    • ${i.canonical}: ${i.psychoFound ? 'Trouvé' : 'Non trouvé'} (${i.psychoUrl})`);
       }
     }
-    const dlIds = r.identifiers.filter(i => i.type === 'druglab' && i.druglabUrl);
+    const dlIds = r.identifiers.filter(i => i.druglabUrl);
     if (dlIds.length) {
       console.log(`  - DrugLab:`);
       for (const i of dlIds) {

@@ -7,9 +7,26 @@
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <header>
-      <h1>Psychonaut Demandes - Dashboard</h1>
+    <header class="site-header">
+      <div class="brand">
+        <img src="/ressources/logo.svg" alt="Psychonaut" class="logo" />
+        <div class="brand-text">
+          <div class="title">Psychonaut</div>
+          <div class="subtitle">Demandes – Dashboard</div>
+        </div>
+      </div>
+      <nav class="nav-actions">
+        <a href="/" class="link">Accueil</a>
+        <a href="https://www.psychonaut.fr/forums/demandes.160/" target="_blank" class="link">Forum Demandes</a>
+      </nav>
     </header>
+    <div class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Analyse des demandes</h1>
+        <p class="hero-sub">Connecté à Psychonaut (XenForo) + vérifications Psychoactif & DrugLab</p>
+      </div>
+    </div>
 
     <section class="card">
       <h2>Lancer une analyse</h2>
@@ -22,23 +39,22 @@
           Nom du fichier de sortie (optionnel):
           <input type="text" id="outName" placeholder="..." />
         </label>
-        <button type="submit">Analyser</button>
+        <button type="submit" class="btn btn-primary">Analyser</button>
       </form>
-      <pre id="run-log" class="log"></pre>
-    </section>
-
-    <section class="card">
-      <h2>Dernier résultat</h2>
-      <div id="latest-meta"></div>
-      <div id="latest-summary" class="summary"></div>
-      <div id="latest-list"></div>
+      <div id="run-status" class="run-status">
+        <div id="progress" class="progress" aria-label="Analyse en cours" role="progressbar">
+          <div class="bar"></div>
+        </div>
+        <div id="run-stats" class="summary"></div>
+      </div>
     </section>
 
     <section class="card">
       <h2>Fichiers générés</h2>
-      <ul id="files"></ul>
+      <ul id="files" class="files-list"></ul>
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script src="/app.js"></script>
   </body>
   </html>
