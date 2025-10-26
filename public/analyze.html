@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Psychonaut Analyzer - Analyse des Demandes</title>
+    <link rel="icon" type="image/png" href="/ressources/logo-site.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/analyze.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <img src="/ressources/logo.svg" alt="Psychonaut" class="logo" />
+        <div class="brand-text">
+          <div class="title">Psychonaut</div>
+          <div class="subtitle">Demandes – Dashboard</div>
+        </div>
+      </div>
+      <nav class="nav-actions">
+        <a href="/" class="link">Accueil</a>
+        <a href="https://www.psychonaut.fr/forums/demandes.160/" target="_blank" class="link">Demandes Psychonaut</a>
+        <a href="https://www.psychoactif.org/forum/analyse-a-distance.php" target="_blank" class="link">Résultats Psychoactif</a>
+        <a href="https://druglab.fr/resultats" target="_blank" class="link">Résultats DrugLab</a>
+        <a href="https://tools.psychonaut.fr/nextcloud/s/gwwkrQ2AFYmK5sM" target="_blank" class="link">Template Rendu</a>
+      </nav>
+    </header>
+    <div class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Analyse des demandes</h1>
+        <p class="hero-sub">Connecté à Psychonaut (XenForo) + vérifications Psychoactif & DrugLab</p>
+      </div>
+    </div>
+
+  <div id="global-stats" class="stats-band" style="display: none;"></div>
+
+  <main class="container">
+      <div class="grid">
+        <section class="card card-compact">
+          <h2>Lancer une analyse</h2>
+          <form id="run-form">
+            <label>
+              Nombre de pages (vide = toutes):
+              <input type="number" id="pages" min="1" placeholder="..." />
+            </label>
+            <label>
+              Nom du fichier (optionnel):
+              <input type="text" id="outName" placeholder="..." />
+            </label>
+            <button type="submit" class="btn btn-primary">Analyser</button>
+          </form>
+          <div id="run-status" class="run-status">
+            <div id="progress" class="progress" aria-label="Analyse en cours" role="progressbar">
+              <div class="bar"></div>
+            </div>
+            <div id="run-stats" class="summary"></div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="files-header">
+            <h2>Fichiers générés</h2>
+            <div class="files-toolbar">
+              <input id="file-search" type="search" placeholder="Rechercher un fichier…" />
+              <select id="file-sort" title="Trier">
+                <option value="recent">Plus récent</option>
+                <option value="name-asc">Nom (A→Z)</option>
+                <option value="name-desc">Nom (Z→A)</option>
+              </select>
+            </div>
+          </div>
+          <ul id="files" class="files-list"></ul>
+        </section>
+      </div>
+
+      <!-- Details panel -->
+      <div id="details-panel" class="details-panel" style="display: none;">
+        <div class="details-header">
+          <h2 id="details-title">Détails du fichier</h2>
+          <button id="close-details" class="icon-btn" title="Fermer">
+            <i data-feather="x"></i>
+          </button>
+        </div>
+        
+        <div class="details-filters">
+          <select id="filter-label">
+            <option value="">Tous les labels</option>
+          </select>
+          <select id="filter-status">
+            <option value="">Tous les statuts</option>
+            <option value="open">Ouverts uniquement</option>
+            <option value="closed">Fermés uniquement</option>
+          </select>
+          <select id="filter-results">
+            <option value="">Tous les résultats</option>
+            <option value="found">Avec résultat</option>
+            <option value="notfound">Sans résultat</option>
+          </select>
+          <select id="sort-date">
+            <option value="desc">Plus récent d'abord</option>
+            <option value="asc">Plus ancien d'abord</option>
+          </select>
+        </div>
+
+        <div id="details-content" class="details-content">
+          <!-- Content will be populated by JS -->
+        </div>
+      </div>
+    </main>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <script src="/analyze.js"></script>
+  </body>
+  </html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Psychonaut Analyzer - Recueil de Ressources</title>
+    <link rel="icon" type="image/png" href="/ressources/logo-site.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/recueil.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <img src="/ressources/logo.svg" alt="Psychonaut" class="logo" />
+        <div class="brand-text">
+          <div class="title">Psychonaut</div>
+          <div class="subtitle">Recueil de Ressources</div>
+        </div>
+      </div>
+      <nav class="nav-actions">
+        <a href="/" class="link">Accueil</a>
+        <a href="/analyze.html" class="link">Analyse Demandes</a>
+        <a href="https://www.psychonaut.fr/forums/demandes.160/" target="_blank" class="link">Demandes Psychonaut</a>
+        <a href="https://www.psychoactif.org/forum/analyse-a-distance.php" target="_blank" class="link">Résultats Psychoactif</a>
+        <a href="https://druglab.fr/resultats" target="_blank" class="link">Résultats DrugLab</a>
+        <a href="https://tools.psychonaut.fr/nextcloud/s/gwwkrQ2AFYmK5sM" target="_blank" class="link">Template Rendu</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Recueil de Ressources</h1>
+        <p class="hero-sub">Centralisation des ressources documentaires par produit</p>
+      </div>
+    </div>
+
+    <main class="container">
+      <div class="toolbar">
+        <div class="search-bar">
+          <i data-feather="search"></i>
+          <input type="search" id="search-input" placeholder="Rechercher un produit..." />
+        </div>
+        <button id="btn-add-product" class="btn btn-primary">
+          <i data-feather="plus"></i> Nouveau produit
+        </button>
+        <button id="btn-export-all" class="btn btn-secondary">
+          <i data-feather="download"></i> Export PDF complet
+        </button>
+      </div>
+
+      <div id="products-grid" class="products-grid">
+        <!-- Products will be rendered here -->
+      </div>
+
+      <div id="empty-state" class="empty-state" style="display: none;">
+        <i data-feather="book-open"></i>
+        <p>Aucun produit dans le recueil</p>
+        <button class="btn btn-primary" onclick="document.getElementById('btn-add-product').click()">
+          Ajouter le premier produit
+        </button>
+      </div>
+    </main>
+
+    <!-- Modal for adding/editing product -->
+    <div id="product-modal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modal-title">Nouveau produit</h2>
+          <button class="icon-btn" onclick="closeProductModal()">
+            <i data-feather="x"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <label>
+            Nom du produit <span class="required">*</span>
+            <input type="text" id="product-name" placeholder="Ex: MDMA, LSD, 2C-B..." required />
+          </label>
+          
+          <div class="resources-section">
+            <div class="section-header">
+              <h3>Ressources</h3>
+              <button id="btn-add-resource" class="btn-small btn-primary">
+                <i data-feather="plus"></i> Ajouter
+              </button>
+            </div>
+            <div id="resources-list" class="resources-list">
+              <!-- Resources will be added here -->
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" onclick="closeProductModal()">Annuler</button>
+          <button id="btn-save-product" class="btn btn-primary">Enregistrer</button>
+        </div>
+      </div>
+    </div>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="/recueil.js"></script>
+  </body>
+</html>

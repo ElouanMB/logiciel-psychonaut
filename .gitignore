@@ -3,7 +3,8 @@
 .xf-session.json
 
 # dossier
-results/
+data/*
+!data/.gitkeep
 node_modules/
 
 # autre

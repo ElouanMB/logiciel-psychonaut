@@ -205,7 +205,22 @@ function parseThreadsFromPage(html) {
     const href = $a.attr('href') || '';
     const identifiers = extractIdentifiersAll(title);
     const label = extractPrefixLabel($, $item);
-    arr.push({ title, href: toAbs(href), closed, identifiers, label });
+    
+    // Extract creation date from structItem-startDate
+    let createdAt = null;
+    const $timeEl = $item.find('.structItem-startDate time').first();
+    if ($timeEl.length) {
+      const datetime = $timeEl.attr('datetime');
+      const timestamp = $timeEl.attr('data-timestamp');
+      if (datetime) {
+        createdAt = datetime; // ISO format
+      } else if (timestamp) {
+        // Convert Unix timestamp to ISO
+        createdAt = new Date(parseInt(timestamp, 10) * 1000).toISOString();
+      }
+    }
+    
+    arr.push({ title, href: toAbs(href), closed, identifiers, label, createdAt });
   });
   return arr;
 }
@@ -227,12 +242,20 @@ async function checkPsychoactif(axiosHttp, canonicalId, psychoBase) {
       validateStatus: s => s >= 200 && s < 400,
     });
     const html = String(res.data || '');
+    
+    // Check if the "no result yet" message is present
+    if (/Il semble qu'il n'y ai pas encore de résultat/i.test(html)) {
+      return false;
+    }
+    
     // Heuristiques: présence du canonicalId + indices de formulaire/valeurs d'analyse
     if (!new RegExp(canonicalId.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i').test(html)) return false;
     if (/name=["']?analyse_id["']?/i.test(html)) return true;
     if (/name=["']?req_subject["']?/i.test(html)) return true;
     if (/Résultats de l'analyse|Molécule attendue|Analyse\s*:/i.test(html)) return true;
-    return true; // on a au moins l'ID présent dans la page
+    
+    // If ID is present but no specific result indicators, consider it as not found
+    return false;
   } catch (_) { return false; }
 }
 
@@ -252,6 +275,8 @@ async function checkDruglab(axiosHttp, drugId, druglabBase) {
 
 async function main() {
   const { out, forumPath, psychoBase, druglabBase, pages } = parseArgs();
+  console.log('PROGRESS: 0%');
+  
   // Prépare client connecté (ou session persistée)
   const jar = await loadJarFromFile();
   const xf = createClient(jar);
@@ -264,16 +289,21 @@ async function main() {
     await loginXenForo(xf, token, loginPath);
     await saveJarToFile(jar);
   }
+  console.log('PROGRESS: 10%');
 
   // Récupère toutes les pages du forum Demandes
   const forumPages = await fetchAllForumPages(xf, forumPath, pages);
   const allThreads = forumPages.flatMap(p => parseThreadsFromPage(p.html));
+  console.log('PROGRESS: 30%');
   // Inclure aussi les threads sans identifiant et le signaler dans le JSON
 
   // Client HTTP simple pour Psychoactif (pas besoin de cookies)
   const http = axiosBase.create({ headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' } });
 
   const results = [];
+  const totalThreads = allThreads.length;
+  let processedThreads = 0;
+  
   for (const t of allThreads) {
     const enriched = [];
     for (const id of t.identifiers) {
@@ -291,9 +321,14 @@ async function main() {
       url: t.href,
       label: t.label,
       closed: t.closed,
+      createdAt: t.createdAt,
       identifiers: enriched,
       ...(enriched.length === 0 ? { missingIdentifier: true } : {}),
     });
+    
+    processedThreads++;
+    const progress = Math.floor(30 + (processedThreads / totalThreads) * 65);
+    console.log(`PROGRESS: ${progress}%`);
   }
 
   // Affichage
@@ -343,12 +378,12 @@ async function main() {
     fs.writeFileSync(out, JSON.stringify(results, null, 2), 'utf8');
     console.log(`\nÉcrit: ${out}`);
   } else {
-    // Par défaut écrire dans ./results avec timestamp
+    // Par défaut écrire dans ./data/results avec timestamp
     const ts = new Date();
     const pad = (n) => String(n).padStart(2, '0');
     const stampDate = `${ts.getFullYear()}-${pad(ts.getMonth() + 1)}-${pad(ts.getDate())}`;
     const stampTime = `${pad(ts.getHours())}-${pad(ts.getMinutes())}-${pad(ts.getSeconds())}`;
-    const defaultOut = path.resolve(process.cwd(), 'results', `resultat-analyse-${stampDate}_${stampTime}.json`);
+    const defaultOut = path.resolve(process.cwd(), 'data', 'results', `resultat-analyse-${stampDate}_${stampTime}.json`);
     const dir = path.dirname(defaultOut);
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(defaultOut, JSON.stringify(results, null, 2), 'utf8');

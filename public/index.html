@@ -1,60 +1,107 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Psychonaut Demandes - Dashboard</title>
-    <link rel="stylesheet" href="/styles.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="brand">
-        <img src="/ressources/logo.svg" alt="Psychonaut" class="logo" />
-        <div class="brand-text">
-          <div class="title">Psychonaut</div>
-          <div class="subtitle">Demandes – Dashboard</div>
-        </div>
-      </div>
-      <nav class="nav-actions">
-        <a href="/" class="link">Accueil</a>
-        <a href="https://www.psychonaut.fr/forums/demandes.160/" target="_blank" class="link">Forum Demandes</a>
-      </nav>
-    </header>
-    <div class="hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <h1 class="hero-title">Analyse des demandes</h1>
-        <p class="hero-sub">Connecté à Psychonaut (XenForo) + vérifications Psychoactif & DrugLab</p>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Psychonaut Analyzer</title>
+  <link rel="icon" type="image/png" href="/ressources/logo-site.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css" />
+  <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <img src="/ressources/logo.svg" alt="Psychonaut" class="logo" />
+      <div class="brand-text">
+        <div class="title">Psychonaut Analyzer</div>
+        <div class="subtitle">Configuration & Outils</div>
       </div>
     </div>
+    <nav class="nav-actions">
+      <a href="/" class="link">Accueil</a>
+      <a href="https://www.psychonaut.fr/forums/demandes.160/" target="_blank" class="link">Demandes Psychonaut</a>
+      <a href="https://www.psychoactif.org/forum/analyse-a-distance.php" target="_blank" class="link">Résultats Psychoactif</a>
+      <a href="https://druglab.fr/resultats" target="_blank" class="link">Résultats DrugLab</a>
+      <a href="https://tools.psychonaut.fr/nextcloud/s/gwwkrQ2AFYmK5sM" target="_blank" class="link">Template Rendu</a>
+    </nav>
+  </header>
 
-    <section class="card">
-      <h2>Lancer une analyse</h2>
-      <form id="run-form">
-        <label>
-          Nombre de pages (laisser vide = toutes):
-          <input type="number" id="pages" min="1" placeholder="..." />
-        </label>
-        <label>
-          Nom du fichier de sortie (optionnel):
-          <input type="text" id="outName" placeholder="..." />
-        </label>
-        <button type="submit" class="btn btn-primary">Analyser</button>
-      </form>
-      <div id="run-status" class="run-status">
-        <div id="progress" class="progress" aria-label="Analyse en cours" role="progressbar">
-          <div class="bar"></div>
+  <div class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Bienvenue</h1>
+      <p class="hero-sub">Configurez vos identifiants et accédez aux outils d'analyse</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Configuration -->
+    <div class="card">
+      <h2>🔐 Configuration du compte</h2>
+      
+      <!-- Profile display (hidden by default) -->
+      <div id="profile-section" class="hidden">
+        <div class="profile-card">
+          <img id="profile-avatar" src="" alt="Avatar" class="profile-avatar">
+          <div class="profile-info">
+            <div class="profile-username" id="profile-username"></div>
+            <div class="profile-status">✓ Connecté</div>
+          </div>
+          <div class="profile-actions">
+            <button type="button" class="btn btn-secondary" id="btn-logout">Changer de compte</button>
+          </div>
         </div>
-        <div id="run-stats" class="summary"></div>
       </div>
-    </section>
 
-    <section class="card">
-      <h2>Fichiers générés</h2>
-      <ul id="files" class="files-list"></ul>
-    </section>
+      <!-- Login form (visible by default) -->
+      <form id="config-form">
+        <div class="form-group">
+          <label for="username">Nom d'utilisateur</label>
+          <input type="text" id="username" name="username" placeholder="Votre identifiant forum" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Mot de passe</label>
+          <div class="password-wrapper">
+            <input type="password" id="password" name="password" placeholder="Votre mot de passe" required>
+            <button type="button" class="password-toggle" id="toggle-password" title="Afficher/Masquer le mot de passe">
+              <svg id="eye-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+              <svg id="eye-off-icon" style="display:none;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" id="btn-save">Enregistrer et vérifier</button>
+      </form>
+      <div id="config-status"></div>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="/app.js"></script>
-  </body>
-  </html>
+    <!-- Outils disponibles -->
+    <div class="card">
+      <h2>🛠️ Outils disponibles</h2>
+      <div class="tools-grid">
+        <a href="/analyze.html" class="tool-card">
+          <div class="tool-icon">📊</div>
+          <h3>Analyse des Demandes</h3>
+          <p>Parcourir et analyser les threads du forum "Demandes"</p>
+        </a>
+        <a href="/recueil.html" class="tool-card">
+          <div class="tool-icon">📚</div>
+          <h3>Recueil de Ressources</h3>
+          <p>Centraliser et gérer les ressources documentaires par produit</p>
+        </a>
+        <!-- Plus d'outils à venir... -->
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+  <script src="/index.js"></script>
+</body>
+</html>
