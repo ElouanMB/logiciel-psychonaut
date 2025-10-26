@@ -3,7 +3,6 @@
 .xf-session.json
 
 # dossier
-pages exemples/
 results/
 node_modules/
 

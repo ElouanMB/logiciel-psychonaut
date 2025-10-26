@@ -348,8 +348,9 @@ async function main() {
     // Par défaut écrire dans ./results avec timestamp
     const ts = new Date();
     const pad = (n) => String(n).padStart(2, '0');
-    const stamp = `${ts.getFullYear()}${pad(ts.getMonth() + 1)}${pad(ts.getDate())}-${pad(ts.getHours())}${pad(ts.getMinutes())}${pad(ts.getSeconds())}`;
-    const defaultOut = path.resolve(process.cwd(), 'results', `demande-report-${stamp}.json`);
+    const stampDate = `${ts.getFullYear()}-${pad(ts.getMonth() + 1)}-${pad(ts.getDate())}`;
+    const stampTime = `${pad(ts.getHours())}-${pad(ts.getMinutes())}-${pad(ts.getSeconds())}`;
+    const defaultOut = path.resolve(process.cwd(), 'results', `resultat-analyse-${stampDate}_${stampTime}.json`);
     const dir = path.dirname(defaultOut);
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(defaultOut, JSON.stringify(results, null, 2), 'utf8');

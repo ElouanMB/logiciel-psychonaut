@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Psychonaut Demandes - Dashboard</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Psychonaut Demandes - Dashboard</h1>
+    </header>
+
+    <section class="card">
+      <h2>Lancer une analyse</h2>
+      <form id="run-form">
+        <label>
+          Nombre de pages (laisser vide = toutes):
+          <input type="number" id="pages" min="1" placeholder="..." />
+        </label>
+        <label>
+          Nom du fichier de sortie (optionnel):
+          <input type="text" id="outName" placeholder="..." />
+        </label>
+        <button type="submit">Analyser</button>
+      </form>
+      <pre id="run-log" class="log"></pre>
+    </section>
+
+    <section class="card">
+      <h2>Dernier résultat</h2>
+      <div id="latest-meta"></div>
+      <div id="latest-summary" class="summary"></div>
+      <div id="latest-list"></div>
+    </section>
+
+    <section class="card">
+      <h2>Fichiers générés</h2>
+      <ul id="files"></ul>
+    </section>
+
+    <script src="/app.js"></script>
+  </body>
+  </html>
