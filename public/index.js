@@ -117,4 +117,20 @@ btnLogout.addEventListener('click', () => {
   hideProfile();
 });
 
-loadConfig();
+document.addEventListener('DOMContentLoaded', () => {
+    feather.replace();
+
+    const currentPath = window.location.pathname;
+    document.querySelectorAll('.nav-icon-link').forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+            link.classList.add('active');
+        }
+    });
+
+    const configLink = document.getElementById('config-link');
+    if (configLink) {
+        configLink.classList.add('active');
+    }
+
+    loadConfig();
+});

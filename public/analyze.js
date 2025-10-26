@@ -389,6 +389,9 @@ function createCategorySection(title, threads, status) {
   section.className = 'thread-category';
   
   const heading = document.createElement('h3');
+  const categoryClass = title === 'Ouverts avec résultats' ? 'cat-results' :
+                        title === 'Ouverts sans résultats' ? 'cat-no-results' : 'cat-closed';
+  heading.className = categoryClass;
   heading.innerHTML = `${title} <span class="count">(${threads.length})</span>`;
   section.appendChild(heading);
   
@@ -512,4 +515,26 @@ el('filter-results')?.addEventListener('change', (e) => {
 el('sort-date')?.addEventListener('change', (e) => {
   currentFilters.sortDate = e.target.value;
   renderDetails();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    feather.replace();
+
+    const currentPath = window.location.pathname;
+    document.querySelectorAll('.nav-icon-link').forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+            link.classList.add('active');
+        }
+    });
+
+    const runButton = document.getElementById('run-analysis');
+    if (runButton) {
+      runButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        const form = document.getElementById('run-form');
+        if (form) {
+          form.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    }
 });

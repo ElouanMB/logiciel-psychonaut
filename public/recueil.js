@@ -482,6 +482,20 @@ document.getElementById('product-modal').addEventListener('click', (e) => {
   if (e.target.id === 'product-modal') closeProductModal();
 });
 
+document.addEventListener('DOMContentLoaded', async () => {
+    feather.replace();
+
+    const currentPath = window.location.pathname;
+    document.querySelectorAll('.nav-icon-link').forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+            link.classList.add('active');
+        }
+    });
+
+    await loadProducts();
+    // ...existing code...
+});
+
 // Initialize
 loadRecueil();
 if (window.feather) window.feather.replace();

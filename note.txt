@@ -1,12 +1,9 @@
 créer l'icone de bureau, demander identifiant et mot de passe.
 
-
-faire une page Répertoire des ressources​ avec tous les liens pour les molécules et la possibilité d'en rajouter modifier.
-
 Faire en sorte d'avoir un historique des analyses traitées pour l'utilisateur. -> json avec tel analyse fait a telle date, voir le contenu etc
 
 Pouvoir pour les analyses avec résultats trouvés écrire le rendu.
 
-
-
 faire quelque chose connecté au github pour mettre à jour
+
+texte pas beau dans le header
