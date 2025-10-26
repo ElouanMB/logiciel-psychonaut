@@ -1,0 +1,9 @@
+# Ne commitez jamais vos cookies de session
+.cookies.txt
+.env
+.xf-session.json
+
+# Fichiers HTML exportés
+page-psychonaut.html
+pageeee-psychonaut.html
+*.html.backup
