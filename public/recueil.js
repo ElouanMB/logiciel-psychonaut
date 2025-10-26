@@ -111,29 +111,47 @@ function renderProducts() {
         const li = document.createElement('li');
         li.className = 'resource-item';
         
-        const title = document.createElement('div');
-        title.className = 'resource-title';
-        title.textContent = res.title;
+        if (res.type === 'note') {
+          // Note texte simple
+          const noteIcon = document.createElement('div');
+          noteIcon.innerHTML = '<i data-feather="file-text" style="width: 16px; height: 16px; color: #fbbf24; display: inline; margin-right: 4px;"></i>';
+          noteIcon.style.display = 'inline';
+          
+          const noteText = document.createElement('div');
+          noteText.className = 'resource-title';
+          noteText.style.whiteSpace = 'pre-wrap';
+          noteText.style.fontSize = '0.95rem';
+          noteText.style.color = '#d1d5db';
+          noteText.appendChild(noteIcon);
+          noteText.appendChild(document.createTextNode(res.text));
+          
+          li.appendChild(noteText);
+        } else {
+          // Ressource avec lien
+          const title = document.createElement('div');
+          title.className = 'resource-title';
+          title.textContent = res.title;
+          
+          const meta = document.createElement('div');
+          meta.className = 'resource-meta';
+          
+          const link = document.createElement('a');
+          link.className = 'resource-link';
+          link.href = res.url;
+          link.target = '_blank';
+          link.innerHTML = '<i data-feather="external-link"></i> Ouvrir';
+          
+          const lang = document.createElement('span');
+          lang.className = 'lang-badge';
+          lang.textContent = res.lang;
+          
+          meta.appendChild(link);
+          meta.appendChild(lang);
+          
+          li.appendChild(title);
+          li.appendChild(meta);
+        }
         
-        const meta = document.createElement('div');
-        meta.className = 'resource-meta';
-        
-        const link = document.createElement('a');
-        link.className = 'resource-link';
-        link.href = res.url;
-        link.target = '_blank';
-        link.textContent = 'Ouvrir';
-        link.innerHTML = '<i data-feather="external-link"></i> Ouvrir';
-        
-        const lang = document.createElement('span');
-        lang.className = 'lang-badge';
-        lang.textContent = res.lang;
-        
-        meta.appendChild(link);
-        meta.appendChild(lang);
-        
-        li.appendChild(title);
-        li.appendChild(meta);
         ul.appendChild(li);
       });
       
@@ -168,7 +186,13 @@ function openProductModal(product = null) {
   resourcesList.innerHTML = '';
   
   if (product && product.resources) {
-    product.resources.forEach(res => addResourceForm(res));
+    product.resources.forEach(res => {
+      if (res.type === 'note') {
+        addNoteForm(res);
+      } else {
+        addResourceForm(res);
+      }
+    });
   } else {
     addResourceForm();
   }
@@ -182,7 +206,7 @@ function closeProductModal() {
   currentEditingProduct = null;
 }
 
-// Add resource form
+// Add resource form (link type)
 function addResourceForm(resource = null) {
   const resourcesList = document.getElementById('resources-list');
   const id = resourcesCounter++;
@@ -190,6 +214,7 @@ function addResourceForm(resource = null) {
   const div = document.createElement('div');
   div.className = 'resource-form';
   div.dataset.id = id;
+  div.dataset.type = 'link';
   
   div.innerHTML = `
     <div class="resource-form-row">
@@ -210,6 +235,34 @@ function addResourceForm(resource = null) {
       </label>
     </div>
     <div class="resource-form-actions">
+      <span class="resource-type-badge"><i data-feather="link"></i> Lien</span>
+      <button class="icon-btn danger" onclick="removeResourceForm(${id})" title="Supprimer">
+        <i data-feather="trash-2"></i>
+      </button>
+    </div>
+  `;
+  
+  resourcesList.appendChild(div);
+  if (window.feather) window.feather.replace();
+}
+
+// Add note form (text only)
+function addNoteForm(note = null) {
+  const resourcesList = document.getElementById('resources-list');
+  const id = resourcesCounter++;
+  
+  const div = document.createElement('div');
+  div.className = 'resource-form note-type';
+  div.dataset.id = id;
+  div.dataset.type = 'note';
+  
+  div.innerHTML = `
+    <label>
+      Note
+      <textarea class="note-textarea" placeholder="Entrez votre note ici...">${note ? note.text : ''}</textarea>
+    </label>
+    <div class="resource-form-actions">
+      <span class="resource-type-badge note"><i data-feather="file-text"></i> Note</span>
       <button class="icon-btn danger" onclick="removeResourceForm(${id})" title="Supprimer">
         <i data-feather="trash-2"></i>
       </button>
@@ -237,12 +290,23 @@ function saveProduct() {
   const resources = [];
   
   resourceForms.forEach(form => {
-    const title = form.querySelector('.resource-title-input').value.trim();
-    const url = form.querySelector('.resource-url-input').value.trim();
-    const lang = form.querySelector('.resource-lang-input').value;
+    const type = form.dataset.type;
     
-    if (title && url) {
-      resources.push({ title, url, lang });
+    if (type === 'note') {
+      // Note texte
+      const text = form.querySelector('.note-textarea').value.trim();
+      if (text) {
+        resources.push({ type: 'note', text });
+      }
+    } else {
+      // Ressource avec lien
+      const title = form.querySelector('.resource-title-input').value.trim();
+      const url = form.querySelector('.resource-url-input').value.trim();
+      const lang = form.querySelector('.resource-lang-input').value;
+      
+      if (title && url) {
+        resources.push({ type: 'link', title, url, lang });
+      }
     }
   });
   
@@ -291,18 +355,36 @@ function exportProductPDF(product) {
   let y = 40;
   
   if (product.resources && product.resources.length > 0) {
-    doc.text('Ressources:', 20, y);
+    doc.text('Ressources et Notes:', 20, y);
     y += 10;
     
     product.resources.forEach((res, index) => {
-      doc.setFontSize(11);
-      doc.text(`${index + 1}. ${res.title}`, 25, y);
-      y += 7;
-      doc.setFontSize(9);
-      doc.setTextColor(100, 100, 100);
-      doc.text(`${res.url} [${res.lang}]`, 30, y);
-      doc.setTextColor(0, 0, 0);
-      y += 10;
+      if (res.type === 'note') {
+        // Note
+        doc.setFontSize(11);
+        doc.setTextColor(200, 150, 50);
+        doc.text(`${index + 1}. [Note]`, 25, y);
+        doc.setTextColor(0, 0, 0);
+        y += 7;
+        doc.setFontSize(10);
+        const lines = doc.splitTextToSize(res.text, 160);
+        doc.text(lines, 30, y);
+        y += (lines.length * 5) + 5;
+      } else {
+        // Ressource avec lien (titre cliquable + langue en couleur)
+        doc.setFontSize(11);
+        doc.setTextColor(0, 0, 255); // Bleu pour le lien
+        doc.textWithLink(`${index + 1}. ${res.title}`, 25, y, { url: res.url });
+        doc.setTextColor(0, 0, 0);
+        
+        // Langue en couleur à côté du titre
+        const titleWidth = doc.getTextWidth(`${index + 1}. ${res.title}`);
+        doc.setFontSize(10);
+        doc.setTextColor(100, 150, 200); // Bleu clair pour la langue
+        doc.text(`[${res.lang}]`, 25 + titleWidth + 3, y);
+        doc.setTextColor(0, 0, 0);
+        y += 10;
+      }
       
       if (y > 270) {
         doc.addPage();
@@ -345,13 +427,32 @@ function exportAllPDF() {
           y = 20;
         }
         
-        doc.text(`${rIndex + 1}. ${res.title}`, 25, y);
-        y += 7;
-        doc.setFontSize(9);
-        doc.setTextColor(100, 100, 100);
-        doc.text(`${res.url} [${res.lang}]`, 30, y);
-        doc.setTextColor(0, 0, 0);
-        y += 7;
+        if (res.type === 'note') {
+          // Note
+          doc.setTextColor(200, 150, 50);
+          doc.text(`${rIndex + 1}. [Note]`, 25, y);
+          doc.setTextColor(0, 0, 0);
+          y += 7;
+          doc.setFontSize(9);
+          const lines = doc.splitTextToSize(res.text, 160);
+          doc.text(lines, 30, y);
+          y += (lines.length * 5) + 3;
+          doc.setFontSize(11);
+        } else {
+          // Ressource avec lien (titre cliquable + langue en couleur)
+          doc.setTextColor(0, 0, 255); // Bleu pour le lien
+          doc.textWithLink(`${rIndex + 1}. ${res.title}`, 25, y, { url: res.url });
+          doc.setTextColor(0, 0, 0);
+          
+          // Langue en couleur à côté du titre
+          const titleWidth = doc.getTextWidth(`${rIndex + 1}. ${res.title}`);
+          doc.setFontSize(9);
+          doc.setTextColor(100, 150, 200); // Bleu clair pour la langue
+          doc.text(`[${res.lang}]`, 25 + titleWidth + 3, y);
+          doc.setTextColor(0, 0, 0);
+          y += 7;
+          doc.setFontSize(11);
+        }
       });
     } else {
       doc.setFontSize(10);
@@ -371,6 +472,7 @@ function exportAllPDF() {
 // Event listeners
 document.getElementById('btn-add-product').addEventListener('click', () => openProductModal());
 document.getElementById('btn-add-resource').addEventListener('click', () => addResourceForm());
+document.getElementById('btn-add-note').addEventListener('click', () => addNoteForm());
 document.getElementById('btn-save-product').addEventListener('click', saveProduct);
 document.getElementById('btn-export-all').addEventListener('click', exportAllPDF);
 document.getElementById('search-input').addEventListener('input', renderProducts);

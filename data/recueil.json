@@ -1,0 +1,246 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "2C-B",
+      "resources": [
+        {
+          "type": "link",
+          "title": "Fiche Psychonaut",
+          "url": "https://www.psychonaut.fr/threads/le-2c-b-conseils-pour-une-premiere-fois.32554/",
+          "lang": "FR"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "2C-EF",
+      "resources": [
+        {
+          "type": "link",
+          "title": "Mini-fiche Psychonaut",
+          "url": "https://www.psychonaut.fr/threads/le-rc-du-mois-2c-ef.36670/",
+          "lang": "FR"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "2C-D",
+      "resources": [
+        {
+          "type": "link",
+          "title": "Fiche DRUGZ",
+          "url": "https://drugz.fr/2c-d/",
+          "lang": "FR"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "2-MMC",
+      "resources": [
+        {
+          "type": "link",
+          "title": "Fiche DRUGZ",
+          "url": "http://drugz.fr/2-mmc/",
+          "lang": "FR"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "3-MMC",
+      "resources": [
+        {
+          "type": "link",
+          "title": "Psychoactif",
+          "url": "https://www.psychoactif.org/psychowiki/index.php?title=3-MMC,_effets,_risques,_t%C3%A9moignages",
+          "lang": "FR"
+        },
+        {
+          "type": "link",
+          "title": "PsychonautWiki",
+          "url": "https://psychonautwiki.org/wiki/3-MMC",
+          "lang": "EN"
+        },
+        {
+          "type": "link",
+          "title": "Fiche DRUGZ",
+          "url": "https://drugz.fr/3-mmc",
+          "lang": "FR"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "6-APB",
+      "resources": [
+        {
+          "type": "link",
+          "title": "Fiche DRUGZ",
+          "url": "https://drugz.fr/6-apb/",
+          "lang": "FR"
+        },
+        {
+          "type": "note",
+          "text": "Conseiller de vérifier le sel car les dosages varient énormément entre hcl et succinate. Les échelles de dosage disponibles en ligne valent généralement pour le 6-APB hcl."
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "name": "3-FA",
+      "resources": [
+        {
+          "type": "link",
+          "title": "Topic Psychonaut",
+          "url": "https://www.psychonaut.fr/threads/3-fa-dosage.20944/",
+          "lang": "FR"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Amphétamine",
+      "resources": [
+        {
+          "type": "link",
+          "title": "Fiche Psychonaut",
+          "url": "https://www.psychonaut.fr/threads/lamphetamine-conseils-pour-une-premiere-fois.32391/",
+          "lang": "FR"
+        },
+        {
+          "type": "link",
+          "title": "Fiche DRUGZ",
+          "url": "https://drugz.fr/amphetamine/",
+          "lang": "FR"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "name": "Cannabis",
+      "resources": [
+        {
+          "type": "link",
+          "title": "Fiche Psychonaut",
+          "url": "https://www.psychonaut.fr/threads/le-cannabis-weed-thc-fiche-informative.30878/",
+          "lang": "FR"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "name": "DMXE",
+      "resources": [
+        {
+          "type": "link",
+          "title": "Mini-fiche Psychonaut",
+          "url": "https://www.psychonaut.fr/threads/le-rc-du-mois-dmxe.36589/",
+          "lang": "FR"
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "name": "GHB",
+      "resources": [
+        {
+          "type": "link",
+          "title": "Fiche Psychonaut",
+          "url": "https://www.psychonaut.fr/threads/le-ghb-gamma-hydroxybutyrate.33130/",
+          "lang": "FR"
+        },
+        {
+          "type": "link",
+          "title": "Fiche DRUGZ",
+          "url": "https://drugz.fr/ghb/",
+          "lang": "FR"
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "name": "Iso-LSD",
+      "resources": [
+        {
+          "type": "note",
+          "text": "L'iso-LSD se retrouve souvent dans les préparations illicites de LSD. C'est à la fois un intermédiaire de synthèse du LSD, et un produit de dégradation. Une forte quantité d'iso-LSD peut être donc attribué autant à une mauvaise fabrication qu'à une mauvaise conservation du produit. L'iso-LSD n'est probablement pas psychoactif aux doses communément trouvées sur le marché, mais on manque d'information à ce sujet."
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "name": "LSD",
+      "resources": [
+        {
+          "type": "link",
+          "title": "Fiche Psychonaut",
+          "url": "https://www.psychonaut.fr/threads/le-lsd-25-conseils-pour-une-premiere-fois.32877/",
+          "lang": "FR"
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "name": "Kétamine",
+      "resources": [
+        {
+          "type": "link",
+          "title": "Fiche Psychonaut",
+          "url": "https://www.psychonaut.fr/threads/ketamine-tout-savoir-pour-une-premiere-fois.36517/",
+          "lang": "FR"
+        },
+        {
+          "type": "link",
+          "title": "Fiche DRUGZ",
+          "url": "https://drugz.fr/ketamine/",
+          "lang": "FR"
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "name": "MDMA",
+      "resources": [
+        {
+          "type": "link",
+          "title": "Fiche Psychonaut",
+          "url": "https://www.psychonaut.fr/threads/la-mdma-tout-savoir-pour-une-premiere-fois.32335/",
+          "lang": "FR"
+        },
+        {
+          "type": "link",
+          "title": "Évolution des teneurs",
+          "url": "https://www.psychonaut.fr/threads/evolution-de-la-teneur-en-mdma-et-des-produits-de-coupe-dans-les-tazs-en-europe-et-en-france-analyse-des-donnees-recentes-2019-2024.36340/",
+          "lang": "FR"
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "name": "Cocaïne",
+      "resources": [
+        {
+          "type": "link",
+          "title": "Fiche DRUGZ",
+          "url": "https://drugz.fr/cocaine/",
+          "lang": "FR"
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "name": "4-HO-MET",
+      "resources": [
+        {
+          "type": "link",
+          "title": "Fiche RC du mois en finition",
+          "url": "https://www.psychonaut.fr/threads/le-rc-du-mois-4-ho-met-metocine.37001",
+          "lang": "FR"
+        }
+      ]
+    }
+  ]
+}

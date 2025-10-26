@@ -79,8 +79,14 @@ input:focus, select:focus{ outline: none; border-color: var(--primary); }
 .resources-section{ margin-top: 24px; }
 .section-header{ display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
 .section-header h3{ margin: 0; font-size: 1.1rem; }
+.button-group{ display: flex; gap: 8px; }
 .resources-list{ display: flex; flex-direction: column; gap: 12px; }
 .resource-form{ background: rgba(8,14,32,.6); border: 1px solid #1a2a55; border-radius: 10px; padding: 16px; }
+.resource-form.note-type{ border-color: #2a4a55; }
 .resource-form-row{ display: grid; grid-template-columns: 1fr 1fr auto; gap: 8px; align-items: end; }
 .resource-form-row label{ margin-bottom: 0; }
-.resource-form-actions{ display: flex; gap: 6px; }
+.resource-form-actions{ display: flex; gap: 6px; justify-content: space-between; align-items: center; margin-top: 12px; }
+.resource-type-badge{ font-size: 0.75rem; padding: 4px 8px; border-radius: 4px; background: rgba(59,130,246,.15); color: #93c5fd; border: 1px solid rgba(59,130,246,.3); }
+.resource-type-badge.note{ background: rgba(245,158,11,.15); color: #fbbf24; border-color: rgba(245,158,11,.3); }
+.note-textarea{ width: 100%; min-height: 80px; padding: 10px 12px; margin-top: 6px; background: rgba(12,19,48,.6); color: var(--text); border: 1px solid #1a2a55; border-radius: 8px; font-size: 1rem; font-family: inherit; resize: vertical; }
+.note-textarea:focus{ outline: none; border-color: var(--primary); }
