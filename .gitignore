@@ -1,8 +1,8 @@
-# fichier config
-.env
-.xf-session.json
+# fichiers config
+config/.env
+config/.xf-session.json
 
-# dossier
+# dossiers
 data/*
 !data/.gitkeep
 node_modules/

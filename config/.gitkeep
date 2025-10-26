@@ -1,0 +1,2 @@
+# Ce fichier permet de versionner le dossier config/ vide
+# Les fichiers .env et .xf-session.json sont dans .gitignore

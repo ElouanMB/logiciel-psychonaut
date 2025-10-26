@@ -14,13 +14,13 @@ const axiosBase = require('axios');
 const querystring = require('querystring');
 const fs = require('fs');
 const path = require('path');
-// Charge les variables d'environnement depuis .env si présent
-try { require('dotenv').config(); } catch (_) {}
+// Charge les variables d'environnement depuis config/.env si présent
+try { require('dotenv').config({ path: path.resolve(process.cwd(), 'config', '.env') }); } catch (_) {}
 
 const BASE = process.env.XF_BASE || 'https://www.psychonaut.fr';
 const USER = process.env.XF_USER || '';
 const PASS = process.env.XF_PASS || '';
-const SESSION_FILE = path.resolve(process.cwd(), '.xf-session.json');
+const SESSION_FILE = path.resolve(process.cwd(), 'config', '.xf-session.json');
 
 function pick(arr) { return arr.find(Boolean); }
 
