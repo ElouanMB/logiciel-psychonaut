@@ -32,7 +32,7 @@ a:hover{ color: var(--violet); text-decoration: underline; }
 .brand-text .subtitle{ color: var(--text-muted); font-size: .9rem; }
 
 .center-nav { display: flex; justify-content: center; gap: 32px; flex: 2; }
-.nav-icon-link { display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--text-muted); text-decoration: none; transition: color .2s; font-size: .75rem; font-weight: 500; }
+.nav-icon-link { display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--text-muted); text-decoration: none; transition: color .2s; font-size: .75rem; font-weight: 500; white-space: nowrap; }
 .nav-icon-link:hover, .nav-icon-link.active { color: var(--pink-accent); }
 .nav-icon-link i { width: 22px; height: 22px; }
 
@@ -57,12 +57,12 @@ a:hover{ color: var(--violet); text-decoration: underline; }
 .search-bar input{ flex: 1; background: transparent; border: none; color: var(--text); outline: none; font-size: 1rem; }
 .search-bar input::placeholder{ color: var(--text-muted); }
 
-.btn{ display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 8px; border: 1px solid transparent; cursor: pointer; font-weight: 600; transition: all .2s; }
+.btn{ display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; transition: all .2s; }
 .btn i{ width: 18px; height: 18px; }
 .btn-primary{ background: var(--violet); color: white; box-shadow: 0 4px 12px rgba(88,51,146,.3); }
 .btn-primary:hover{ background: var(--indigo); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(88,51,146,.4); }
-.btn-secondary{ background: rgba(31,31,31,.8); color: var(--text); border-color: var(--border); }
-.btn-secondary:hover{ background: rgba(42,42,42,.8); border-color: var(--border-hover); }
+.btn-secondary{ background: rgba(197,110,186,.25); color: var(--pink-accent); }
+.btn-secondary:hover{ background: rgba(197,110,186,.35); transform: translateY(-1px); }
 .btn-small{ padding: 6px 10px; font-size: .9rem; }
 
 /* Products grid */
@@ -85,7 +85,7 @@ a:hover{ color: var(--violet); text-decoration: underline; }
 .resource-meta{ display: flex; gap: 12px; align-items: center; font-size: .85rem; color: var(--text-muted); }
 .resource-link{ color: var(--indigo-light); transition: color .2s; }
 .resource-link:hover{ color: var(--violet); text-decoration: underline; }
-.lang-badge{ display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: .75rem; font-weight: 600; background: rgba(107,99,171,.15); color: var(--indigo-light); border: 1px solid rgba(107,99,171,.3); }
+.lang-badge{ display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: .75rem; font-weight: 600; background: rgba(107,99,171,.15); color: #9B93D4; border: 1px solid rgba(107,99,171,.3); }
 
 .empty-state{ text-align: center; padding: 60px 20px; color: var(--text-muted); }
 .empty-state i{ width: 64px; height: 64px; margin-bottom: 16px; opacity: .5; color: var(--indigo-light); }

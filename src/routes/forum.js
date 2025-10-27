@@ -4,6 +4,7 @@ const authService = require('../services/authService');
 const axios = require('axios');
 const { CookieJar } = require('tough-cookie');
 const { wrapper } = require('axios-cookiejar-support');
+const cheerio = require('cheerio');
 const fs = require('fs').promises;
 const path = require('path');
 
@@ -71,6 +72,46 @@ router.post('/post-thread', async (req, res, next) => {
     res.json(result);
   } catch (error) {
     console.error('Error posting thread:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Fetch info from Psychoactif result page
+router.post('/fetch-psychoactif-info', async (req, res, next) => {
+  try {
+    const { url } = req.body;
+    
+    if (!url) {
+      return res.status(400).json({ error: 'URL required' });
+    }
+    
+    // Récupérer la page
+    const response = await axios.get(url, { timeout: 10000 });
+    const $ = cheerio.load(response.data);
+    
+    // Extraire les informations du HTML
+    const postmsg = $('.postmsg').first().html();
+    
+    // Produit attendu : récupérer le texte entre "Produit attendu :" et le lien (<a>)
+    const productMatch = postmsg.match(/Produit attendu\s*:\s*<b>([^<]+)<\/b>/i);
+    const product = productMatch ? productMatch[1].trim() : '';
+    
+    // Aspect : récupérer le texte entre "Aspect :" et "<br"
+    const formMatch = postmsg.match(/Aspect\s*:\s*([^<]+)(?:<br|<)/i);
+    const form = formMatch ? formMatch[1].trim() : '';
+    
+    // Mode d'approvisionnement : récupérer le texte entre "Mode d'approvisionnement :" et "<" ou "br"
+    const acquisitionMatch = postmsg.match(/Mode d'approvisionnement\s*:\s*([^<]+?)(?:<|$)/i);
+    const acquisition = acquisitionMatch ? acquisitionMatch[1].trim().replace(/\s*<\/br>\s*$/, '') : '';
+    
+    res.json({
+      product,
+      form,
+      acquisition
+    });
+    
+  } catch (error) {
+    console.error('Error fetching Psychoactif info:', error);
     res.status(500).json({ error: error.message });
   }
 });

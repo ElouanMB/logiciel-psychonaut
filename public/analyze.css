@@ -35,7 +35,7 @@ a:hover{ color: var(--violet); text-decoration: underline; }
 .brand-text .subtitle{ color: var(--text-muted); font-size: .9rem; }
 
 .center-nav { display: flex; justify-content: center; gap: 32px; flex: 2; }
-.nav-icon-link { display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--text-muted); text-decoration: none; transition: color .2s; font-size: .75rem; font-weight: 500; }
+.nav-icon-link { display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--text-muted); text-decoration: none; transition: color .2s; font-size: .75rem; font-weight: 500; white-space: nowrap; }
 .nav-icon-link:hover, .nav-icon-link.active { color: var(--pink-accent); }
 .nav-icon-link i { width: 22px; height: 22px; }
 
@@ -152,6 +152,12 @@ ul { margin: 6px 0 6px 20px; }
 .thread-identifiers .identifier.notfound{ background: rgba(239,68,68,.1); border-color: rgba(239,68,68,.3); color: #fca5a5; }
 .thread-identifiers .identifier a{ color: inherit; opacity: .9; }
 .thread-identifiers .identifier a:hover{ opacity: 1; }
+
+/* Bouton rédiger */
+.btn-write-report{ display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; margin-left: 8px; background: var(--violet); color: white; border: none; border-radius: 6px; font-size: .75rem; font-weight: 600; cursor: pointer; transition: all .2s; }
+.btn-write-report:hover{ background: var(--indigo); transform: translateY(-1px); }
+.btn-write-report i{ width: 12px; height: 12px; }
+
 .status-badge{ display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 999px; font-size: .75rem; font-weight: 600; }
 .status-badge.closed{ background: rgba(128,128,128,.15); color: var(--text-muted); border: 1px solid rgba(128,128,128,.3); }
 .status-badge.open{ background: rgba(16,185,129,.15); color: #34d399; border: 1px solid rgba(16,185,129,.3); }

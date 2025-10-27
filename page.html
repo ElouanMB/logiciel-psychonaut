@@ -1,2227 +1,2001 @@
 
 <!DOCTYPE html>
-<html id="XF" lang="en-US" dir="LTR"
-	data-xf="2.3"
-	data-app="public"
-	
-	
-	data-template="forum_post_thread"
-	data-container-key="node-161"
-	data-content-key="forum-161"
-	data-logged-in="true"
-	data-cookie-prefix="xf_"
-	data-csrf="1761560872,63a420724e5240852cbe62893ae53078"
-	class="has-no-js template-forum_post_thread"
-	>
+
+<html lang="fr">
 <head>
-	
-	
-	
-
-	<meta charset="utf-8" />
-	<title>Post thread | Psychonaut</title>
-	<link rel="manifest" href="/webmanifest.php">
-
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-	
-		
-			
-				<meta name="theme-color" media="(prefers-color-scheme: light)" content="" />
-				<meta name="theme-color" media="(prefers-color-scheme: dark)" content="" />
-			
-		
-	
-
-	<meta name="apple-mobile-web-app-title" content="Psychonaut">
-	
-		<link rel="apple-touch-icon" href="/data/assets/logo/favicon.png">
-		
-
-	
-		<meta name="robots" content="noindex" />
-	
-
-	
-		
-	
-	
-	<meta property="og:site_name" content="Psychonaut" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="wot-verification" content="213eca62c594ee8760cb"/> 
+<meta name="p:domain_verify" content="83826bc80977d3786d5bafe3b0268b16"/>
 
 
+<style>
+/****************************************************************/
+/* 1. INITIAL SETTINGS */
+/****************************************************************/
+
+.pun TABLE, .pun DIV, .pun FORM, .pun P, .pun H1, .pun H2, .pun H3,
+.pun H4, .pun PRE, .pun BLOCKQUOTE, .pun UL, .pun OL, .pun LI, .pun DL,
+.pun DT, .pun DD, .pun TH, .pun TD, .pun FIELDSET, .pun IMG {
+	MARGIN: 0px;
+	PADDING: 0px;
+	FONT-WEIGHT: normal;
+	LIST-STYLE: none;
+}
+
+.pun IMG {BORDER: none}
+
+.pun INPUT, .pun SELECT, .pun TEXTAREA, .pun OPTGROUP {MARGIN: 0}
+
+/****************************************************************/
+/* 2. STRUCTURAL SETTINGS - VERY IMPORTANT - DO NOT CHANGE */
+/****************************************************************/
+
+/* 2.1 Clearing floats and invisible items */
+.pun .clearer, .pun .nosize {
+	HEIGHT: 0;
+	WIDTH: 0;
+	LINE-HEIGHT: 0;
+	FONT-SIZE: 0;
+	OVERFLOW: hidden
+}
+
+.pun .clearer, .pun .clearb {CLEAR: both}
+.pun .nosize {POSITION: absolute; LEFT: -10000px}
+
+/* 2.2 Overflow settings for posts */
+
+DIV.blockpost DIV.box, DIV.postleft, DIV.postsignature, DIV.postmsg {OVERFLOW: hidden}
+
+/****************************************************************/
+/* 3. BUG FIXES - VERY IMPORTANT - DO NOT CHANGE */
+/****************************************************************/
+
+/* 3.1 This attempts to eliminate rounding errors in Gecko browsers. */
+
+DIV>DIV>DIV.postfootleft, DIV>DIV>DIV.postfootright {PADDING-TOP: 1px; MARGIN-TOP: -1px}
+
+/* 3.2 This is only visible to IE6 Windows and cures various bugs. Do not alter comments */
+
+/* Begin IE6Win Fix \*/
+* HTML .inbox, * HTML .inform, * HTML .pun, * HTML .intd, * HTML .tclcon {HEIGHT: 1px}
+* HTML .inbox DIV.postmsg {WIDTH: 98%}
+/* End of IE6Win Fix */
+
+/* 3.3 This is the equivelant of 3.2 but for IE7. It is visible to other browsers
+but does no harm */
+
+/*Begin IE7Win Fix */
+.pun, .pun .inbox, .pun .inform, .pun .intd, .pun .tclcon {min-height: 1px}
+/* End of IE7Win Fix */
+
+/****************************************************************/
+/* 4. HIDDEN ELEMENTS */
+/****************************************************************/
+
+/* These are hidden in normal display. Add comments to make them visible */
+
+#brdfooter H2, #brdstats H2, #brdstats .conl DT, #brdstats .conr DT,
+#modcontrols DT, #searchlinks DT, DIV.postright H3 {
+	POSITION: absolute;
+	DISPLAY: block;
+	OVERFLOW: hidden;
+	WIDTH: 1em;
+	LEFT: -999em
+}
+
+/****************************************************************/
+/* 5. BOX CONTAINERS AND FLOATS */
+/****************************************************************/
+
+/* 5.1. Setup all left and right content using floats. */  
+
+.conr {
+	FLOAT: right;
+	TEXT-ALIGN: right;
+	CLEAR: right;
+	WIDTH: 40%
+}
+
+.conl {
+	FLOAT: left;
+	WIDTH: 55%;
+	OVERFLOW: hidden;
+	WHITE-SPACE: nowrap
+}
+
+LABEL.conl {
+	WIDTH: auto;
+	OVERFLOW: visible;
+	MARGIN-RIGHT: 10px
+}
+
+/* 5.2 Set up page numbering and posts links */
+
+DIV.linksb .conl, DIV.postlinksb .conl {WIDTH:18em}
+DIV.linkst .conl {WIDTH:50%;}
+
+DIV.linkst .conr, DIV.linksb .conr, DIV.postlinksb .conr {WIDTH:16em}
+
+FORM DIV.linksb .conr {WIDTH: 32em}
+
+/* 5.3 Keep breadcrumbs from shifting to the right when wrapping */
+
+.linkst UL, linksb UL, .postlinksb UL {MARGIN-LEFT: 18em}
+
+/* 5.4 Settings for Profile and Admin interface.*/
+
+DIV.block2col {PADDING-BOTTOM: 1px}
+
+DIV.block2col DIV.blockform, DIV.block2col DIV.block, #viewprofile DD {MARGIN-LEFT: 14em}
+
+DIV.blockmenu, #viewprofile DT {
+	FLOAT:left;
+	WIDTH: 13em
+}
+
+#profileavatar IMG {
+	FLOAT: right;
+	MARGIN-LEFT: 1em
+}
+
+#viewprofile DL {FLOAT: left; WIDTH: 100%; OVERFLOW: hidden}
+
+/****************************************************************/
+/* 6. TABLE SETUP */
+/****************************************************************/
+
+/* 6.1 Table Basic Setup */
+
+.pun TABLE {WIDTH: 100%}
+
+/* 6.2 Fixed Table Setup */
+
+#punindex TABLE, #vf TABLE {TABLE-LAYOUT: fixed}
+
+td.tc120 {width:120px}
+
+td.tctitle {width:660px}
+
+.tcl {TEXT-ALIGN: left; WIDTH: 50%}
+
+.tc2, .tc3, .tc4, .tcmod {WIDTH: 9%; TEXT-ALIGN: center; }
+
+td.tc2, td.tc3, td.tc4, td.tctitle, td.tc120 {height:75px}
+
+.tcr {WIDTH: 32%; TEXT-ALIGN: left}
+
+#punsearch #vf .tcl, #punmoderate #vf .tcl {WIDTH: 41%}
+
+#punsearch #vf .tc2 {WIDTH: 18%; TEXT-ALIGN: left}
+
+.tcl, .tcr {OVERFLOW: HIDDEN}
+
+/* 6.3 Other Table Setup */
+
+#users1 .tcl {WIDTH: 40%}
+
+#users1 .tcr {WIDTH: 25%}
+
+#users1 .tc2 {WIDTH: 25%; TEXT-ALIGN: left}
+
+#users1 .tc3 {WIDTH: 10%; TEXT-ALIGN: center}
+
+#users1 .tc4 {WIDTH: 10%; TEXT-ALIGN: center}
+
+#debug .tcr {WIDTH: 85%; WHITE-SPACE: normal}
+
+#punindex TD.tcr SPAN.byuser {DISPLAY: block}
+
+/****************************************************************/
+/* 7. VIEWTOPIC SETUP */
+/****************************************************************/
+
+/* 7.1 This is the basic structure. */
+
+DIV.postleft, DIV.postfootleft {
+	FLOAT:left;
+	WIDTH: 18em;
+	OVERFLOW: hidden;
+	POSITION: relative;
+}
 	
-	
-		
-	
-	
-	<meta property="og:type" content="website" />
+DIV.postright, DIV.postfootright {
+	BORDER-LEFT-WIDTH: 18em;
+	BORDER-LEFT-STYLE: solid
+}
+
+DIV.postfootright, P.multidelete {TEXT-ALIGN: right}
+
+DIV.blockpost>DIV>DIV.inbox {PADDING-BOTTOM: 1px}
+
+/* 7.3 This is the div which actually contains the post and is inside .postright */
+
+DIV.postmsg {WIDTH:100%}
+
+/* 7.4 These items control overflow and scrolling within posts. */
+
+DIV.incqbox {WIDTH: 100%; OVERFLOW: hidden}
+DIV.scrollbox {WIDTH: 100%; OVERFLOW: auto}
+IMG.postimg {max-width: 100%}
+A .postimg {max-width: 100%}
+
+/* 7.5 Turn off the poster information column for preview */
+
+#postpreview DIV.postright {BORDER-LEFT: none}
+
+/* 7.6 Create the horizontal line above signatures */
+
+DIV.postsignature HR {
+	MARGIN-LEFT: 0px;
+	WIDTH: 200px;
+	TEXT-ALIGN: left;
+	HEIGHT: 1px;
+	BORDER:none
+}
+
+/* 7.7 Maximum height for search results as posts. Position go to post link */
+
+DIV.searchposts DIV.postmsg {HEIGHT: 8em}
+DIV.searchposts DD P {PADDING-TOP: 3em}
+
+/* 7.8 Class for bbcode [u] */
+
+SPAN.bbu {TEXT-DECORATION: underline}
+
+/****************************************************************/
+/* 8. LISTS SPECIAL SETTINGS */
+/****************************************************************/
+
+/* 8.1 Horizontal display of online list, main navigation menu and breadcrumbs */
+
+#onlinelist DD, #onlinelist DT, #brdmenu LI, DIV.linkst LI, DIV.linksb LI, DIV.postlinksb LI,
+DIV.postfootright LI, UL.bblinks LI {
+	DISPLAY: inline;
+	HEIGHT: 0
+}
+
+/* 8.2 Turn on square icon for posterror list */
+
+#posterror UL LI {LIST-STYLE: square inside}
+
+/* 8.3 Right alignment of descriptions in ordinary member view of other members profiles */
+
+#viewprofile DT {TEXT-ALIGN: right}
+
+/****************************************************************/
+/* 9. FORM SETTINGS */
+/****************************************************************/
+
+/* 9.1 Makes textareas and long text inputs shrink with page */
+
+DIV.txtarea {WIDTH: 75%}
+
+#punpms_send DIV.txtarea, #punpms_view DIV.txtarea, #punblog DIV.txtarea {WIDTH: 90%}
+
+DIV.txtarea TEXTAREA, INPUT.longinput {WIDTH: 100%}
+
+.pun LABEL {DISPLAY: block}
+
+#qjump SELECT {WIDTH: 50%}
 
 
+
+/****************************************************************/
+/* 10. HELP FILES AND MISC. */
+/****************************************************************/
+
+/* 10.1 Put some space between sections of the help file */
+
+#helpfile H2 {MARGIN-TOP: 12px}
+
+/* 10.2 Internal padding */
+
+#helpfile DIV.box {PADDING: 10px}
+
+/* 10.3 Other templates */
+
+#punredirect DIV.block, #punmaint DIV.block {MARGIN: 50px 20% 12px 20%}
+
+label.labinline {DISPLAY: inline}
+
+
+/****************************************************************/
+/* 11 USER BLOGS EXTRA */
+/****************************************************************/
+#blogleft {
+	WIDTH: 170px;
+	FLOAT: left;
+	OVERFLOW: hidden;
+    POSITION: relative;
+}
+
+#blogmain {margin-left: 180px;}
+
+#blogwrap {
+	WIDTH: 100%;
+	FLOAT: right;
+	MARGIN-LEFT: -170px;
+}
+
+DIV.blogform {PADDING: 30px 12px 12px 12px;}
+
+.blogcat {
+	FLOAT: left;
+	TEXT-ALIGN: left;
+	CLEAR: right;
+	FONT-SIZE: 1em;
+	MARGIN-LEFT:2em;
+}
+
+.blog_menu {
+	TEXT-ALIGN: right;
+	FONT-SIZE: 1em;
+	MARGIN-RIGHT:2em;
+}
+
+DIV.blog_menu {MARGIN-RIGHT: 1em;
+MARGIN-LEFT: 1em;
+}
+
+DIV.blog_menu DL, DIV.blog_menu DD, DIV.blog_menu DT {TEXT-ALIGN: right}
+
+DIV.blog_menu DT {FONT-SIZE: 1.2em}
+
+DIV.blog_menu DL {PADDING: 6px}
+
+.blog_menu DT A:link, .blog_menu DD A:link, .blog_menu DT A:visited, .blog_menu DD A:visited, #blogmenu A:link, #blogmenu A:visited {TEXT-DECORATION: none}
+
+
+DIV.blog_menu DD{
+	FONT-SIZE: 1em;
+	LINE-HEIGHT: 1.3em;
+}
+
+div#mp_bar_ext {
+	border: 1px solid #336699;
+	width: 100px;
+	height: 10px;
+	text-align: left;
+}
+div#mp_bar_int {
+	background-color: #336699;
+	height: 10px;
+}
+
+DIV.topiclabels {MARGIN: 3px; TEXT-ALIGN: right; color:#666; font-size:0.8em}
+.dyncat {
+	text-align: right;
+}
+
+a.menu_forum  {
+	/*border-left : 2px solid white;
+	border : 2px solid white;*/
+	      
+	padding: 0 7px 0 7px; 
+	margin: 0 0 0 0; 
+	color:  #000000;
+
+	text-decoration: none; 
+	line-height: 2em; 
+	font-size: 12px;
+	font-weight: bold;
+	display: block; 
+	float: left;
+	font-family: "Arial";
+
+}
+a.menu_forum:link {
+	color:  #000000;
+}
+
+a.page  {
 	
-	
-		
-	
-	
-	
-		<meta property="og:title" content="Post thread" />
-		<meta property="twitter:title" content="Post thread" />
-	
+	font-weight: bold;
 
+	padding-top: 5px; 
+	padding-bottom: 5px; 
+	padding-left: 5px; 
+	padding-right: 5px; 
+	margin-right:2px; 
+	text-decoration: none; 
+	color:#008cba;
+ 
 
-	
-	
-	
-		
-	
-	
-	<meta property="og:url" content="https://www.psychonaut.fr/forums/resultats.161/post-thread?title=test&amp;message=test&amp;prefix_id=6" />
-
-
-	
-	
-
-	
-	
-	
-		
-	
-	
-
-	<link rel="stylesheet" href="/css.php?css=public%3Anormalize.css%2Cpublic%3Afa.css%2Cpublic%3Avariations.less%2Cpublic%3Acore.less%2Cpublic%3Aapp.less&amp;s=1&amp;l=1&amp;d=1761395884&amp;k=baf50ae97da4a07136f0d3b732c194d932411aa7" />
-
-	<link rel="stylesheet" href="/css.php?css=public%3Aattachments.less&amp;s=1&amp;l=1&amp;d=1761395884&amp;k=291784c00a5cc97bcac9a1472f91488e50ba1eb0" />
-<link rel="stylesheet" href="/css.php?css=public%3Aeditor.less&amp;s=1&amp;l=1&amp;d=1761395884&amp;k=8dc5073787e3dc6a44df5374edd9b9b8fac29a60" />
-<link rel="stylesheet" href="/css.php?css=public%3Anotices.less&amp;s=1&amp;l=1&amp;d=1761395884&amp;k=b14e862cfc4bf593328d3bc8ca0849c12754e857" />
-<link rel="stylesheet" href="/css.php?css=public%3Aprefix_menu.less&amp;s=1&amp;l=1&amp;d=1761395884&amp;k=90930cd3b8ac225a8223afb8a46bd605034df508" />
-<link rel="stylesheet" href="/css.php?css=public%3Atagify.less&amp;s=1&amp;l=1&amp;d=1761395884&amp;k=7f98af48fd6e9cd8aa5a5c26ab492512d0c84ac0" />
-<link rel="stylesheet" href="/css.php?css=public%3Axfes_suggested_threads.less&amp;s=1&amp;l=1&amp;d=1761395884&amp;k=822e6fe690a87e7a217bd5daea70659a5fbca8b8" />
-<link rel="stylesheet" href="/css.php?css=public%3Aextra.less&amp;s=1&amp;l=1&amp;d=1761395884&amp;k=faaa754f811ed3302c15aa58b53f1e58e0987f6e" />
-
-
-	
-		<script src="/js/xf/preamble.min.js?_v=c5c01ef3"></script>
-	
-
-	
-	<script src="/js/vendor/vendor-compiled.js?_v=c5c01ef3" defer></script>
-	<script src="/js/xf/core-compiled.js?_v=c5c01ef3" defer></script>
-
-	<script>
-		window.addEventListener('DOMContentLoaded', function() {
-			XF.extendObject(true, XF.config, {
-				// 
-				userId: 19452,
-				enablePush: false,
-				pushAppServerKey: '',
-				url: {
-					fullBase: 'https://www.psychonaut.fr/',
-					basePath: '/',
-					css: '/css.php?css=__SENTINEL__&s=1&l=1&d=1761395884',
-					js: '/js/__SENTINEL__?_v=c5c01ef3',
-					icon: '/data/local/icons/__VARIANT__.svg?v=1761395885#__NAME__',
-					iconInline: '/styles/fa/__VARIANT__/__NAME__.svg?v=5.15.3',
-					keepAlive: '/login/keep-alive'
-				},
-				cookie: {
-					path: '/',
-					domain: '',
-					prefix: 'xf_',
-					secure: true,
-					consentMode: 'simple',
-					consented: ["optional","_third_party"]
-				},
-				cacheKey: 'f3ed7234243583f554e27d349fe769c5',
-				csrf: '1761560872,63a420724e5240852cbe62893ae53078',
-				js: {"\/js\/xfes\/thread.min.js?_v=c5c01ef3":true,"\/js\/xf\/attachment_manager-compiled.js?_v=c5c01ef3":true,"\/js\/xf\/action.min.js?_v=c5c01ef3":true,"\/js\/xf\/message.min.js?_v=c5c01ef3":true,"\/js\/xf\/token_input-compiled.js?_v=c5c01ef3":true,"\/js\/xf\/prefix_menu.min.js?_v=c5c01ef3":true,"\/js\/xf\/editor-compiled.js?_v=c5c01ef3":true},
-				fullJs: false,
-				css: {"public:attachments.less":true,"public:editor.less":true,"public:notices.less":true,"public:prefix_menu.less":true,"public:tagify.less":true,"public:xfes_suggested_threads.less":true,"public:extra.less":true},
-				time: {
-					now: 1761560872,
-					today: 1761516000,
-					todayDow: 1,
-					tomorrow: 1761602400,
-					yesterday: 1761426000,
-					week: 1760994000,
-					month: 1759266000,
-					year: 1735682400
-				},
-				style: {
-					light: 'default',
-					dark: 'alternate',
-					defaultColorScheme: 'light'
-				},
-				borderSizeFeature: '3px',
-				fontAwesomeWeight: 'r',
-				enableRtnProtect: true,
-				
-				enableFormSubmitSticky: true,
-				imageOptimization: '0',
-				imageOptimizationQuality: 0.85,
-				uploadMaxFilesize: 8388608,
-				uploadMaxWidth: 0,
-				uploadMaxHeight: 0,
-				allowedVideoExtensions: ["m4v","mov","mp4","mp4v","mpeg","mpg","ogv","webm"],
-				allowedAudioExtensions: ["mp3","opus","ogg","wav"],
-				shortcodeToEmoji: true,
-				visitorCounts: {
-					conversations_unread: '0',
-					alerts_unviewed: '0',
-					total_unread: '0',
-					title_count: true,
-					icon_indicator: true
-				},
-				jsMt: {"xf\/action.js":"8e48c74b","xf\/embed.js":"8e48c74b","xf\/form.js":"8e48c74b","xf\/structure.js":"8e48c74b","xf\/tooltip.js":"8e48c74b"},
-				jsState: {},
-				publicMetadataLogoUrl: '',
-				publicPushBadgeUrl: 'https://www.psychonaut.fr/styles/default/xenforo/bell.png'
-			});
-
-			XF.extendObject(XF.phrases, {
-				// 
-				date_x_at_time_y:     "{date} at {time}",
-				day_x_at_time_y:      "{day} at {time}",
-				yesterday_at_x:       "Yesterday at {time}",
-				x_minutes_ago:        "{minutes} minutes ago",
-				one_minute_ago:       "1 minute ago",
-				a_moment_ago:         "A moment ago",
-				today_at_x:           "Today at {time}",
-				in_a_moment:          "In a moment",
-				in_a_minute:          "In a minute",
-				in_x_minutes:         "In {minutes} minutes",
-				later_today_at_x:     "Later today at {time}",
-				tomorrow_at_x:        "Tomorrow at {time}",
-				short_date_x_minutes: "{minutes}m",
-				short_date_x_hours:   "{hours}h",
-				short_date_x_days:    "{days}d",
-
-				day0: "Sunday",
-				day1: "Monday",
-				day2: "Tuesday",
-				day3: "Wednesday",
-				day4: "Thursday",
-				day5: "Friday",
-				day6: "Saturday",
-
-				dayShort0: "Sun",
-				dayShort1: "Mon",
-				dayShort2: "Tue",
-				dayShort3: "Wed",
-				dayShort4: "Thu",
-				dayShort5: "Fri",
-				dayShort6: "Sat",
-
-				month0: "January",
-				month1: "February",
-				month2: "March",
-				month3: "April",
-				month4: "May",
-				month5: "June",
-				month6: "July",
-				month7: "August",
-				month8: "September",
-				month9: "October",
-				month10: "November",
-				month11: "December",
-
-				active_user_changed_reload_page: "The active user has changed. Reload the page for the latest version.",
-				server_did_not_respond_in_time_try_again: "The server did not respond in time. Please try again.",
-				oops_we_ran_into_some_problems: "Oops! We ran into some problems.",
-				oops_we_ran_into_some_problems_more_details_console: "Oops! We ran into some problems. Please try again later. More error details may be in the browser console.",
-				file_too_large_to_upload: "The file is too large to be uploaded.",
-				uploaded_file_is_too_large_for_server_to_process: "The uploaded file is too large for the server to process.",
-				files_being_uploaded_are_you_sure: "Files are still being uploaded. Are you sure you want to submit this form?",
-				attach: "Attach files",
-				rich_text_box: "Rich text box",
-				close: "Close",
-				link_copied_to_clipboard: "Link copied to clipboard.",
-				text_copied_to_clipboard: "Text copied to clipboard.",
-				loading: "Loading…",
-				you_have_exceeded_maximum_number_of_selectable_items: "You have exceeded the maximum number of selectable items.",
-
-				processing: "Processing",
-				'processing...': "Processing…",
-
-				showing_x_of_y_items: "Showing {count} of {total} items",
-				showing_all_items: "Showing all items",
-				no_items_to_display: "No items to display",
-
-				number_button_up: "Increase",
-				number_button_down: "Decrease",
-
-				push_enable_notification_title: "Push notifications enabled successfully at Psychonaut",
-				push_enable_notification_body: "Thank you for enabling push notifications!",
-
-				pull_down_to_refresh: "Pull down to refresh",
-				release_to_refresh: "Release to refresh",
-				refreshing: "Refreshing…"
-			});
-		});
-	</script>
-
-	<script src="/js/xfes/thread.min.js?_v=c5c01ef3" defer></script>
-<script src="/js/xf/attachment_manager-compiled.js?_v=c5c01ef3" defer></script>
-<script src="/js/xf/action.min.js?_v=c5c01ef3" defer></script>
-<script src="/js/xf/message.min.js?_v=c5c01ef3" defer></script>
-<script src="/js/xf/token_input-compiled.js?_v=c5c01ef3" defer></script>
-<script src="/js/xf/prefix_menu.min.js?_v=c5c01ef3" defer></script>
-<script src="/js/xf/editor-compiled.js?_v=c5c01ef3" defer></script>
+}
+.pun a.page:link, .pun a.page:visited  {
+	color:#008cba;
+}
 
 
 
-	
-		<link rel="icon" type="image/png" href="https://www.psychonaut.fr/data/assets/logo/favicon.png" sizes="32x32" />
-	
+/****************************************************************/
+/* 1. IMPORTED STYLESHEETS */
+/****************************************************************/
 
-	
+/****************************************************************/
+/* 1. BACKGROUND AND TEXT COLOURS */
+/****************************************************************/
+
+/* 1.1 Default background colour and text colour */
+[data-icon]:before {
+  font-family: icons; /* BYO icon font, mapped smartly */
+  content: attr(data-icon);
+  speak: none; /* Not to be trusted, but hey. */
+}
+
+BODY {BACKGROUND-COLOR: #EEE;}
+
+.pun {COLOR: #000000}
+
+DIV.box, DIV.codebox, #adminconsole FIELDSET TH {BACKGROUND-COLOR: #FFF}
+#adminconsole TD, #adminconsole TH {BORDER-COLOR: #D5CF8B}
+
+/* 1. 2 Darker background colours */
+
+TD.tc2, TD.tc3, TD.tcmod, #postpreview, #viewprofile DD, DIV.forminfo,
+#adminconsole FIELDSET TD, DIV.blockmenu DIV.box, #adstats DD {}
+
+/* 1.3 Main headers and navigation bar background and text colour */
+
+
+#brdmenu {BACKGROUND-COLOR: #AF8727; COLOR: #E5E2B7; font-weight: bold;
+                   BACKGROUND-IMAGE: url('../img/Vaka/bar2.gif'); BACKGROUND-REPEAT: repeat-x;border-top-right-radius:10px;border-top-left-radius:10px;}
+                                                    
+/* 1.4 Table header rows */
+
+.pun TH {BACKGROUND-COLOR: #D7C69B}
+.pun DIV.blocktable TH {color: #815E13}
+
+/* 1.5 Fieldset legend text colour */
+
+.pun LEGEND {COLOR: #000000}
+
+/* 1.6 Highlighted text for various items */
+
+.pun DIV.blockmenu LI.isactive A, #posterror LI STRONG {COLOR: #333}
+
+/****************************************************************/
+/* 2. POST BACKGROUNDS AND TEXT */
+/****************************************************************/
+
+/* 2.1 This is the setup for posts */
+
+div.postright {background-color: #FFF;} /* right column */
+div.postright, div.postfootright {border-left-color: white} /* left column */
+/* div.blockpost label {background-color: #FAF3E4; background-image: url(../img/Vaka/barmeat2.gif); background-repeat: repeat-x}*/ /* left column */
+div.postfootleft {background-color: white}
+div.codebox {background-color: #F5E9CC} /* Quote and code boxes */
+div.postleft { background-color: #FFF;  }
+
+.pun div.incqbox {
+	border:1px;
+	padding-bottom:5px;
+	padding-top:5px;
+	margin-left:10px;
+	border-left :solid 6px #CCC;
+	padding-left:20px;
+	padding-right:10px;
+	margin-right:20px;
+	color: #444;
+	font-style: italic;
+	width:90%;
+
+
+}
+
+/* 2.2 Background for post headers and text colour for post numbers in viewtopic */
+
+/*DIV.blockpost H2 {BACKGROUND-COLOR: #AF8727}*/
+DIV.blockpost H2 SPAN.conr {COLOR: #FFFFFF}
+
+/* 2.3 This is the line above the signature in posts. Colour and background should be the same */
+
+.pun HR {BACKGROUND-COLOR: #333; COLOR: #333}
+
+/****************************************************************/
+/* 3. BORDER COLOURS */
+/****************************************************************/
+
+/* 3.1 All external borders */
+
+DIV.box {BORDER-COLOR: #AF8727}
+/*.pun h2 {BORDER-COLOR: #AF8727}*/
+/*#brdheader DIV.box {border-top: solid 1px #AF8727}*/
+
+/* 3.2 Makes the top border of posts match the colour used for post headers */
+
+DIV.blockpost DIV.box {BORDER-COLOR: #AF8727 #AF8727 #AF8727}
+DIV.blockpost {BORDER-COLOR: #D5CF8B}
+
+/* 3.3 Table internal borders. By default TH is same as background so border is invisible */
+
+.pun TD {BORDER-COLOR: #D5CF8B; background-image: none}
+/*.pun TBODY {BACKGROUND-IMAGE: url('../img/Vaka/barmeat.gif'); BACKGROUND-REPEAT: repeat-x;        border-radius: 10px;}
+.pun TH {BORDER-COLOR: #D5CF8B; BACKGROUND-IMAGE: url('../img/Vaka/diagtile.gif')}*/
+
+
+
+/* 3.4 Creates the inset border for quote boxes, code boxes and form info boxes */
+
+DIV.codebox, DIV.forminfo {BORDER-COLOR: #AF8727}
+/* DIV.blockpost LABEL {BORDER-COLOR: #AF8727} */
+
+/* 3.5 Gecko's default fieldset borders are really nasty so this gives them a colour
+without interferring with IE's rather nice default */
+
+.pun DIV>FIELDSET {BORDER-COLOR: #ACA899}
+
+/****************************************************************/
+/* 4. LINK COLOURS */
+/****************************************************************/
+
+/* 4.1 This is the default for all links */
+
+.pun A:link{
+ color: #008cba;
+}
+.pun A:visited{
+ color: #008cba;
+}
+.pun A:hover{
+ color: #000;
+ text-decoration: underline;
+}
+
+/* 4.2 This is the colour for links in header rows and the navigation bar */
+
+#brdmenu A:link, #brdmenu A:visited {COLOR: #FFF}
+.pun H2 A:hover, #brdmenu A:hover {COLOR: #E5E2B7}
+.pun H2 A:link, .pun H2 A:visited {color:#888;font-size:0.9em}
+/* 4.3 This is for closed topics and "hot" links */
+
+TR.iclosed TD.tcl A:link, TR.iclosed TD.tcl A:visited {COLOR: #444}
+TR.iclosed TD.tcl A:hover {COLOR: #777}
+LI.maintenancelink A:link, LI.maintenancelink A:visited {COLOR: #B42000}
+LI.maintenancelink A:hover {COLOR: #B42000}
+                                               
+/****************************************************************/
+/* 5. POST STATUS INDICATORS */
+/****************************************************************/
+
+/* These are the post status indicators which appear at the left of some tables. 
+.inew = new posts, .iredirect = redirect forums, .iclosed = closed topics and
+.isticky = sticky topics. The default is "icon". By default only .inew is different.*/
+
+DIV.icon {BORDER-COLOR: #EEECD0 #E6E2B8 #DED9A0 #E6E2B8}
+TR.iredirect DIV.icon {BORDER-COLOR: #A7C1E1 #A7C1E1 #A7C1E1 #A7C1E1}
+DIV.inew {BORDER-COLOR: #F6A518 #E59009 #C67C08 #E59009}
+DIV.isticky {BORDER-COLOR: #F0EA2F #DBD400 #C8C200 #DBD400}
+
+
+
+
+/****************************************************************/
+/* 3. LINKS */
+/****************************************************************/
+
+/* 3.1 Remove underlining for main menu, post header links, post links and vertical menus */
+
+#brdmenu A:link, #brdmenu A:visited, .blockpost DT A:link, .blockpost DT A:visited, .blockpost H2 A:link,
+.blockpost H2 A:visited, .postlink A:link, .postlink A:visited, .postfootright A:link, .postfootright A:visited,
+.blockmenu A:link, .blockmenu A:visited {
+	TEXT-DECORATION: none
+}
+
+/* 3.2 Underline on hover for links in headers and main menu */
+
+#brdmenu A:hover, .blockpost H2 A:hover {TEXT-DECORATION: underline}
+
+/****************************************************************/
+/* 4. BORDER WIDTH AND STYLE */
+/****************************************************************/
+
+/* 4.1 By default borders are 1px solid */
+
+.pun TH{
+	BORDER-STYLE: solid;
+	BORDER-WIDTH: 0px;
+}
+.pun TD,  DIV.codebox, DIV.forminfo {
+	BORDER-STYLE: solid;
+	BORDER-WIDTH: 1px;
+}
+.pun H2 {
+color:#000;	
+}
+
+DIV.box {
+	/*BORDER-STYLE: solid;*/
+	BORDER-TOP-WIDTH: 0px;
+	BORDER-LEFT-WIDTH: 0px;
+	BORDER-RIGHT-WIDTH: 0px;
+	BORDER-BOTTOM-WIDTH: 0px;
+	border-radius:15px;
+}
+
+/* 4.2 Special settings for the board header. */
+
+#brdstats DIV.box, #brdfooter DIV.box, #brdheader DIV.box {
+	BORDER-TOP-WIDTH: 1px;
+}
+
+
+/* 4.3 Borders for table cells */
+
+.pun TD, .pun TH {
+	BORDER-BOTTOM: none;
+	BORDER-RIGHT: none
+}
+
+.pun #announce .box .inbox td {
+
+	BORDER-TOP: none;
+	BORDER-LEFT: none;
+	BORDER-WIDTH: 0px;
+	background-image: none;
+ 	background-color: transparent;
+}
+
+
+.pun .tcl {BORDER-LEFT: none}
+
+/* 4.4 Special setting for fieldsets to preserve IE defaults */
+
+DIV.FIELDSET {
+	BORDER-STYLE: solid;
+	BORDER-WIDTH: 1px
+}
+
+#adminconsole TD, #adminconsole TR, #adminconsole TH, #adminconsole table {
+ background-image: none;
+ background-color: transparent;
+}
+
+/****************************************************************/
+/* 5. VERTICAL AND PAGE SPACING */
+/****************************************************************/
+
+/* 5.1 Page margins */
+
+HTML, BODY {MARGIN: 0; PADDING: 0}
+#punwrap {margin:12px 0px}
+
+/* 5.2 Creates vertical space between main board elements (Margins) */
+
+DIV.blocktable, DIV.block, DIV.blockform, DIV.block2col, #postreview {MARGIN-BOTTOM: 12px}
+#punindex DIV.blocktable, DIV.blockpost {MARGIN-BOTTOM: 6px}
+DIV.block2col DIV.blockform, DIV.block2col DIV.block {MARGIN-BOTTOM: 0px}
+
+/* 5.3 Remove space above breadcrumbs, postlinks and pagelinks with a negative top margin */
+
+DIV.linkst, DIV.linksb {MARGIN-TOP: -12px}
+DIV.postlinksb {MARGIN-TOP: -6px}
+
+/* 5.4 Put a 12px gap above the board information box in index because the category tables only
+have a 6px space beneath them */
+
+#brdstats {MARGIN-TOP: 12px}
+
+/****************************************************************/
+/* 6. SPACING AROUND CONTENT */
+/****************************************************************/
+
+/* 6.1 Default padding for main items */
+
+DIV.block DIV.inbox, DIV.blockmenu DIV.inbox {PADDING: 3px 6px}
+.pun P, .pun UL, .pun DL, DIV.blockmenu LI, .pun LABEL, #announce DIV.inbox DIV {PADDING: 3px 0}
+.pun H2 {PADDING: 4px 6px}
+
+/* 6.2 Special spacing for various elements */
+
+.pun H1 {PADDING: 3px 0px 0px 0}
+#brdtitle P {PADDING-TOP: 0px}
+DIV.linkst {PADDING: 8px 6px 3px 6px}
+DIV.linksb, DIV.postlinksb {PADDING: 3px 6px 8px 6px}
+#brdwelcome, #brdfooter DL A, DIV.blockmenu LI, DIV.rbox INPUT  {LINE-HEIGHT: 1.4em}
+#viewprofile DT, #viewprofile DD {PADDING: 0 3px; LINE-HEIGHT: 2em}
+
+/* 6.4 Create some horizontal spacing for various elements */
+
+#brdmenu LI, DIV.rbox INPUT, DIV.blockform P INPUT  {MARGIN-RIGHT: 12px}
+
+/****************************************************************/
+/* 7. SPACING FOR TABLES */
+/****************************************************************/
+
+.pun TH, .pun TD {PADDING: 4px 6px} .pun TD.tcl {PADDING: 10px 6px}
+.pun TD P {PADDING: 5px 0 0 0}
+
+/****************************************************************/
+/* 8. SPACING FOR POSTS */
+/****************************************************************/
+
+/* 8.1 Padding around left and right columns in viewtopic */
+
+DIV.postleft DL, DIV.postright {PADDING: 6px}
+
+/* 8.2 Extra spacing for poster contact details and avatar */
+
+DD.usercontacts, DD.postavatar {MARGIN-TOP: 5px}
+DD.postavatar {MARGIN-BOTTOM: 5px}
+
+/* 8.3 Extra top spacing for signatures and edited by */
+
+DIV.postsignature, DIV.postmsg P.postedit {PADDING-TOP: 15px}
+
+/* 8.4 Spacing for code and quote boxes */
+
+DIV.postmsg H4 {MARGIN-BOTTOM: 10px}
+.pun BLOCKQUOTE, DIV.codebox {MARGIN: 5px 15px 15px 0px; PADDING: 8px}
+
+/* 8.5 Padding for the action links and online indicator in viewtopic */
+
+DIV.postfootleft P, DIV.postfootright UL, DIV.postfootright DIV {PADDING: 10px 6px 5px 6px}
+
+/* 8.6 This is the input on moderators multi-delete view */
+
+DIV.blockpost INPUT, DIV.blockpost LABEL {
+	PADDING: 3px;
+	DISPLAY: inline
+}
+
+P.multidelete {
+	PADDING-TOP: 15px;
+	PADDING-BOTTOM: 5px
+}
+
+/* 8.7 Make sure paragraphs in posts don't get any padding */
+
+DIV.postmsg P {PADDING: 0}
+
+/****************************************************************/
+/* 9. SPECIAL SPACING FOR FORMS */
+/****************************************************************/
+
+/* 9.1 Padding around fieldsets */
+
+DIV.blockform FORM, DIV.fakeform {PADDING: 20px 20px 15px 20px}
+DIV.inform {PADDING-BOTTOM: 12px}
+
+/* 9.2 Padding inside fieldsets */
+
+.pun FIELDSET {PADDING: 0px 12px 12px 12px}
+DIV.infldset {PADDING: 9px 0px 0px 0}
+.pun LEGEND {PADDING: 0px 6px}
+
+/* 9.3 The information box at the top of the registration form and elsewhere */
+
+DIV.forminfo {
+	MARGIN-BOTTOM: 12px;
+	PADDING: 9px 10px
+}
+
+/* 9.4 BBCode help links in post forms */
+
+UL.bblinks LI {PADDING-RIGHT: 20px}
+
+UL.bblinks {PADDING-BOTTOM: 10px; PADDING-LEFT: 4px}
+
+/* 9.5 Horizontal positioning for the submit button on forms */
+
+DIV.blockform P INPUT {MARGIN-LEFT: 12px}
+
+/****************************************************************/
+/* 10. POST STATUS INDICATORS */
+/****************************************************************/
+
+/* 10.1 These are the post status indicators which appear at the left of some tables. 
+.inew = new posts, .iredirect = redirect forums, .iclosed = closed topics and
+.isticky = sticky topics. By default only .inew is different from the default.*/
+
+DIV.icon {
+	FLOAT: left;
+	MARGIN-TOP: 0.1em;
+	MARGIN-LEFT: 0.2em;
+	DISPLAY: block;
+	BORDER-WIDTH: 0.6em 0.6em 0.6em 0.6em;
+	BORDER-STYLE: solid
+}
+
+DIV.searchposts DIV.icon {MARGIN-LEFT: 0}
+
+/* 10.2 Class .tclcon is a div inside the first column of tables with post indicators. The
+margin creates space for the post status indicator */
+
+TD DIV.tclcon {MARGIN-LEFT: 2.3em}
+
+
+p.poll_info {
+text-align: center;
+clear: left;
+margin-top: 0px;
+margin-bottom:7px;
+margin-left:7px;
+margin-right:7px;
+}
+div.poll_question {
+float: left;
+clear: both;
+text-align: right;
+width: 50%;
+margin: 0.3em;
+height: 1.2em;
+}
+div.poll_result,div.poll_result_yesno {
+float: left;
+text-align: left;
+width: 45%;
+margin: 0.3em;
+padding: 0;
+height: 1.2em;
+line-height: 1.2em;
+}
+	div.poll_result_yesno {
+	width: 22%;
+	margin-right: 0.1em;
+	}
+img.poll_bar {
+border-right: 2px solid #0066B9; /* teinte plus fonc\E9 que la couleur principale du forum */
+background-color: #006FC9; /* Couleur principale du forum */
+height: 1.2em;
+margin: 0;
+}
+
+
+
+
+/****************************************************************/
+/* ADDITIONAL FOR USER BLOGS MOD */
+/****************************************************************/
+
+.hr {
+BORDER-STYLE : solid; 
+BORDER-WIDTH : 0 0 1px 0;
+BORDER-COLOR: #ACA899; 
+}
+
+DIV.blog_menu DL, DIV.blog_menu DD, DIV.blog_menu DT {TEXT-ALIGN: right}
+DIV.blog_menu DT {
+FONT-SIZE: 1.2em;
+FONT-WEIGHT: bold;
+COLOR: #333;
+BORDER-STYLE : solid; 
+BORDER-WIDTH : 0 0 1px 0;
+BORDER-COLOR: #ACA899;
+MARGIN: 0 0 0.5em 0;
+PADDING: 0 0 0.2em 0;
+}
+</style>
+
+<title> Analyse à distance / Psychoactif</title>
+
+<meta name="description" content="" />
+<link rel="icon" type="image/jpg" href="/images/P2.jpg" />
+<link rel="alternate" type="application/rss+xml"
+    href="https://www.psychoactif.org/forum/extern.php?action=active&amp;type=RSS" title="Rss de Psychoactif">
+
+<link rel="stylesheet" type="text/css" href="/css2/all-3.css" />
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6Y48TTKKNC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6Y48TTKKNC');
+</script>
+<script>
+
+function replier(id)
+{
+if (document.getElementById("top_"+id).style.display == "block")
+document.getElementById("top_"+id).style.display = "none";
+else if (document.getElementById("top_"+id).style.display == "none")
+document.getElementById("top_"+id).style.display = "block";
+
+if (document.getElementById("rep2_"+id)) document.getElementById("rep2_"+id).style.display = "none";
+if (document.getElementById("top2_"+id)) document.getElementById("top2_"+id).style.display = "inline-block";
+if (document.getElementById("top_"+id)) document.getElementById("top_"+id).innerHTML="";
+if (document.getElementById("fast_rep"+id)) document.getElementById("fast_rep"+id).innerHTML="";
+if (document.getElementById("rep_"+id)) document.getElementById("rep_"+id).style.display = "none";
+return true;
+};
+
+function insLabel(label, id)
+
+{
+if(id === undefined) { id = ''; } else {id = '_'+id;}
+if (document.getElementById('unreq_labels'+id)) 
+document.getElementById('unreq_labels'+id).value += label+',';
+
+return true;
+
+};
+
+function displayLabel(id)
+
+{
+if(id === undefined) { id = ''; }
+var elementLab = document.getElementById("label_util"+id);
+
+if (elementLab.style.display == 'block' )
+
+	{
+
+	elementLab.style.display = 'none';
+
+	}
+
+	else {
+
+	elementLab.style.display = 'block';
+
+	elementLab.focus();
+
+	}
+};
+
+function displayImg(img)
+{
+if (document.getElementById("img_"+img))
+if (document.getElementById("img_"+img).style.display == "none")
+document.getElementById("img_"+img).style.display = "inline";
+else if (document.getElementById("img_"+img).style.display == "inline")
+document.getElementById("img_"+img).style.display = "none";
+
+if (document.getElementById("img_b"+img))
+if (document.getElementById("img_b"+img).style.display == "none")
+document.getElementById("img_b"+img).style.display = "inline";
+else if (document.getElementById("img_b"+img).style.display == "inline")
+document.getElementById("img_b"+img).style.display = "none";
+
+if (document.getElementById("img_f"+img))
+if (document.getElementById("img_f"+img).style.display == "none")
+document.getElementById("img_f"+img).style.display = "block";
+else if (document.getElementById("img_f"+img).style.display == "block")
+document.getElementById("img_f"+img).style.display = "none";
+
+return true;
+};
+
+function getSelected() {
+	if(window.getSelection) { return window.getSelection(); }
+	else if(document.getSelection) { return document.getSelection(); }
+	else {
+		var selection = document.selection && document.selection.createRange();
+		if(selection.text) { return selection.text; }
+		return false;
+	}
+	return false;
+};
+
+function ajax_reduire_blog(id)
+{
+xmlhttp=new XMLHttpRequest();
+xmlhttp.onreadystatechange=function()
+  {
+
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    
+    }
+  }
+xmlhttp.open("GET","/forum/misc.php?reduire_blog="+ id,true);
+xmlhttp.send();
+};
+
+//CSRF TOKEN
+function getCsrfToken(id) {
+	const csrfTokenNode = document.getElementById('js-csrf-token_del_'+id);
+
+	return {
+		name: csrfTokenNode.getAttribute('data-csrf-token-name'),
+		value: csrfTokenNode.getAttribute('data-csrf-token-value'),
+	}
+};
+
+
+
+function subscribe_favori_blog(id,user_id)
+{
+xmlhttp=new XMLHttpRequest();
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+      document.getElementById("subscribe_favori_blog").style.display="none";
+     document.getElementById("unsubscribe_favori_blog").style.display="inline";
+
+
+
+    document.getElementById("unsubscribe_favori_blog").innerHTML=xmlhttp.responseText;
+ 
+  document.getElementById("cpostratingb_"+id).innerHTML= '<b>Vous avez mis ce blog dans vos favoris. Pour le consulter plus tard, allez dans votre profil puis  <a href="/forum/profile.php?plugin=UPP_Mes_favoris.php&id='+user_id+'">Mes favoris</a></b>';
+
+    }
+  }
+
+xmlhttp.open("GET","/forum/misc.php?favoriblog="+ id,true);
+xmlhttp.send();
+
+};
+
+function unsubscribe_favori_blog(id)
+{
+xmlhttp=new XMLHttpRequest();
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+      document.getElementById("unsubscribe_favori_blog").style.display="none";
+     document.getElementById("subscribe_favori_blog").style.display="inline";
+
+
+
+    document.getElementById("subscribe_favori_blog").innerHTML=xmlhttp.responseText;
+ 
+  document.getElementById("cpostratingb_"+id).innerHTML= '<b>Vous avez enlever ce blog de vos favoris</b>';
+
+    }
+  }
+
+xmlhttp.open("GET","/forum/misc.php?unfavoriblog="+ id,true);
+xmlhttp.send();
+
+};
+
+
+
+function subscribe_user(id)
+{
+xmlhttp=new XMLHttpRequest();
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+      document.getElementById("subscribe_user").style.display="none";
+   document.getElementById("unsubscribe_user").style.display="block";
+    document.getElementById("unsubscribe_user").innerHTML=xmlhttp.responseText;
+
+ 
+    alert("Vous êtes abonné à ce membre. Vous pourrez voir ses messages dans votre profil plugin : Abonnements aux membres.");
+
+    }
+  }
+
+xmlhttp.open("GET","/forum/misc.php?subscribe_user="+ id,true);
+xmlhttp.send();
+
+};
+
+function unsubscribe_user(id)
+{
+xmlhttp=new XMLHttpRequest();
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("unsubscribe_user").style.display="none";
+   document.getElementById("subscribe_user").style.display="block";
+    document.getElementById("subscribe_user").innerHTML=xmlhttp.responseText;
+
+  
+    alert("Vous n'êtes plus abonné à ce membre. Vous ne recevrez plus de mail à chaque nouveau post");
+
+    }
+  }
+
+xmlhttp.open("GET","/forum/misc.php?unsubscribe_user="+ id,true);
+xmlhttp.send();
+
+};
+
+
+function subscribe_forum(id)
+{
+xmlhttp=new XMLHttpRequest();
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+if (document.getElementById("subscribe_forum"))
+      document.getElementById("subscribe_forum").style.display="none";
+
+if (document.getElementById("subscribe_forumb"))
+      document.getElementById("subscribe_forumb").style.display="none";
+
+if (document.getElementById("unsubscribe_forum"))
+   document.getElementById("unsubscribe_forum").style.display="block";
+
+if (document.getElementById("unsubscribe_forumb"))
+   document.getElementById("unsubscribe_forumb").style.display="block";
+
+if (document.getElementById("unsubscribe_forum"))
+    document.getElementById("unsubscribe_forum").innerHTML=xmlhttp.responseText;
+
+if (document.getElementById("unsubscribe_forumb"))
+    document.getElementById("unsubscribe_forumb").innerHTML=xmlhttp.responseText;
+ 
+    alert("Vous êtes abonné à ce forum. Vous serez averti par un mail à chaque nouvelle discussion dans ce forum.");
+
+    }
+  }
+
+xmlhttp.open("GET","/forum/misc.php?subscribe_forum="+ id,true);
+xmlhttp.send();
+
+};
+
+function unsubscribe_forum(id)
+{
+xmlhttp=new XMLHttpRequest();
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("unsubscribe_forum").style.display="none";
+    document.getElementById("unsubscribe_forumb").style.display="none";
+   document.getElementById("subscribe_forum").style.display="block";
+   document.getElementById("subscribe_forumb").style.display="block";
+
+    document.getElementById("subscribe_forum").innerHTML=xmlhttp.responseText;
+    document.getElementById("subscribe_forumb").innerHTML=xmlhttp.responseText;
+  
+    alert("Vous n'êtes plus abonné à ce forum. Vous ne recevrez plus de mail à chaque nouvelle discussion");
+
+    }
+  }
+
+xmlhttp.open("GET","/forum/misc.php?unsubscribe_forum="+ id,true);
+xmlhttp.send();
+
+};
+
+
+
+
+
+function ajax_subscribe_blog(id)
+{
+xmlhttp=new XMLHttpRequest();
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+
+      document.getElementById("subscribe_blog").style.display="none";
+     document.getElementById("unsubscribe_blog").style.display="inline";
+
+ 
+    alert("Vous vous êtes abonné à ce blog. Vous allez revevoir un mail à chaque nouveau billet de blog");
+
+
+    }
+  }
+
+xmlhttp.open("GET","/forum/misc.php?subscribe_blog="+ id,true);
+xmlhttp.send();
+
+};
+
+function ajax_unsubscribe_blog(id)
+{
+xmlhttp=new XMLHttpRequest();
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+
+      document.getElementById("unsubscribe_blog").style.display="none";
+     document.getElementById("subscribe_blog").style.display="inline";
+
+ 
+    alert("Vous vous êtes désabonné à ce blog.");
+
+
+    }
+  }
+
+xmlhttp.open("GET","/forum/misc.php?unsubscribe_blog="+ id,true);
+xmlhttp.send();
+
+};
+
+function subscribe_topic(id)
+{
+xmlhttp=new XMLHttpRequest();
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+
+      document.getElementById("subscribe_topicb").style.display="none";
+
+     document.getElementById("unsubscribe_topicb").style.display="inline";
+
+
+    document.getElementById("unsubscribe_topicb").innerHTML=xmlhttp.responseText;
+ 
+    alert("Vous êtes abonné à cette discussion. Vous serez averti par un mail à chaque nouveau message de ce sujet");
+
+    }
+  }
+
+xmlhttp.open("GET","/forum/misc.php?subscribe="+ id,true);
+xmlhttp.send();
+
+}
+
+function unsubscribe_topic(id)
+{
+xmlhttp=new XMLHttpRequest();
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+
+    document.getElementById("unsubscribe_topicb").style.display="none";
+
+   document.getElementById("subscribe_topicb").style.display="inline";
+
+    document.getElementById("subscribe_topicb").innerHTML=xmlhttp.responseText;
+  
+    alert("Vous n'êtes plus abonné à cette discussion. Vous ne recevrez plus de mail à chaque nouveau message");
+
+    }
+  }
+
+xmlhttp.open("GET","/forum/misc.php?unsubscribe="+ id,true);
+xmlhttp.send();
+
+}
+
+
+// AJAX POUR LES POSTS ET DISCUSSION
+
+function prefix_ajax(id, pid)
+{
+if (pid == undefined) pid ='';
+xmlhttp=new XMLHttpRequest();
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+
+   
+	if (document.getElementById("prefixajax"+pid))
+    document.getElementById("prefixajax"+pid).innerHTML=xmlhttp.responseText;
+
+
+    }
+  }
+
+xmlhttp.open("GET","/forum/ajax_prefix.php?fid="+ id+'&pid='+pid,true);
+xmlhttp.send();
+
+};
+
+
+
+function menut(pid)
+{
+    if (document.getElementById("u"+ pid).style.display=="block")
+	document.getElementById("u"+ pid).style.display = "none";
+  else if (document.getElementById("u"+ pid).style.display=="none")
+	document.getElementById("u"+ pid).style.display = "block";
+};
+
+
+
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 </head>
-<body data-template="forum_post_thread">
+<body>
 
-<div class="p-pageWrapper" id="top">
+ <div id="header_forum"> <div id="wrapper"><div id="logo"><a href="/forum/index.php" style="display:inline-block;width:240px;height:70px;float:left">&nbsp;</a><div style="text-align:right;padding:35px;"><a href="/forum/page.php?id=15" style="color:yellowgreen;font-size:1.5em" class="menu_logo" title="Recherche"><span class="icon icon-zoom"></span></a>&nbsp;&nbsp;&nbsp;<a href="/forum/page.php?id=24" style="color:orange;font-size:1.5em" class="menu_logo" title="help"><span class="icon icon-help"></span></a>&nbsp;&nbsp;&nbsp;<a href="/forum/profile.php?id=186379" class="menu_logo" style="color:#008cba;font-size:1.5em" title="Mon profil"><span class="icon icon-user"></span>&nbsp;Elouan</a>&nbsp;&nbsp;&nbsp;<a href="/forum/login.php?action=out&amp;id=186379&amp;csrf_token=930576f5e55ea5cce9c458c90d133e05bae3ea2b" class="menu_logo" style="color:red;font-size:1.5em" title="Deconnexion"><span class="icon icon-power"></span></a>&nbsp;&nbsp;&nbsp;</div></div></div></div><div id="mainmenu_forum"><div id="wrapper_menu"> 
+			<ul class="clearfix">
+				<li id="navaccueil"><a href="/forum/index.php"> &nbsp;&nbsp;<span class="icon icon-home"></span>&nbsp;&nbsp; </a></li>
+				<li id="navextra6"><a href="/forum/forums.php"> Forums </a></li>
+				<li id="navextra5"><a href="/blogs/" title="les blogs des utilisateurs de Psychoactif">Blogs</a></li>
+				<li id="navextra4"><a href="/psychowiki/index.php" title="Le PsychoWIKI, construction collaborative du savoir sur les usages de drogues">PsychoWIKI</a></li>
+				<li id="navextra3"><a href="/forum/quizzz.html" title="Les quizzz de Psychoactif">Quizzz</a></li>
+				<li id="navextra2"><a href="/annuaire-reduction-des-risques/" title="Annuaire des structures de réduction des risques pour trouver du matériel de consommation">Annuaire RDR</a></li>
+				<li id="navextra1"><a href="/forum/publications.html">Publications</a></li>
+				<li id="navpm" class="navright" style=""><a href="/forum/pms_inbox.php">Message privé</a></li>
+				<li class="navright" style=""><a href="/forum/profile.php?plugin=UPP_Mes_favoris.php&id=186379" >Favoris</a></li>
+				<li class="navright" style=""><a href="/forum/profile.php?plugin=UP_Brouillon.php&id=186379">Brouillons</a></li>
+			</ul>
+		</div></div><div id="all">
 
-	
+<div id="punwrap">
+<div id="punanalyse-a-distance" class="pun">
 
-	<header class="p-header" id="header">
-		<div class="p-header-inner">
-			<div class="p-header-content">
-				<div class="p-header-logo p-header-logo--image">
-					<a href="https://www.psychonaut.fr/forums/">
-						
-
-	
-
-	
-		
-		
-
-		
-	
-		
-		
-
-		
-	
 
 	
 
-	<picture data-variations="{&quot;default&quot;:{&quot;1&quot;:&quot;\/data\/assets\/logo_default\/psychonaut_logo.svg&quot;,&quot;2&quot;:null},&quot;alternate&quot;:{&quot;1&quot;:&quot;\/data\/assets\/logo_alternate\/psychonaut_logo.svg&quot;,&quot;2&quot;:null}}">
-		
-		
-		
-
-		
+		<div id="brdheader" class="block"><div id="brdwelcome"  style="padding:0">
+			<ul style="padding:5px; float:right">
+				<li></li><li></li><li></li>
+			</ul>
 			
-			
-			
-
-			
-				<source srcset="/data/assets/logo_alternate/psychonaut_logo.svg" media="(prefers-color-scheme: dark)" />
-			
-		
-
-		<img src="/data/assets/logo_default/psychonaut_logo.svg"  width="400" height="" alt="Psychonaut" />
-	</picture>
+		<div style="display:inline-block;max-width:650px;vertical-align:top;padding:5px;float:left"><a href="https://www.psychoactif.org/forum/f103-p1-Analyse-drogues.html">Le forum de l'analyse de drogues</a>&nbsp;&raquo;&nbsp;</div><div class="clearer"></div></div></div>
 
 
-					</a>
-				</div>
 
-				
+
+<div style="max-width:900px;margin:auto">
+<div class="arrondi" id="topicx" style="max-width:900px">
+
+<h1 style="">Les résultats de l'analyse à distance</h1>
+<div style="text-align:center"><div style="text-align:center">
+
+<a onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" href="https://www.facebook.com/sharer/sharer.php?u=https://www.psychoactif.org/forum/analyse-a-distance.php&t=Analyse de drogues à distance" rel="nofollow" target="_blank" style=""><svg width="23px" height="23px" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg"><title>Facebook icon</title><path d="M23.9981 11.9991C23.9981 5.37216 18.626 0 11.9991 0C5.37216 0 0 5.37216 0 11.9991C0 17.9882 4.38789 22.9522 10.1242 23.8524V15.4676H7.07758V11.9991H10.1242V9.35553C10.1242 6.34826 11.9156 4.68714 14.6564 4.68714C15.9692 4.68714 17.3424 4.92149 17.3424 4.92149V7.87439H15.8294C14.3388 7.87439 13.8739 8.79933 13.8739 9.74824V11.9991H17.2018L16.6698 15.4676H13.8739V23.8524C19.6103 22.9522 23.9981 17.9882 23.9981 11.9991Z"/fill="white"></svg></a>
+
+
+
+
+
+<a  onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://twitter.com/share?url=https://www.psychoactif.org/forum/analyse-a-distance.php&text=Analyse de drogues à distance&via=psychoactif" rel="nofollow" ><svg xmlns="http://www.w3.org/2000/svg" height="22" width="22" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" fill="white"/></svg></a>
+
+                
+
+
+
+<a href="mailto:?&body=https%3A%2F%2Fwww.psychoactif.org%2Fforum%2Fanalyse-a-distance.php%0D%0A%0D%0AAnalyse%20de%20drogues%20%C3%A0%20distance...&subject=Analyse%20de%20drogues%20%C3%A0%20distance" style="font-size:1.7em;"><span title="Envoyer par mail" class="icon icon-mail" style="color:white;"></span></a></div></div>
+<form method="get" action="/forum/analyse-a-distance.php#analyse">
+<div><label>Sélectionner tout les résultats pour un produit spécifique<br />
+<select name="prod" onchange="window.location=('/forum/analyse-a-distance.php?prod='+this.options[this.selectedIndex].value)"><option value="0" selected="selected">Tous les produits</option><option value="1">2C-B</option>
+<option value="3">2-MMC</option>
+<option value="5">3-MMC</option>
+<option value="7">3-CMC</option>
+<option value="8">4-MMC</option>
+<option value="9">Cannabis / Herbe</option>
+<option value="10">Cocaïne</option>
+<option value="20">Héroïne</option>
+<option value="25">Kétamine</option>
+<option value="30">LSD</option>
+<option value="35">MDMA</option>
+<option value="37">Méthamphetamine</option>
+<option value="40">Speed (amphétamine)</option>
+</select><input type="submit" value="GO" accesskey="g" /></label></div></form>
+</div>
+<div style="border-left:10px solid #008cba;">
+<div style="margin:20px">Si vous venez sur cette page pour avoir <b>le résultat de votre analyse</b> :
+<form method="get" action="/forum/analyse-a-distance.php#divid">
+<div><label>Entrer le numéro unique d'identification<br />
+<input type="text" name="identification" size="15" maxlength="15"/>
+<input type="submit" value="GO" accesskey="g" />
+</label>
+</div>
+</form>
+<p>Pour toute question sur l'interprétation des résultats d'analyse, <a href="https://www.psychoactif.org/forum/viewtopic.php?id=79748">vous pouvez consulter la FAQ</a></p>
+ <p>Et merci de remplir <a href="https://www.psychoactif.org/limesurvey/index.php/595719?lang=fr">le questionnaire d'évaluation du dispositif d'analyse de drogues à distance.</a></p></div>
+ </div>
+
+<div class="linkst">
+	<div class="inbox">
+	<p class="pagelink "  style="float:right;margin-top:10px;margin-bottom:5px">Page : </p>
+
+
 			</div>
-		</div>
-	</header>
+</div>
 
-	
-	
-
-	
-		<div class="p-navSticky p-navSticky--primary" data-xf-init="sticky-header">
-			
-		<nav class="p-nav">
-			<div class="p-nav-inner">
-				<button type="button" class="button button--plain p-nav-menuTrigger" data-xf-click="off-canvas" data-menu=".js-headerOffCanvasMenu" tabindex="0" aria-label="Menu"><span class="button-text">
-					<i aria-hidden="true"></i>
-				</span></button>
-
-				<div class="p-nav-smallLogo">
-					<a href="https://www.psychonaut.fr/forums/">
-						
-
+<div id="divid" class="blocktable" >
 	
 
-	
-		
-		
+	<div class="box" id="analyse">
+		<div class="inbox" style="overflow : hidden;text-align:center;padding:10px"><br /><br />
+<div style='text-align:left;margin-bottom:10px;' class='postmsg'><p style='font-weight:bold;font-size:1.6rem'><a href='#'>Analyse N°PSYCHO255411</a></p>Date de collecte : 2025-10-01</br>Produit attendu : <b>4-MMC</b> (<a href='https://www.psychoactif.org/psychowiki/index.php?title=M%C3%A9ph%C3%A9drone_(4-MMC),_effets,_risques,_t%C3%A9moignages'>Psychowiki</a>)<br>Pourcentage (equivalent base) : <b>89</b></br>Aspect : Poudre, blanche<br>Mode d'approvisionnement : Deep web / dark web</br><div style='margin-left:30px'>Produits de coupe et commentaires : <br><i>4-MMC 107% équivalent chlorhydrate</i><br>Nos résultats sont rendus avec une incertitude de +/-10%;</div>Cette analyse a été traitée par la communauté Psychonaut</div><div style="text-align:left;margin-bottom:30px">
+<form id="post" method="post" action="post.php?&amp;fid=103">
+<input type="hidden" name="req_subject" id="req_subject" value="Analyse :PSYCHO255411 4-MMC"/>
+<input type="hidden" name="analyse_id" value="4038">
+<input type="hidden" name="req_message" id="req_message" value="[quote] 
+Résultats de l'analyse :
+Molécule attendue :4-MMC
+Aspect : Poudre, blanche
+Pourcentage : 89
+Coupe et commentaires 4-MMC 107% équivalent chlorhydrate[/quote]"/>
+<input type="submit" name="submit" value="Créer une discussion sur cette analyse"/></form></div>		
+	</div>
+	</div>
+</div>
 
+<div class="linksb">
+	<div class="inbox">
+<p class="pagelink conl"></p>		<ul><li><a href="index.php">Psychoactif</a></li><li>&nbsp;&raquo;&nbsp;Résultats de l'analyse&nbsp;</li></ul>
 		
-	
-		
-		
-
-		
-	
-
-	
-
-	<picture data-variations="{&quot;default&quot;:{&quot;1&quot;:&quot;\/data\/assets\/logo_default\/psychonaut_logo.svg&quot;,&quot;2&quot;:null},&quot;alternate&quot;:{&quot;1&quot;:&quot;\/data\/assets\/logo_alternate\/psychonaut_logo.svg&quot;,&quot;2&quot;:null}}">
-		
-		
-		
-
-		
-			
-			
-			
-
-			
-				<source srcset="/data/assets/logo_alternate/psychonaut_logo.svg" media="(prefers-color-scheme: dark)" />
-			
-		
-
-		<img src="/data/assets/logo_default/psychonaut_logo.svg"  width="400" height="" alt="Psychonaut" />
-	</picture>
-
-
-					</a>
-				</div>
-
-				<div class="p-nav-scroller hScroller" data-xf-init="h-scroller" data-auto-scroll=".p-navEl.is-selected">
-					<div class="hScroller-scroll">
-						<ul class="p-nav-list js-offCanvasNavSource">
-							
-								<li>
-									
-	<div class="p-navEl " >
-	
-
-		
-	
-	<a href="/"
-	class="p-navEl-link "
-	
-	data-xf-key="1"
-	data-nav-id="EWRporta">Portal</a>
-
-
-		
-
-		
+		<div class="clearer"></div>
 	
 	</div>
-
-								</li>
-							
-								<li>
-									
-	<div class="p-navEl is-selected" data-has-children="true">
-	
-
-		
-	
-	<a href="/forums/"
-	class="p-navEl-link p-navEl-link--splitMenu "
-	
-	
-	data-nav-id="forums">Forums</a>
-
-
-		<a data-xf-key="2"
-			data-xf-click="menu"
-			data-menu-pos-ref="< .p-navEl"
-			class="p-navEl-splitTrigger"
-			role="button"
-			tabindex="0"
-			aria-label="Toggle expanded"
-			aria-expanded="false"
-			aria-haspopup="true"></a>
-
-		
-	
-		<div class="menu menu--structural" data-menu="menu" aria-hidden="true">
-			<div class="menu-content">
-				
-					
-	
-	
-	<a href="https://www.psychonaut.fr/threads/charte-du-forum.35112/"
-	class="menu-linkRow u-indentDepth0 js-offCanvasCopy "
-	
-	
-	data-nav-id="sainte_charte">La Sainte Charte</a>
-
-	
-
-				
-					
-	
-	
-	<a href="https://www.psychonaut.fr/forums/demandes.160/"
-	class="menu-linkRow u-indentDepth0 js-offCanvasCopy "
-	
-	
-	data-nav-id="demande_analyse">Faire analyser sa drogue</a>
-
-	
-
-				
-					
-	
-	
-	<a href="https://www.psychonaut.fr/forums/fiches-informatives-et-tutos.120/?prefix_id=2"
-	class="menu-linkRow u-indentDepth0 js-offCanvasCopy "
-	
-	
-	data-nav-id="tuto">Nos tutos RDR</a>
-
-	
-
-				
-					
-	
-	
-	<a href="https://www.psychonaut.fr/forums/fiches-informatives-et-tutos.120/?prefix_id=1"
-	class="menu-linkRow u-indentDepth0 js-offCanvasCopy "
-	
-	
-	data-nav-id="fiche_info">Nos fiches informatives</a>
-
-	
-
-				
-					
-	
-	
-	<a href="https://mixtures.info/fr/"
-	class="menu-linkRow u-indentDepth0 js-offCanvasCopy "
-	
-	
-	data-nav-id="mixtures">Les mélanges de drogues</a>
-
-	
-
-				
-					
-	
-	
-	<a href="https://www.psychonaut.fr/threads/index-des-sujets-rdr-et-des-fiches-informatives.27909/"
-	class="menu-linkRow u-indentDepth0 js-offCanvasCopy "
-	
-	
-	data-nav-id="chouettes_topics">Plein de chouettes topics</a>
-
-	
-
-				
-			</div>
-		</div>
-	
-	</div>
-
-								</li>
-							
-								<li>
-									
-	<div class="p-navEl " data-has-children="true">
-	
-
-			
-				<a data-xf-key="3"
-					data-xf-click="menu"
-					data-menu-pos-ref="< .p-navEl"
-					class="p-navEl-linkHolder"
-					role="button"
-					tabindex="0"
-					aria-expanded="false"
-					aria-haspopup="true">
-					
-	
-	<span 
-	class="p-navEl-link p-navEl-link--menuTrigger "
-	
-	
-	data-nav-id="asso">L'asso</span>
-
-				</a>
-			
-
-		
-	
-		<div class="menu menu--structural" data-menu="menu" aria-hidden="true">
-			<div class="menu-content">
-				
-					
-	
-	
-	<a href="https://www.psychonaut.fr/threads/bilan-2024-et-renouvellement-adhesions.36326/"
-	class="menu-linkRow u-indentDepth0 js-offCanvasCopy "
-	
-	
-	data-nav-id="bilan">Bilan 2024</a>
-
-	
-
-				
-					
-	
-	
-	<a href="https://www.helloasso.com/associations/psychonaut/adhesions/adhesion-psychonaut"
-	class="menu-linkRow u-indentDepth0 js-offCanvasCopy "
-	
-	
-	data-nav-id="adherer">Adhérer</a>
-
-	
-
-				
-					
-	
-	
-	<a href="https://www.helloasso.com/associations/psychonaut/formulaires/1"
-	class="menu-linkRow u-indentDepth0 js-offCanvasCopy "
-	
-	
-	data-nav-id="don">Faire un don</a>
-
-	
-
-				
-					
-	
-	
-	<a href="https://www.psychonaut.fr/threads/les-tshirt-psychonaut-et-autres-joyeusetes-sont-disponibles.33004/"
-	class="menu-linkRow u-indentDepth0 js-offCanvasCopy "
-	
-	
-	data-nav-id="merch">Acheter des trucs</a>
-
-	
-
-				
-			</div>
-		</div>
-	
-	</div>
-
-								</li>
-							
-								<li>
-									
-	<div class="p-navEl " data-has-children="true">
-	
-
-		
-	
-	<a href="/whats-new/"
-	class="p-navEl-link p-navEl-link--splitMenu "
-	
-	
-	data-nav-id="whatsNew">What's new</a>
-
-
-		<a data-xf-key="4"
-			data-xf-click="menu"
-			data-menu-pos-ref="< .p-navEl"
-			class="p-navEl-splitTrigger"
-			role="button"
-			tabindex="0"
-			aria-label="Toggle expanded"
-			aria-expanded="false"
-			aria-haspopup="true"></a>
-
-		
-	
-		<div class="menu menu--structural" data-menu="menu" aria-hidden="true">
-			<div class="menu-content">
-				
-					
-	
-	
-	<a href="/whats-new/posts/"
-	class="menu-linkRow u-indentDepth0 js-offCanvasCopy "
-	 rel="nofollow"
-	
-	data-nav-id="whatsNewPosts">New posts</a>
-
-	
-
-				
-					
-	
-	
-	<a href="/find-threads/contributed"
-	class="menu-linkRow u-indentDepth0 js-offCanvasCopy "
-	
-	
-	data-nav-id="contributedThreads">Threads with your posts</a>
-
-	
-
-				
-					
-	
-	
-	<a href="/find-threads/unanswered"
-	class="menu-linkRow u-indentDepth0 js-offCanvasCopy "
-	
-	
-	data-nav-id="unansweredThreads">Unanswered threads</a>
-
-	
-
-				
-					
-	
-	
-	<a href="/watched/threads"
-	class="menu-linkRow u-indentDepth0 js-offCanvasCopy "
-	
-	
-	data-nav-id="watchedThreads">Watched threads</a>
-
-	
-
-				
-					
-	
-	
-	<a href="/watched/forums"
-	class="menu-linkRow u-indentDepth0 js-offCanvasCopy "
-	
-	
-	data-nav-id="watchedForums">Watched forums</a>
-
-	
-
-				
-					
-	
-	
-	<a href="/forums/-/mark-read?date=1761560872"
-	class="menu-linkRow u-indentDepth0 js-offCanvasCopy "
-	 data-xf-click="overlay"
-	
-	data-nav-id="markForumsRead">Mark forums read</a>
-
-	
-
-				
-					
-	
-	
-	<a href="/whats-new/news-feed"
-	class="menu-linkRow u-indentDepth0 js-offCanvasCopy "
-	 rel="nofollow"
-	
-	data-nav-id="whatsNewNewsFeed">Your news feed</a>
-
-	
-
-				
-					
-	
-	
-	<a href="/whats-new/latest-activity"
-	class="menu-linkRow u-indentDepth0 js-offCanvasCopy "
-	 rel="nofollow"
-	
-	data-nav-id="latestActivity">Latest activity</a>
-
-	
-
-				
-			</div>
-		</div>
-	
-	</div>
-
-								</li>
-							
-								<li>
-									
-	<div class="p-navEl " >
-	
-
-		
-	
-	<a href="/members/"
-	class="p-navEl-link "
-	
-	data-xf-key="5"
-	data-nav-id="members">Members</a>
-
-
-		
-
-		
-	
-	</div>
-
-								</li>
-							
-								<li>
-									
-	<div class="p-navEl " >
-	
-
-		
-	
-	<a href="/logout/?t=1761560872%2C63a420724e5240852cbe62893ae53078"
-	class="p-navEl-link "
-	
-	data-xf-key="6"
-	data-nav-id="defaultLogOut">Log out</a>
-
-
-		
-
-		
-	
-	</div>
-
-								</li>
-							
-						</ul>
-					</div>
-				</div>
-
-				<div class="p-nav-opposite">
-					<div class="p-navgroup p-account p-navgroup--member">
-						
-							
-								<a href="/account/"
-									class="p-navgroup-link p-navgroup-link--iconic p-navgroup-link--user"
-									data-xf-click="menu"
-									data-xf-key="m"
-									data-menu-pos-ref="< .p-navgroup"
-									title="L&#039;élouan"
-									aria-expanded="false"
-									aria-haspopup="true">
-									<span class="avatar avatar--xxs" data-user-id="19452">
-			<img src="/data/avatars/s/19/19452.jpg?1733910044"  alt="L&#039;élouan" class="avatar-u19452-s" width="48" height="48" loading="lazy" /> 
-		</span>
-									<span class="p-navgroup-linkText">L&#039;élouan</span>
-								</a>
-								<div class="menu menu--structural menu--wide menu--account" data-menu="menu" aria-hidden="true"
-									data-href="/account/visitor-menu"
-									data-load-target=".js-visitorMenuBody">
-									<div class="menu-content js-visitorMenuBody">
-										<div class="menu-row">
-											Loading…
-										</div>
-									</div>
-								</div>
-
-								<a href="/direct-messages/"
-									class="p-navgroup-link p-navgroup-link--iconic p-navgroup-link--conversations js-badge--conversations badgeContainer"
-									data-badge="0"
-									data-xf-click="menu"
-									data-xf-key=","
-									data-menu-pos-ref="< .p-navgroup"
-									title="Direct messages"
-									aria-label="Direct messages"
-									aria-expanded="false"
-									aria-haspopup="true">
-									<i aria-hidden="true"></i>
-									<span class="p-navgroup-linkText"></span>
-								</a>
-								<div class="menu menu--structural menu--medium" data-menu="menu" aria-hidden="true"
-									data-href="/direct-messages/popup"
-									data-nocache="true"
-									data-load-target=".js-convMenuBody">
-									<div class="menu-content">
-										<h3 class="menu-header">Direct messages</h3>
-										<div class="js-convMenuBody">
-											<div class="menu-row">Loading…</div>
-										</div>
-										<div class="menu-footer menu-footer--split">
-											<div class="menu-footer-main">
-												<ul class="listInline listInline--bullet">
-													<li><a href="/direct-messages/">Show all</a></li>
-													
-														<li><a href="/direct-messages/add">Send direct message</a></li>
-													
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<a href="/account/alerts"
-									class="p-navgroup-link p-navgroup-link--iconic p-navgroup-link--alerts js-badge--alerts badgeContainer"
-									data-badge="0"
-									data-xf-click="menu"
-									data-xf-key="."
-									data-menu-pos-ref="< .p-navgroup"
-									title="Alerts"
-									aria-label="Alerts"
-									aria-expanded="false"
-									aria-haspopup="true">
-									<i aria-hidden="true"></i>
-									<span class="p-navgroup-linkText"></span>
-								</a>
-								<div class="menu menu--structural menu--medium" data-menu="menu" aria-hidden="true"
-									data-href="/account/alerts-popup"
-									data-nocache="true"
-									data-load-target=".js-alertsMenuBody">
-									<div class="menu-content">
-										<h3 class="menu-header">Alerts</h3>
-										<div class="js-alertsMenuBody">
-											<div class="menu-row">Loading…</div>
-										</div>
-										<div class="menu-footer menu-footer--split">
-											<div class="menu-footer-main">
-												<ul class="listInline listInline--bullet">
-													<li><a href="/account/alerts">Show all</a></li>
-													<li><a href="/account/alerts/mark-read" class="js-alertsMarkRead">Mark read</a></li>
-													<li><a href="/account/preferences">Preferences</a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-							
-						
-					</div>
-
-					<div class="p-navgroup p-discovery">
-						<a href="/whats-new/"
-							class="p-navgroup-link p-navgroup-link--iconic p-navgroup-link--whatsnew"
-							aria-label="What&#039;s new"
-							title="What&#039;s new">
-							<i aria-hidden="true"></i>
-							<span class="p-navgroup-linkText">What's new</span>
-						</a>
-
-						
-							<a href="/search/"
-								class="p-navgroup-link p-navgroup-link--iconic p-navgroup-link--search"
-								data-xf-click="menu"
-								data-xf-key="/"
-								aria-label="Search"
-								aria-expanded="false"
-								aria-haspopup="true"
-								title="Search">
-								<i aria-hidden="true"></i>
-								<span class="p-navgroup-linkText">Search</span>
-							</a>
-							<div class="menu menu--structural menu--wide" data-menu="menu" aria-hidden="true">
-								<form action="/search/search" method="post"
-									class="menu-content"
-									data-xf-init="quick-search">
-
-									<h3 class="menu-header">Search</h3>
-									
-									<div class="menu-row">
-										
-											<input type="text" class="input" name="keywords" data-acurl="/search/auto-complete" placeholder="Search…" aria-label="Search" data-menu-autofocus="true" />
-										
-									</div>
-
-									
-									<div class="menu-row">
-										<label class="iconic"><input type="checkbox"  name="c[title_only]" value="1" /><i aria-hidden="true"></i><span class="iconic-label">Search titles only
-
-													
-													<span tabindex="0" role="button"
-														data-xf-init="tooltip" data-trigger="hover focus click" title="Tags will also be searched in content where tags are supported">
-
-														<i class="fa--xf far fa-question-circle  u-muted u-smaller"><svg xmlns="http://www.w3.org/2000/svg" role="img" ><title>Note</title><use href="/data/local/icons/regular.svg?v=1761395885#question-circle"></use></svg></i>
-													</span></span></label>
-
-									</div>
-									
-									<div class="menu-row">
-										<div class="inputGroup">
-											<span class="inputGroup-text" id="ctrl_search_menu_by_member">By:</span>
-											<input type="text" class="input" name="c[users]" data-xf-init="auto-complete" placeholder="Member" aria-labelledby="ctrl_search_menu_by_member" />
-										</div>
-									</div>
-									<div class="menu-footer">
-									<span class="menu-footer-controls">
-										<button type="submit" class="button button--icon button--icon--search button--primary"><i class="fa--xf far fa-search "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1761395885#search"></use></svg></i><span class="button-text">Search</span></button>
-										<button type="submit" class="button " name="from_search_menu"><span class="button-text">Advanced search…</span></button>
-									</span>
-									</div>
-
-									<input type="hidden" name="_xfToken" value="1761560872,63a420724e5240852cbe62893ae53078" />
-								</form>
-							</div>
-						
-					</div>
-				</div>
-			</div>
-		</nav>
-	
-		</div>
-		
-		
-			<div class="p-sectionLinks">
-				<div class="p-sectionLinks-inner hScroller" data-xf-init="h-scroller">
-					<div class="hScroller-scroll">
-						<ul class="p-sectionLinks-list">
-							
-								<li>
-									
-	<div class="p-navEl " >
-	
-
-		
-	
-	<a href="https://www.psychonaut.fr/threads/charte-du-forum.35112/"
-	class="p-navEl-link "
-	
-	data-xf-key="alt+1"
-	data-nav-id="sainte_charte">La Sainte Charte</a>
-
-
-		
-
-		
-	
-	</div>
-
-								</li>
-							
-								<li>
-									
-	<div class="p-navEl " >
-	
-
-		
-	
-	<a href="https://www.psychonaut.fr/forums/demandes.160/"
-	class="p-navEl-link "
-	
-	data-xf-key="alt+2"
-	data-nav-id="demande_analyse">Faire analyser sa drogue</a>
-
-
-		
-
-		
-	
-	</div>
-
-								</li>
-							
-								<li>
-									
-	<div class="p-navEl " >
-	
-
-		
-	
-	<a href="https://www.psychonaut.fr/forums/fiches-informatives-et-tutos.120/?prefix_id=2"
-	class="p-navEl-link "
-	
-	data-xf-key="alt+3"
-	data-nav-id="tuto">Nos tutos RDR</a>
-
-
-		
-
-		
-	
-	</div>
-
-								</li>
-							
-								<li>
-									
-	<div class="p-navEl " >
-	
-
-		
-	
-	<a href="https://www.psychonaut.fr/forums/fiches-informatives-et-tutos.120/?prefix_id=1"
-	class="p-navEl-link "
-	
-	data-xf-key="alt+4"
-	data-nav-id="fiche_info">Nos fiches informatives</a>
-
-
-		
-
-		
-	
-	</div>
-
-								</li>
-							
-								<li>
-									
-	<div class="p-navEl " >
-	
-
-		
-	
-	<a href="https://mixtures.info/fr/"
-	class="p-navEl-link "
-	
-	data-xf-key="alt+5"
-	data-nav-id="mixtures">Les mélanges de drogues</a>
-
-
-		
-
-		
-	
-	</div>
-
-								</li>
-							
-								<li>
-									
-	<div class="p-navEl " >
-	
-
-		
-	
-	<a href="https://www.psychonaut.fr/threads/index-des-sujets-rdr-et-des-fiches-informatives.27909/"
-	class="p-navEl-link "
-	
-	data-xf-key="alt+6"
-	data-nav-id="chouettes_topics">Plein de chouettes topics</a>
-
-
-		
-
-		
-	
-	</div>
-
-								</li>
-							
-						</ul>
-					</div>
-				</div>
-			</div>
-			
-	
-		
-
-	<div class="offCanvasMenu offCanvasMenu--nav js-headerOffCanvasMenu" data-menu="menu" aria-hidden="true" data-ocm-builder="navigation">
-		<div class="offCanvasMenu-backdrop" data-menu-close="true"></div>
-		<div class="offCanvasMenu-content">
-			<div class="offCanvasMenu-header">
-				Menu
-				<a class="offCanvasMenu-closer" data-menu-close="true" role="button" tabindex="0" aria-label="Close"></a>
-			</div>
-			
-				<div class="p-offCanvasAccountLink">
-					<div class="offCanvasMenu-linkHolder">
-						<a href="/account/" class="offCanvasMenu-link">
-							<span class="avatar avatar--xxs" data-user-id="19452" title="L&#039;élouan">
-			<img src="/data/avatars/s/19/19452.jpg?1733910044"  alt="L&#039;élouan" class="avatar-u19452-s" width="48" height="48" loading="lazy" /> 
-		</span>
-							L&#039;élouan
-						</a>
-					</div>
-					<hr class="offCanvasMenu-separator" />
-				</div>
-				
-			<div class="js-offCanvasNavTarget"></div>
-			<div class="offCanvasMenu-installBanner js-installPromptContainer" style="display: none;" data-xf-init="install-prompt">
-				<div class="offCanvasMenu-installBanner-header">Install the app</div>
-				<button type="button" class="button js-installPromptButton"><span class="button-text">Install</span></button>
-				<template class="js-installTemplateIOS">
-					<div class="js-installTemplateContent">
-						<div class="overlay-title">How to install the app on iOS</div>
-						<div class="block-body">
-							<div class="block-row">
-								<p>
-									Follow along with the video below to see how to install our site as a web app on your home screen.
-								</p>
-								<p style="text-align: center">
-									<video src="/styles/default/xenforo/add_to_home.mp4"
-										width="280" height="480" autoplay loop muted playsinline></video>
-								</p>
-								<p>
-									<small><strong>Note:</strong> This feature may not be available in some browsers.</small>
-								</p>
-							</div>
-						</div>
-					</div>
-				</template>
-			</div>
+</div>
+</div>
+
+<div id="brdfooter" class="block">
+	<h2><span>Pied de page des forums</span></h2>
+	<div class="box">
+		<div class="inbox">
+
+
+
+
+
+		 <div id="footer"> 
+		 <!--<p class="conr">Propulsé par <a href="http://fluxbb.org/">FluxBB</a> <br> Traduction par <a href="http://fluxbb.fr/">FluxBB.fr</a><br/><br>
+</p>-->
+<div class="clearer"></div>
+<hr style="border-top:1px solid white;">
+<span style="font-weight:bold">Psychoactif est une communauté dédiée à l'information, l'entraide, l'échange d'expériences et la construction de savoirs sur les drogues, dans une démarche de <a href="https://www.psychoactif.org/psychowiki/index.php?title=La_r%C3%A9duction_des_risques_li%C3%A9s_%C3%A0_l%27usage_de_drogues" style=""><u>réduction des risques.</u></a></span><br><br>
+
+<div style="text-align:center"><a href='/forum/page.php?id=13' class="blacksouligne"><img src='/images/btn_donate.gif' alt='logo Don' > Soutenez PsychoACTIF</a></div><br>
+<div style="text-align:center"> <a href="/forum/PsychoACTIF-qui-sommes-nous.html">A propos de Psychoactif</a> | <a href="/forum/viewtopic.php?id=35234">Politique de confidentialité</a> | <a href="/forum/misc.php?action=rules">CGU</a> | <a href="/forum/contact.php">Contact</a> | <a href="/forum/rss.php" ><img src="/images/feed-icon-16x16.png" alt="flux RSS"> Flux RSS</a> | <a href="/forum/analyse-a-distance.php?identification=PSYCHO255411&amp;bureautomob">Affichage Mobile</a></div>
+
+<!--
+<div style="text-align:center">
+<ul style="inline-block">
+<li style="opacity:1"> &nbsp;</li>
+<li class="twitter" style="display:inline-block">
+	<a title="twitter" target="_blank" href="http://twitter.com/psychoactif" style=''><svg version="1.1" id="svg5" xmlns:svg="http://www.w3.org/2000/svg"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32" height="32" viewBox="0 0 1668.56 1221.19"
+	 style="enable-background:new 0 0 1668.56 1221.19;" xml:space="preserve">
+<g id="layer1" transform="translate(52.390088,-25.058597)">
+	<path id="path1009" d="M283.94,167.31l386.39,516.64L281.5,1104h87.51l340.42-367.76L984.48,1104h297.8L874.15,558.3l361.92-390.99
+		h-87.51l-313.51,338.7l-253.31-338.7H283.94z M412.63,231.77h136.81l604.13,807.76h-136.81L412.63,231.77z" fill="#FFFFFF"/>
+</g>&nbsp;</a>
+</li>
+<li style="display:inline-block;width:32px;height:32px;vertical-align:middle;position:relative">
+	<a title="facebook" target="_blank" href="http://www.facebook.com/Psychoactif.fr" style='position:absolute;top:-10px;left:0'><svg width="24px" height="24px" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg"><title>Facebook icon</title><path d="M23.9981 11.9991C23.9981 5.37216 18.626 0 11.9991 0C5.37216 0 0 5.37216 0 11.9991C0 17.9882 4.38789 22.9522 10.1242 23.8524V15.4676H7.07758V11.9991H10.1242V9.35553C10.1242 6.34826 11.9156 4.68714 14.6564 4.68714C15.9692 4.68714 17.3424 4.92149 17.3424 4.92149V7.87439H15.8294C14.3388 7.87439 13.8739 8.79933 13.8739 9.74824V11.9991H17.2018L16.6698 15.4676H13.8739V23.8524C19.6103 22.9522 23.9981 17.9882 23.9981 11.9991Z"/fill="#FFFFFF"></svg>&nbsp;</a>
+
+<li style="display:inline-block">
+	<a title="Youtube" target="_blank" href="https://www.youtube.com/channel/UC3973e0Gg7cvPrXFMULGVag" ><svg style="color: red" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black" class="bi bi-youtube" viewBox="0 0 16 16"> <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" fill="#FFFFFF"></path> </svg>&nbsp;</a>
+</li>
+<li class="" style="display:inline-block;position:relative;">
+	<a title="Dailymotion" target="_blank" href="https://www.dailymotion.com/psychoactif_org" style="position:absolute;top:-28px"><svg width="22" height="22" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Color-" transform="translate(-400.000000, -361.000000)" fill="#FFFFFF">
+            <path d="M400,409 L448,409 L448,361 L400,361 L400,409 Z M441.390625,402.565422 L434.236141,402.565422 L434.236141,399.759719 C432.038406,401.910766 429.793797,402.705719 426.801063,402.705719 C423.761547,402.705719 421.142875,401.723734 418.945047,399.759719 C416.045781,397.187875 414.549484,393.821031 414.549484,389.893047 C414.549484,386.292344 415.952406,383.065844 418.570984,380.540687 C420.909109,378.249391 423.761547,377.080375 426.941359,377.080375 C429.980875,377.080375 432.318953,378.109094 434.002375,380.260094 L434.002375,369.317875 L441.390625,367.787031 L441.390625,402.565422 Z M428.157203,383.626984 C424.650016,383.626984 421.937875,386.479422 421.937875,389.846266 C421.937875,393.353453 424.650016,396.018813 428.43775,396.018813 C431.617563,396.018813 434.282922,393.400188 434.282922,389.939781 C434.282922,386.339172 431.617563,383.626984 428.157203,383.626984 Z" id="Dailymotion">
+</path></g></g>
+</svg>&nbsp;</a>
+</li>
+
+</ul>
+</div>
+
+-->
+<div>&nbsp;</div>
+<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/fr/"><img alt="Licence Creative Commons" style="border-width:0;float:left;margin-right:10px;width:88px;height:31px" src="/images/88x31.png" alt="licence creative common"/></a><a href="/forum/page.php?id=7">Droit d'auteur</a> : <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Dataset" property="dct:title" rel="dct:type">Les textes de Psychoactif</span> de <a xmlns:cc="https://creativecommons.org/ns#" href="https://www.psychoactif.org" property="cc:attributionName" rel="cc:attributionURL"><u>https://www.psychoactif.org</u></a> sont <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/fr/"><u>sous licence CC by NC SA 3.0</u></a>
+<div class="clearer"></div>
+</div>
+
+
+
+
+			<div class="clearer"></div>
 		</div>
 	</div>
+</div>
 
-	<div class="p-body">
-		<div class="p-body-inner">
-			<!--XF:EXTRA_OUTPUT-->
 
-			
-				
+
+<p>&nbsp;</p>
+
+</div>
+</div>
+</div>
+
+<script type="text/javascript" src="/forum/js/new_menu.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script type="text/javascript" src="/forum/js/jquery.autoheight.js"></script>
+
+
+<script>
+/**
+ * jQuery Unveil
+ * A very lightweight jQuery plugin to lazy load images
+ * http://luis-almeida.github.com/unveil
+ *
+ * Licensed under the MIT license.
+ * Copyright 2013 Luís Almeida
+ * https://github.com/luis-almeida
+ */
+
+;(function($) {
+
+  $.fn.unveil = function(threshold, callback) {
+
+    var $w = $(window),
+        th = threshold || 0,
+        retina = window.devicePixelRatio > 1,
+        attrib = retina? "data-src-retina" : "data-src",
+        images = this,
+        loaded;
+
+    this.one("unveil", function() {
+      var source = this.getAttribute(attrib);
+      source = source || this.getAttribute("data-src");
+      if (source) {
+        this.setAttribute("src", source);
+        if (typeof callback === "function") callback.call(this);
+      }
+    });
+
+    function unveil() {
+      var inview = images.filter(function() {
+        var $e = $(this);
+        if ($e.is(":hidden")) return;
+
+        var wt = $w.scrollTop(),
+            wb = wt + $w.height(),
+            et = $e.offset().top,
+            eb = et + $e.height();
+
+        return eb >= wt - th && et <= wb + th;
+      });
+
+      loaded = inview.trigger("unveil");
+      images = images.not(loaded);
+    }
+
+    $w.on("scroll.unveil resize.unveil lookup.unveil", unveil);
+
+    unveil();
+
+    return this;
+
+  };
+
+})(window.jQuery || window.Zepto);
+</script>
+<script>
+$(document).ready(function() {
+  $("img").unveil(200);
+});
+</script>
+
+
+<script>
+// mettre et enlever une discussion des favoris
+$(document).ready(function(){
+ 
+    $("#favorispan").click(function(){
+ 	$.post(
+            '/forum/misc.php', // Un script PHP que l'on va créer juste après
+            {
+                favoriz : document.getElementById("favorispan").getAttribute('fav-value'),  // 
+              
+            },
+ 
+            function(data){
+        
+                     $("#favorispan").html(data);
 	
-		
-		
+			var afav = document.getElementById("favoriza").getAttribute('aval');
+                  
+			if (afav != "0") alert("Vous avez mis cette discussion dans vos favoris. Pour la consulter plus tard, allez dans votre profil puis Mes favoris");
+			else 
+					alert("Vous avez enlever cette discussion dans vos favoris.");
+         
+            },
+            'text'
+         );
+    });
+});
 
-		<ul class="notices notices--block  js-notices"
-			data-xf-init="notices"
-			data-type="block"
-			data-scroll-interval="6">
 
-			
-				
-	<li class="notice js-notice notice--primary"
-		data-notice-id="1"
-		data-delay-duration="0"
-		data-display-duration="0"
-		data-auto-dismiss=""
-		data-visibility="">
+// les posts favoris
 
-		
-		<div class="notice-content">
-			
-				<a href="/account/dismiss-notice?notice_id=1" class="notice-dismiss js-noticeDismiss" data-xf-init="tooltip" title="Dismiss notice"></a>
-			
-			<h2 style="color:#D3D3D3">Comment faire analyser mon produit ?
-</h2>
-<p style="color:#D3D3D3">Crée un sujet dans le forum <a href="https://www.psychonaut.fr/forums/demandes.160/">Demandes</a>, avec pour titre : <b>le produit attendu</b>, et <b>sa forme</b>. Exemple : "poudre blanche vendue comme cocaïne".<br>
-Dans ton message, précise ce que tu attends de cette analyse. Si notre dispositif peut répondre à ton besoin, un collecteur te donnera la marche à suivre pour l'envoi au labo. <br>
-Les résultats sont publiés anonymement dans le sous-forum <a href="https://www.psychonaut.fr/forums/resultats.161/">Résultats</a>, en général le vendredi.<br>
-<br>
-Seuls les membres avec le rôle "Collecteur" peuvent voir ta demande. L'échange est supprimé une fois que le résultat est rendu. Les demandes non complétées sont supprimées au bout de 3 mois. Psychonaut ne conserve aucune donnée personnelle.<br>
-<br>
-L'analyse est effectuée par les laboratoires ATP-IDF ou Centre des Wads. Nous proposons ce dispositif en partenariat avec Psychoactif et RDR-à-distance.
-		</div>
-	</li>
+// mettre et enlever une discussion des favoris
+$(document).on("click", ".subscribe_favori_post",  function(){
 
-			
-		</ul>
+    		var favoripostaa = this.getAttribute('fpid');
+    		var user_id= this.getAttribute('user');
+ 	$.post(
+            '/forum/misc.php', // Un script PHP que l'on va créer juste après
+            {
+                favoripost : this.getAttribute('fpid'),  // 
+              
+            },
+ 
+            function(data){
+        
+                     $("#fp"+favoripostaa).html(data);
+			var afav = document.getElementById("favoriposta"+favoripostaa).getAttribute('aval');
+                  
+			if (afav != "0")  			
+					document.getElementById("cpostrating_"+favoripostaa).innerHTML= '<b>Vous avez mis ce post dans vos favoris. Pour le consulter plus tard, allez dans votre profil puis <a href="/forum/profile.php?plugin=UPP_Mes_favoris.php&id='+user_id+'">Mes favoris</a></b>';
+			else 
+					document.getElementById("cpostrating_"+favoripostaa).innerHTML= "Vous avez enlever ce post dans vos favoris.";
+         
+            },
+            'text'
+         );
+});
+
+
+//montrer le formulaire de notation des posts du forum
+$(document).on("click", ".ashowrep",  function(){
+
+	var id = this.getAttribute('ashowrep');
+	var param = "id="+ id;
+
+	$("#cpostrating_"+ id).load('/forum/ajax_reputation.php',param);
+       	if (document.getElementById("apostrating_"+ id))
+	document.getElementById("apostrating_"+ id).style.display="none";
+
+});
+
+//montrer le formulaire de notation com de blog
+$(document).on("click", ".bcshowrep",  function(){
+
+	var id = this.getAttribute('ashowrep');
+	var param = "id="+ id;
+
+	$("#cpostrating_"+ id).load('/forum/ajax_reputation_blog.php',param);
+       	if (document.getElementById("apostrating_"+ id))
+	document.getElementById("apostrating_"+ id).style.display="none";
+
+});
+
+//montrer le formulaire de notation blog
+$(document).on("click", ".bashowrep",  function(){
+
+	var id = this.getAttribute('ashowrep');
+	var param = "id="+ id;
+
+	$("#cpostratingb_"+ id).load('/forum/ajax_reputation_blogb.php',param);
+       	if (document.getElementById("apostrating_"+ id))
+	document.getElementById("apostrating_"+ id).style.display="none";
+
+});
+
+//envoie querstionnaire de reput pour le post, blog et com de blog du forum
+$(document).on("click", ".doreput",  function(){
+ 	var do_reput = this.getAttribute('doreputatt');
+ 	var w = this.getAttribute('where');
+	if (w == "f") w2 = "";else if (w == "c") w2 = "_blog";else if (w == "b") w2 ="_blogb";
+	if (w== "f") w3= "";else if (w =="c") w3="";else if (w== "b") w3 ="b";
+
+	if (document.getElementById('reputation_text_'+do_reput).value == '') 		{ alert ('Vous devez entrer un commentaire pour évaluer ce post'); return false} 
+	$.ajax({
+            url :'/forum/ajax_reputation'+w2+'.php',
+  	    type: 'post',
+            data : {
+                do_reput : do_reput,  
+		txt : document.getElementById('reputation_text_'+ do_reput).value,
+		note : this.getAttribute('doreputnot')
+            },
+	     beforeSend: function(){
+  		$("#bpostrating"+w3+"_"+ do_reput).html("<div style='font-size:2em;text-align:center;margin:40px'>Loading...</div>");
+ 		},
+            success:function(response){
+        		$("#bpostrating"+w3+"_"+ do_reput).html(response);
+                     
+		if (document.getElementById("cpostrating" + w3 + "_"+ do_reput))   document.getElementById("cpostrating" + w3 + "_"+ do_reput).style.display="none";
 	
-
 			
-
-			
-
-			
-			
-	
-		<ul class="p-breadcrumbs "
-			itemscope itemtype="https://schema.org/BreadcrumbList">
-			
-				
-
-				
-				
-
-				
-
-				
-					
-					
-	<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-		<a href="/forums/" itemprop="item">
-			<span itemprop="name">Forums</span>
-		</a>
-		<meta itemprop="position" content="1" />
-	</li>
-
-				
-				
-					
-					
-	<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-		<a href="/categories/analyse-de-drogues.158/" itemprop="item">
-			<span itemprop="name">Analyse de drogues</span>
-		</a>
-		<meta itemprop="position" content="2" />
-	</li>
-
-				
-					
-					
-	<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-		<a href="/forums/analyse-de-drogue.159/" itemprop="item">
-			<span itemprop="name">Analyse de drogue</span>
-		</a>
-		<meta itemprop="position" content="3" />
-	</li>
-
-				
-					
-					
-	<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-		<a href="/forums/resultats.161/" itemprop="item">
-			<span itemprop="name">Résultats</span>
-		</a>
-		<meta itemprop="position" content="4" />
-	</li>
-
-				
-			
-		</ul>
-	
-
-			
-
-			
-	<noscript class="js-jsWarning"><div class="blockMessage blockMessage--important blockMessage--iconic u-noJsOnly">JavaScript is disabled. For a better experience, please enable JavaScript in your browser before proceeding.</div></noscript>
-
-			
-	<div class="blockMessage blockMessage--important blockMessage--iconic js-browserWarning" style="display: none">You are using an out of date browser. It  may not display this or other websites correctly.<br />You should upgrade or use an <a href="https://www.google.com/chrome/" target="_blank" rel="noopener">alternative browser</a>.</div>
+         
+            }
+           
+ 		
+         });
+});
 
 
-			
-				<div class="p-body-header">
-					
-						
-							<div class="p-title ">
-								
-									
-										<h1 class="p-title-value">Post thread</h1>
-									
-									
-								
-							</div>
-						
+//formulaire de signalement
 
-						
-					
-				</div>
-			
+$(document).on("click", ".asignal",  function(){
 
-			<div class="p-body-main  ">
-				
-				<div class="p-body-contentCol"></div>
-				
 
-				
+	var id = this.getAttribute('asignalid');
+	var where = this.getAttribute('asignalwhere');
+	var param = "signaler="+ id+'&w='+where;
 
-				<div class="p-body-content">
-					
-					<div class="p-body-pageContent">
+	if (where == undefined) {where = "f";where2=""};
+	if (where == "b") where2 ="b";else where2 = "";
+
+	$("#cpostrating"+where2+ "_"+ id).load('/forum/ajax_poubelle_post.php',param);
+   
+});
+
+
+// envoie formulaire de signalement
+$(document).on("click", ".buttonsignal", function(){
+
+	var id = this.getAttribute('buttonsignalid');
+	var where = this.getAttribute('buttonsignalwhere');
+	var token = this.getAttribute('buttontoken');
+
+	if (where == undefined) {where = "f"; var where2=""};
+	if (where == "b") var where2 ="b";else var where2 = "";
+
+	$.ajax({
+            url :'/forum/ajax_poubelle_post.php',
+  	    type: 'post',
+            data : {
+                envoi_signaler : id, 
+		signalement : document.getElementById('req_reason_'+where+ id).value,
+		w : where,
+		tokensignalement : token
+            },
+	     beforeSend: function(){
+  		$("#cpostrating"+where2+ "_" + id).html("<div style='font-size:2em;text-align:center;margin:40px'>Loading...</div>");
+ 		},
+            success:function(response){
+        		$("#cpostrating"+where2+ "_" + id).html(response);
+                 
+            }
+           
+ 		
+         });
+
+
+});
 
 
 
+//citation
 
 
-
-			<form action="/forums/resultats.161/post-thread" method="post" class="block"
-				 data-xf-init="attachment-manager ajax-submit draft" data-draft-url="/forums/resultats.161/draft" data-draft-autosave="60"
-			>
-				<input type="hidden" name="_xfToken" value="1761560872,63a420724e5240852cbe62893ae53078" />
-				
-
-	<div class="block-container">
-		<div class="block-body">
-
-			
-
-			
-			<dl class="formRow formRow--input formRow--fullWidth formRow--noLabel">
-				<dt>
-					<div class="formRow-labelWrapper">
-					<label class="formRow-label" for="_xfUid-5-1761560872">Title</label></div>
-				</dt>
-				<dd>
-					
+$(document).on("click", ".acite", function(){
 
 
+	var tid = this.getAttribute('citetid');
+	if(tid === undefined) { tid = ''; }
+	var pseudo = this.getAttribute('citepseudo');
 
+	var sel = getSelected();
 
-
-
-	<div class="js-prefixContainer">
-		<div class="inputGroup inputGroup--joined u-jsOnly">
-			<div class="inputGroup-text">
-				<div class="" data-xf-init="prefix-menu"
-					
-					 data-help-href="/forums/resultats.161/prefix-help"
-					
-				>
-					<a class="menuTrigger menuTrigger--prefix" data-xf-click="menu" role="button" tabindex="0" aria-expanded="false" aria-haspopup="true">
-						<span class="js-activePrefix">(No prefix)</span>
-					</a>
-					<div class="menu" data-menu="menu" aria-hidden="true">
-						<div class="menu-content">
-							<div class="menu-scroller js-prefixMenuContent" role="listbox">
-								
-	<script type="text/template">
-		{{#groups}}
-			{{#title}}
-				<h3 class="menu-header">{{title}}</h3>
-			{{/title}}
-			{{#prefixes}}
-				<div class="menu-row">
-					<a class="menuPrefix {{css_class}}"
-						data-prefix-id="{{prefix_id}}"
-						data-prefix-class="{{css_class}}"
-						role="option">{{title}}</a>
-				</div>
-			{{/prefixes}}
-			<hr class="menu-separator" />
-		{{/groups}}
-		<div class="menu-row">
-			<a class="menuPrefix menuPrefix--none"
-				data-prefix-id="0"
-				data-prefix-class=""
-				role="option">(No prefix)</a>
-		</div>
-	</script>
-
-							</div>
-						</div>
-					</div>
-				</div>
-				
-	
-
-	
-			<select name="prefix_id" class="js-prefixSelect u-noJsOnly input" title="Prefix">
-				<option value="0">(No prefix)</option>
-<optgroup label="Ressources">
-<option value="1" data-prefix-class="label label--royalBlue">Fiche info</option>
-<option value="2" data-prefix-class="label label--royalBlue">Tuto</option>
-</optgroup><optgroup label="Analyse">
-<option value="6" selected="selected" data-prefix-class="label label--silver">Résultat</option>
-</optgroup><option value="4" data-prefix-class="label label--orange">Association</option>
-
-			</select>
-		
-
-
-			</div>
-			
-	
-		<textarea rows="1" name="title"
-			data-xf-init="textarea-handler suggested-threads" data-single-line="true"
-			class="input js-titleInput  input--title"
-			autocomplete="off"
-			 placeholder="Thread title" autofocus="autofocus" maxlength="150" data-search-url="/forums/resultats.161/find-suggested-threads" id="_xfUid-5-1761560872">test</textarea>
-	
-
-		</div>
-		
-			<div class="js-prefixHelp"></div>
-		
-		<noscript>
-			<div class="inputGroup">
-				
-	
-
-	
-			<select name="prefix_id" class="js-prefixSelect u-noJsOnly input" title="Prefix">
-				<option value="0">(No prefix)</option>
-<optgroup label="Ressources">
-<option value="1" data-prefix-class="label label--royalBlue">Fiche info</option>
-<option value="2" data-prefix-class="label label--royalBlue">Tuto</option>
-</optgroup><optgroup label="Analyse">
-<option value="6" selected="selected" data-prefix-class="label label--silver">Résultat</option>
-</optgroup><option value="4" data-prefix-class="label label--orange">Association</option>
-
-			</select>
-		
-
-
-				<span class="inputGroup-splitter"></span>
-				
-	
-		<textarea rows="1" name="title"
-			data-xf-init="textarea-handler suggested-threads" data-single-line="true"
-			class="input js-titleInput  input--title"
-			autocomplete="off"
-			 placeholder="Thread title" autofocus="autofocus" maxlength="150" data-search-url="/forums/resultats.161/find-suggested-threads" id="_xfUid-5-1761560872">test</textarea>
-	
-
-			</div>
-		</noscript>
-	</div>
-
-
-
-
-
-					<div class="js-suggestedThreadContainer" style="display: none;"></div>
-				</dd>
-			</dl>
-		
-
-			
-
-			
-
-	
-		<input type="hidden" name="discussion_type" value="discussion" />
-	
-
-
-
-			<div class="js-inlineNewPostFields">
-				
-			<dl class="formRow formRow--input formRow--fullWidth formRow--noLabel formRow--mergePrev">
-				<dt>
-					<div class="formRow-labelWrapper">
-					<label class="formRow-label" for="_xfUid-6-1761560872">Message</label></div>
-				</dt>
-				<dd>
-					
-	
-
-	
-		
-	
-	
-
-	<script class="js-editorToolbars" type="application/json">{"toolbarButtons":{"moreText":{"buttons":["clearFormatting","bold","italic","fontSize","textColor","fontFamily","strikeThrough","underline","xfInlineCode","xfInlineSpoiler"],"buttonsVisible":"5","align":"left"},"moreParagraph":{"buttons":["xfList","align","paragraphFormat"],"buttonsVisible":"3","align":"left"},"moreRich":{"buttons":["insertLink","insertImage","xfSmilie","xfMedia","xfQuote","insertTable","insertHR","insertVideo","xfSpoiler","xfCode"],"buttonsVisible":"6","align":"left"},"moreMisc":{"buttons":["undo","redo","xfBbCode","xfDraft"],"buttonsVisible":"4","align":"right"}},"toolbarButtonsMD":{"moreText":{"buttons":["bold","italic","fontSize","textColor","fontFamily","strikeThrough","underline","xfInlineCode","xfInlineSpoiler"],"buttonsVisible":"3","align":"left"},"moreParagraph":{"buttons":["xfList","align","paragraphFormat"],"buttonsVisible":"3","align":"left"},"moreRich":{"buttons":["insertLink","insertImage","xfSmilie","insertVideo","xfMedia","xfQuote","insertTable","insertHR","xfSpoiler","xfCode"],"buttonsVisible":"2","align":"left"},"moreMisc":{"buttons":["undo","redo","clearFormatting","xfBbCode","xfDraft"],"buttonsVisible":"1","align":"right"}},"toolbarButtonsSM":{"moreText":{"buttons":["bold","italic","fontSize","textColor","fontFamily","strikeThrough","underline","xfInlineCode","xfInlineSpoiler"],"buttonsVisible":"2","align":"left"},"moreParagraph":{"buttons":["xfList","align","paragraphFormat"],"buttonsVisible":"1","align":"left"},"moreRich":{"buttons":["insertLink","insertImage","xfSmilie","xfQuote","insertVideo","xfMedia","insertTable","insertHR","xfSpoiler","xfCode"],"buttonsVisible":"3","align":"left"},"moreMisc":{"buttons":["undo","redo","xfBbCode","clearFormatting","xfDraft"],"buttonsVisible":"1","align":"right"}},"toolbarButtonsXS":{"moreText":{"buttons":["bold","italic","fontSize","textColor","fontFamily","xfList","align","paragraphFormat","strikeThrough","underline","xfInlineSpoiler","xfInlineCode"],"buttonsVisible":"2","align":"left"},"moreParagraph":{"buttons":[],"buttonsVisible":"0","align":"left"},"moreRich":{"buttons":["insertLink","insertImage","xfSmilie","xfQuote","insertVideo","xfMedia","insertTable","insertHR","xfSpoiler","xfCode"],"buttonsVisible":"2","align":"left"},"moreMisc":{"buttons":["undo","redo","xfBbCode","clearFormatting","xfDraft"],"buttonsVisible":"1","align":"right"}}}</script>
-	<script class="js-editorToolbarSizes" type="application/json">{"SM":420,"MD":575,"LG":900}</script>
-	<script class="js-editorDropdowns" type="application/json">{"xfList":{"cmd":"xfList","icon":"fa-list","buttons":["formatOL","formatUL","indent","outdent"],"title":"List"}}</script>
-	<script class="js-editorLanguage" type="application/json">
-		{
-			"Align Center": "Align center",
-			"Align Left": "Align left",
-			"Align Right": "Align right",
-			"Align Justify": "Justify text",
-			"Align": "Alignment",
-			"Alignment": "Alignment",
-			"Back": "Back",
-			"Bold": "Bold",
-			"By URL": "By URL",
-			"Clear Formatting": "Remove formatting",
-			"Code": "Code",
-			"Text Color": "Text color",
-			"Decrease Indent": "Outdent",
-			"Delete Draft": "Delete draft",
-			"Drafts": "Drafts",
-			"Drop image": "Drop image",
-			"Drop video": "Drop video",
-			"Edit Link": "Edit link",
-			"Font Family": "Font family",
-			"Font Size": "Font size",
-			"Normal": "Normal",
-			"Heading 1": "Heading 1",
-			"Heading 2": "Heading 2",
-			"Heading 3": "Heading 3",
-			"Increase Indent": "Indent",
-			"Inline Code": "Inline code",
-			"Insert GIF": "Insert GIF",
-			"Insert Horizontal Line": "Insert horizontal line",
-			"Inline Spoiler": "Inline spoiler",
-			"Insert Image": "Insert image",
-			"Insert Link": "Insert link",
-			"Insert": "Insert",
-			"Italic": "Italic",
-			"List": "List",
-			"Loading image": "Loading image",
-			"Media": "Media",
-			"More Text": "More options…",
-			"More Paragraph": "More options…",
-			"More Rich": "More options…",
-			"More Misc": "More options…",
-			"Open Link": "Open link",
-			"or click": "Or click here",
-			"Ordered List": "Ordered list",
-			"Paragraph Format": "Paragraph format",
-			"Preview": "Preview",
-			"Quote": "Quote",
-			"Redo": "Redo",
-			"Remove": "Remove",
-			"Replace": "Replace",
-			"Save Draft": "Save draft",
-			"Smilies": "Smilies",
-			"Something went wrong. Please try again.": "Something went wrong. Please try again or contact the administrator.",
-			"Spoiler": "Spoiler",
-			"Strikethrough": "Strike-through",
-			"Text": "Text",
-			"Toggle BB Code": "Toggle BB code",
-			"Underline": "Underline",
-			"Undo": "Undo",
-			"Unlink": "Unlink",
-			"Unordered List": "Unordered list",
-			"Update": "Update",
-			"Upload Image": "Upload image",
-			"Uploading": "Uploading",
-			"URL": "URL",
-			"Insert Table": "Insert table",
-			"Table Header": "Table header",
-			"Remove Table": "Remove table",
-			"Row": "Row",
-			"Column": "Column",
-			"Insert row above": "Insert row above",
-			"Insert row below": "Insert row below",
-			"Delete row": "Delete row",
-			"Insert column before": "Insert column before",
-			"Insert column after": "Insert column after",
-			"Delete column": "Delete column",
-			"Ctrl": "Ctrl",
-			"Shift": "Shift",
-			"Alt": "Alt",
-			"Insert Video": "Insert video",
-			"Upload Video": "Upload video",
-			"Width": "Width",
-			"Height": "Height",
-			"Change Size": "Change size",
-			"None": "None",
-			"Alternative Text": "Alt text",
-			"__lang end__": ""
+	if (sel != false) {
+		document.getElementById("req_message"+tid).value +='[quote='+pseudo+']'+sel+'[/quote]'+"\n"; window.location.href = '#req_message'+ tid; return false;
 		}
-	</script>
 
-	<script class="js-editorCustom" type="application/json">
-		[]
-	</script>
+	var id = this.getAttribute('citeid');
+	var where = this.getAttribute('citewhere');
 
-	<script class="js-xfEditorMenu" type="text/template">
-		<div class="menu" data-menu="menu" aria-hidden="true"
-			data-href="{{href}}"
-			data-load-target=".js-xfEditorMenuBody">
-			<div class="menu-content">
-				<div class="js-xfEditorMenuBody">
-					<div class="menu-row">Loading…</div>
-				</div>
-			</div>
-		</div>
-	</script>
+	if (document.getElementById("req_message"+tid))
+           document.getElementById("req_message"+tid).focus();
 
-	<textarea name="message_html"
-		class="input js-editor u-jsOnly"
-		data-xf-init="editor"
-		data-original-name="message"
-		data-buttons-remove="xfInsertGif"
-		style="visibility: hidden; height: 287px; "
-		aria-label="Rich text box"
-		 data-preview-url="/forums/resultats.161/thread-preview" id="_xfUid-6-1761560872" data-min-height="250">&lt;p&gt;EXEMPLE&lt;/p&gt;</textarea>
-
-	
-
-	<input type="hidden" value="EXEMPLE" data-bb-code="message" />
-
-	<noscript>
-		<textarea name="message" class="input" aria-label="Rich text box">EXEMPLE</textarea>
-	</noscript>
-
-
-				</dd>
-			</dl>
+	$.ajax({
+            url :'/forum/ajax_cite.php',
+  	    type: 'get',
+            data : {
+                id : id, 
+		w : where
 		
+            },
 
-				
-			<dl class="formRow formRow--fullWidth formRow--noLabel formRow--mergePrev formRow--noTopPadding">
-				<dt>
-					<div class="formRow-labelWrapper"></div>
-				</dt>
-				<dd>
-					
-					
-						
-	
-	
-	<div class="attachmentUploads js-attachmentUploads  ">
-		<div class="hScroller" data-xf-init="h-scroller">
-			<div class="hScroller-scroll">
-				<ul class="attachUploadList js-attachmentFiles">
-				
-				</ul>
-			</div>
-		</div>
+            success:function(response){	
+               document.getElementById("req_message"+tid).value += response+"\n";  
+            }  
+ 		
+         });
 
-		<div class="attachmentUploads-banner js-attachmentInsertMultiRow u-hidden">
-			<button type="button" class="button button--link js-attachmentSelect" data-toggle="Cancel"><span class="button-text">
-				Insert multiple…
-			</span></button>
-			<ul class="attachmentUploads-selectActions js-attachmentSelectActions">
-				<li>
-					<span class="button button--link selectAll">
-						<span class="button-text">
-							<label class="iconic"><input type="checkbox"  value="1" data-xf-init="check-all" data-container="&lt; .attachmentUploads" /><i aria-hidden="true"></i><span class="iconic-label">Select all</span></label>
+	window.location.href = '#req_message'+ tid;
+});
 
-						</span>
-					</span>
-				</li>
-				<li class="js-attachmentSelectInsertActions">
-					<span class="insert-label">Insert:</span>
-					<span class="buttonGroup">
-						<button type="button" class="button button--link js-attachmentSelectAction" data-action="thumbnail"><span class="button-text">
-							Thumbnail
-						</span></button>
-						<button type="button" class="button button--link js-attachmentSelectAction" data-action="full"><span class="button-text">
-							Full image
-						</span></button>
-					</span>
-				</li>
-				<li>
-					<button type="button" class="button button--icon button--link button--iconOnly js-attachmentSelectAction" data-action="delete"><i class="fa--xf far fa-trash-alt "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1761395885#trash-alt"></use></svg></i><span class="button-text">
-						<span class="u-srOnly">Delete</span>
-					</span></button>
-				</li>
-			</ul>
-		</div>
+//plus de resultat de mordeau chois, forum, blog, actu, video, forumid
+$(document).on("click", ".aplus", function(){
 
-	</div>
-	
-	<script type="text/template" class="js-attachmentUploadTemplate">
-		<li class="file js-attachmentFile" {{#attachment_id}}data-attachment-id="{{attachment_id}}"{{/attachment_id}}>
-			{{#uploading}}
-				<div class="file-preview">
-					<div class="file-progress js-attachmentProgress"></div>
-					<span class="file-error js-attachmentError"></span>
-				</div>
-			{{/uploading}}
-			{{^uploading}}
-				{{#thumbnail_url}}
-					<a class="file-preview js-attachmentView" href="{{link}}" target="_blank">
-						<img src="{{thumbnail_url}}" class="js-attachmentThumb" alt="{{filename}}" />
-					</a>
-				{{/thumbnail_url}}
-				{{^thumbnail_url}}
-					{{#is_video}}
-						<a class="file-preview js-attachmentView" href="{{link}}" target="_blank">
-							<video data-xf-init="video-init">
-								<source src="{{link}}" />
-							</video>
-						</a>
-					{{/is_video}}
-					{{^is_video}}
-						<a class="file-preview js-attachmentView" href="{{link}}" target="_blank">
-							<span class="file-typeIcon">
-								<i class="fa--xf far {{icon}}">
-									<svg xmlns="http://www.w3.org/2000/svg" role="img">
-										<title>{{filename}}</title>
-										<use href="/data/local/icons/regular.svg?v=1761395885#{{icon_name}}"></use>
-									</svg>
-								</i>
-							</span>
-						</a>
-					{{/is_video}}
-				{{/thumbnail_url}}
-			{{/uploading}}
+	var id = this.getAttribute('plusid');
+	var lastpost = this.getAttribute('pluslastpost');
+	var plustype= this.getAttribute('plustype');
+	var forumid= this.getAttribute('forumid');
+	var prefixid= this.getAttribute('prefixid');
 
-			<div class="file-content">
+	if (plustype == "mc")
+	{
+	var adresse = "/forum/ajax_choisisplusresultat.php";
+	var gaplus = "ajax_mcplusresultat";
 
-				{{#thumbnail_url}}
-					<div class="file-insert js-attachmentInsert">
-						<a class="file-insertLink"
-							data-xf-click="toggle"
-							data-target="< .js-attachmentInsert"
-							role="button"
-							tabindex="0">
-							Insert…
-						</a>
-						<div class="file-menuOptions">
-							<a class="js-attachmentAction" data-action="thumbnail" role="button" tabindex="0"
-								data-xf-click="toggle" data-target="< .js-attachmentInsert">Thumbnail</a>
-							<a class="js-attachmentAction" data-action="full" role="button" tabindex="0"
-								data-xf-click="toggle" data-target="< .js-attachmentInsert">Full image</a>
-						</div>
-					</div>
-				{{/thumbnail_url}}
-				{{^thumbnail_url}}
-					{{#is_video}}
-						<div class="file-insert js-attachmentInsert">
-							<a class="file-insertLink js-attachmentAction" data-action="full" data-type="video" role="button" tabindex="0">
-								Insert
-							</a>
-						</div>
-					{{/is_video}}
-					{{#is_audio}}
-						<div class="file-insert js-attachmentInsert">
-							<a class="file-insertLink js-attachmentAction" data-action="full" data-type="audio" role="button" tabindex="0">
-								Insert
-							</a>
-						</div>
-					{{/is_audio}}
-				{{/thumbnail_url}}
+	}
+	if (plustype == "forum")
+	{
+	var adresse = "ajax_forumplusresultat.php";
+	var gaplus = "ajax_forumplusresultat";
 
-				<div class="file-checkbox">
-					<label class="iconic iconic--noLabel"><input type="checkbox"  value="1" /><i aria-hidden="true"></i></label>
+	}
+	if (plustype == "blog")
+	{
+	var adresse = "/forum/ajax_blogplusresultat.php";
+	var gaplus = "ajax_blogplusresultat";
 
-				</div>
+	}
+	if (plustype == "actu")
+	{
+	var adresse = "/forum/ajax_actuplusresultat.php";
+	var gaplus = "ajax_actuplusresultat";
 
-				<span class="file-delete">
-					{{#uploading}}
-						<a class="file-deleteLink js-attachmentAction"
-							data-action="cancel"
-							role="button"
-							tabindex="0">
-							<i class="fa--xf far fa-trash-alt "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1761395885#trash-alt"></use></svg></i>
-							<span class="u-srOnly">Cancel</span>
-						</a>
-					{{/uploading}}
-					{{^uploading}}
-						<a class="file-deleteLink js-attachmentAction"
-							data-action="delete"
-							data-type="{{type_grouping}}"
-							role="button"
-							tabindex="0">
-							<i class="fa--xf far fa-trash-alt "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1761395885#trash-alt"></use></svg></i>
-							<span class="u-srOnly">Delete</span>
-						</a>
-					{{/uploading}}
-				</span>
+	}
+	if (plustype == "video")
+	{
+	var adresse = "/forum/ajax_videoplusresultat.php";
+	var gaplus = "ajax_videoplusresultat";
 
-				<a class="file-info" href="{{link}}" target="_blank">
-					<span class="file-name">{{filename}}</span>
+	}
 
-					<div class="file-meta">
-						{{#thumbnail_url}}{{width}} x {{height}} &middot; {{/thumbnail_url}}
-						{{file_size_printable}}
-					</div>
-				</a>
+	if (plustype == "rating")
+	{
+	var adresse = "/forum/ajax_ratingplusresultat.php";
+	var gaplus = "ajax_ratingplusresultat";
 
-			</div>
-		</li>
-	</script>
+	}
+	if (plustype == "forumid")
+	{
+	var adresse = "/forum/ajax_forumidplusresultat.php";
+	var gaplus = "ajax_forumidplusresultat";
 
+	}
 
-
-	
-	
-
-	
-
-	<a href="/attachments/upload?type=post&amp;context[node_id]=161&amp;hash=3c4161593895bee536a2d9f0919fd211" class="button button--icon button--icon--attach button--link js-attachmentUpload" target="_blank" data-accept=".zip,.txt,.pdf,.png,.jpg,.jpeg,.jpe,.gif,.webp"><i class="fa--xf far fa-paperclip "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1761395885#paperclip"></use></svg></i><span class="button-text">Attach files</span></a>
-	<input type="hidden" name="attachment_hash" value="3c4161593895bee536a2d9f0919fd211" />
-	<input type="hidden" name="attachment_hash_combined" value="{&quot;type&quot;:&quot;post&quot;,&quot;context&quot;:{&quot;node_id&quot;:161},&quot;hash&quot;:&quot;3c4161593895bee536a2d9f0919fd211&quot;}" />
-
-
-
-					
-
-					
-						
-
-	
-	
-	
+	$.ajax({
+            url : adresse,
+  	    type: 'get',
+            data : {
+                lastpost : lastpost, 
+		plusresult : id,
+		id:forumid,
+		prefix_id:prefixid
 		
-		<button type="button" class="button button--icon button--icon--quote button--link button--multiQuote is-hidden" data-xf-init="multi-quote" data-href="/threads/0/multi-quote" data-message-selector=".js-post" data-storage-key="multiQuoteThread" data-add-message="Message added to multi-quote." data-remove-message="Message removed from multi-quote."><i class="fa--xf far fa-quote-left "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1761395885#quote-left"></use></svg></i><span class="button-text">
-			Insert quotes…
-		</span></button>
-	
-	
+            },
+	     beforeSend: function(){
+ 
+ 		},
+            success:function(response){
 
-					
-				
-				</dd>
-			</dl>
-		
+		if (document.getElementById("plusresultat"+plustype +id))
+    document.getElementById("plusresultat"+plustype +id).style.display="none";
 
-				
-
-	
-
-
-
-				
-
-				
-					<hr class="formRowSep" />
-					
-			<dl class="formRow formRow--input">
-				<dt>
-					<div class="formRow-labelWrapper">
-					<label class="formRow-label" for="_xfUid-1-1761560872">Tags</label></div>
-				</dt>
-				<dd>
-					
-
-
-
-<input type="hidden" name="tags" value="" class="input "
-	data-xf-init="token-input"
-	data-ac-url="/misc/tag-auto-complete"
-	data-min-length="3"
-	data-max-length="50"
-	data-max-tokens="20"
-	
-	 id="_xfUid-1-1761560872" />
-					<div class="formRow-explain">Multiple tags may be separated by commas.</div>
-				</dd>
-			</dl>
-		
-				
-
-				<hr class="formRowSep" />
-				
-					
-
-	
-	
-
-	
-		
-	
-
-	
-		
-	
-
-	
-		
-			<dl class="formRow">
-				<dt>
-					<div class="formRow-labelWrapper">
-					<label class="formRow-label">Options</label></div>
-				</dt>
-				<dd>
-					
-			<ul class="inputChoices" role="group" aria-labelledby="_xfUid-2-1761560872">
-				<li class="inputChoices-choice"><label class="iconic"><input type="checkbox"  name="watch_thread" value="1" data-xf-init="disabler" /><i aria-hidden="true"></i><span class="iconic-label">Watch this thread…</span></label>
-			<ul class="inputChoices-dependencies">
-				<li class="inputChoices-option"><ul class="inputChoices">
-				<li class="inputChoices-choice"><label class="iconic"><input type="checkbox"  name="watch_thread_email" value="1" /><i aria-hidden="true"></i><span class="iconic-label">and receive email notifications</span></label></li>
-
-			</ul></li>
-			</ul>
-		</li>
-
-			</ul>
-		
-				</dd>
-			</dl>
-		
-	
-	<input type="hidden" name="_xfSet[watch_thread]" value="1" />
-
-					
-
-	
-			<dl class="formRow">
-				<dt>
-					<div class="formRow-labelWrapper">
-					<label class="formRow-label">Set thread status</label></div>
-				</dt>
-				<dd>
-					
-			<ul class="inputChoices" role="group" aria-labelledby="_xfUid-3-1761560872">
-				<li class="inputChoices-choice"><label class="iconic"><input type="checkbox"  name="discussion_open" value="1" checked="checked" /><i aria-hidden="true"></i><span class="iconic-label">Unlocked</span></label>
-					<dfn class="inputChoices-explain">People may reply to this thread</dfn>
-			<input type="hidden" name="_xfSet[discussion_open]" value="1" /></li>
-<li class="inputChoices-choice"><label class="iconic"><input type="checkbox"  name="sticky" value="1" /><i aria-hidden="true"></i><span class="iconic-label">Sticky</span></label>
-					<dfn class="inputChoices-explain">Sticky threads appear at the top of the first page of the list of threads in their parent forum</dfn>
-			<input type="hidden" name="_xfSet[sticky]" value="1" /></li>
-
-			</ul>
-		
-				</dd>
-			</dl>
-		
-
-	
-		
-			
-		
-
-		
-			<dl class="formRow">
-				<dt>
-					<div class="formRow-labelWrapper">
-					<label class="formRow-label">Allow search engine indexing</label></div>
-				</dt>
-				<dd>
-					
-			<ul class="inputChoices" role="radiogroup" aria-labelledby="_xfUid-4-1761560872">
-				<li class="inputChoices-choice"><label class="iconic  iconic--radio"><input type="radio" name="index_state" value="default" checked="checked" /><i aria-hidden="true"></i><span class="iconic-label">Default</span></label>
-					<dfn class="inputChoices-explain">Allows search engines to index this thread based on the settings of the forum it belongs to.</dfn></li>
-<li class="inputChoices-choice"><label class="iconic  iconic--radio"><input type="radio" name="index_state" value="indexed" /><i aria-hidden="true"></i><span class="iconic-label">Yes</span></label>
-					<dfn class="inputChoices-explain">Always allow search engines to index this thread</dfn></li>
-<li class="inputChoices-choice"><label class="iconic  iconic--radio"><input type="radio" name="index_state" value="not_indexed" /><i aria-hidden="true"></i><span class="iconic-label">No</span></label>
-					<dfn class="inputChoices-explain">Never allow search engines to index this thread</dfn></li>
-
-			</ul>
-		
-				</dd>
-			</dl>
-		
-
-		<input type="hidden" name="_xfSet[index_state]" value="1" />
-	
-
-				
-
-				
-			</div>
-		</div>
-
-		
-			<dl class="formRow formSubmitRow formSubmitRow--sticky" data-xf-init="form-submit-row">
-				<dt></dt>
-				<dd>
-					<div class="formSubmitRow-main">
-						<div class="formSubmitRow-bar"></div>
-						<div class="formSubmitRow-controls"><button type="submit" class="button button--icon button--icon--write button--primary"><i class="fa--xf far fa-edit "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1761395885#edit"></use></svg></i><span class="button-text">Post thread</span></button></div>
-					</div>
-				</dd>
-			</dl>
-		
-	</div>
-
-				
-			</form>
-		
-
-
-
-</div>
-					
-				</div>
-
-				
-			</div>
-
-			
-			
-	
-		<ul class="p-breadcrumbs p-breadcrumbs--bottom"
-			itemscope itemtype="https://schema.org/BreadcrumbList">
-			
-				
-
-				
-				
-
-				
-
-				
-					
-					
-	<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-		<a href="/forums/" itemprop="item">
-			<span itemprop="name">Forums</span>
-		</a>
-		<meta itemprop="position" content="1" />
-	</li>
-
-				
-				
-					
-					
-	<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-		<a href="/categories/analyse-de-drogues.158/" itemprop="item">
-			<span itemprop="name">Analyse de drogues</span>
-		</a>
-		<meta itemprop="position" content="2" />
-	</li>
-
-				
-					
-					
-	<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-		<a href="/forums/analyse-de-drogue.159/" itemprop="item">
-			<span itemprop="name">Analyse de drogue</span>
-		</a>
-		<meta itemprop="position" content="3" />
-	</li>
-
-				
-					
-					
-	<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-		<a href="/forums/resultats.161/" itemprop="item">
-			<span itemprop="name">Résultats</span>
-		</a>
-		<meta itemprop="position" content="4" />
-	</li>
-
-				
-			
-		</ul>
-	
-
-			
-		</div>
-	</div>
-
-	<footer class="p-footer" id="footer">
-		<div class="p-footer-inner">
-
-			<div class="p-footer-row">
-				
-					<div class="p-footer-row-main">
-						<ul class="p-footer-linkList">
-							
-								
-								
-									<li>
-										
-											
-												<a href="/misc/style" data-xf-click="overlay"
-													data-xf-init="tooltip" title="Style chooser" rel="nofollow">
-													<i class="fa--xf far fa-paint-brush "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1761395885#paint-brush"></use></svg></i> Xenforo Basic
-												</a>
-											
-											
-												<a href="/misc/style-variation" rel="nofollow"
-													class="js-styleVariationsLink"
-													data-xf-init="tooltip" title="Style variation"
-													data-xf-click="menu" role="button" aria-expanded="false" aria-haspopup="true">
-
-													<i class="fa--xf far fa-adjust "><svg xmlns="http://www.w3.org/2000/svg" role="img" ><title>Style variation</title><use href="/data/local/icons/regular.svg?v=1761395885#adjust"></use></svg></i>
-												</a>
-
-												<div class="menu" data-menu="menu" aria-hidden="true">
-													<div class="menu-content js-styleVariationsMenu">
-														
-
-	
-		
-
-	<a href="/misc/style-variation?reset=1&amp;t=1761560872%2C63a420724e5240852cbe62893ae53078"
-		class="menu-linkRow is-selected"
-		rel="nofollow"
-		data-xf-click="style-variation" data-variation="">
-
-		<i class="fa--xf far fa-adjust "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1761395885#adjust"></use></svg></i>
-
-		
-			System
-		
-	</a>
+        	$("#"+plustype+"plusresultat").append(response);
 
 
 		
+		gtag('event','page_view', {
+		  'page_title'   : gaplus,
+		   'page_location' : adresse  ,
+		  });
 
-	<a href="/misc/style-variation?variation=default&amp;t=1761560872%2C63a420724e5240852cbe62893ae53078"
-		class="menu-linkRow "
-		rel="nofollow"
-		data-xf-click="style-variation" data-variation="default">
+     		$("img").unveil(300);
+                 
+            }
+           
+ 		
+         });
 
-		<i class="fa--xf far fa-sun "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1761395885#sun"></use></svg></i>
+});
+
+
+
+
+
+//afficher les formulaires pour modofier les posts, blogs et com
+$(document).on("click", ".aform", function(){
+
+	var id = this.getAttribute('aformid');
+	var lettre = this.getAttribute('aformlettre');
+	var mobile = this.getAttribute('aformmobile');
+	if (lettre == "f") {var urldest ="/forum/ajax_poubelle_post.php"; lettre=""; var lettre2 ="_"; var tabdata ={idform : id};}
+	if (lettre == "c") {var urldest ="/forum/ajax_blog.php";var lettre2 ="";var tabdata = {cidform : id};}
+	if (lettre == "b") {var urldest ="/forum/ajax_blog.php";var lettre2 =""; var tabdata ={bidform : id};}
+
+	$.ajax({
+            url : urldest,
+  	    type: 'get',
+            data : tabdata,
+	     beforeSend: function(){
+  		$("#postmsg"+lettre+lettre2+ id).html("<div style='font-size:2em;text-align:center;margin:40px'>Loading...</div>");
+ 		},
+
+            success:function(response){	
+		
+    			$("#postmsg"+lettre+lettre2+ id).html(response);
+
+    	    	if (document.getElementById("u"+ id))  		
+			document.getElementById("u"+ id).style.display="none";  
 
 		
-			Light
-		
-	</a>
+
+		if (lettre =="b") window.location.href = '#postmsgb'+ id;
+		if (lettre =="c") window.location.href = '#postmsgc'+ id;
+            }  
+ 		
+         });
 
 
-		
+});
 
-	<a href="/misc/style-variation?variation=alternate&amp;t=1761560872%2C63a420724e5240852cbe62893ae53078"
-		class="menu-linkRow "
-		rel="nofollow"
-		data-xf-click="style-variation" data-variation="alternate">
 
-		<i class="fa--xf far fa-moon "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1761395885#moon"></use></svg></i>
 
-		
-			Dark
-		
-	</a>
+//afficher les formulaires pour modofier les posts, blogs et com
+$(document).on("click", ".aform2", function(){
 
+	var id = this.getAttribute('aformid');
+	var lettre = this.getAttribute('aformlettre');
+	var mobile = this.getAttribute('aformmobile');
+	if (lettre == "f") {var urldest ="/forum/ajax_poubelle_post2.php"; lettre=""; var lettre2 ="_"; var tabdata ={idform : id};}
 	
+	$.ajax({
+            url : urldest,
+  	    type: 'get',
+            data : tabdata,
+	     beforeSend: function(){
+  		$("#postmsg"+lettre+lettre2+ id).html("<div style='font-size:2em;text-align:center;margin:40px'>Loading...</div>");
+ 		},
 
-	
+            success:function(response){	
 		
-	
+    			$("#postmsg"+lettre+lettre2+ id).html(response);
 
-													</div>
-												</div>
-											
-										
-									</li>
-								
-								
-									<li><a href="/misc/language" data-xf-click="overlay"
-										data-xf-init="tooltip" title="Language chooser" rel="nofollow">
-										<i class="fa--xf far fa-globe "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1761395885#globe"></use></svg></i> English (US)</a></li>
-								
-							
-						</ul>
-					</div>
-				
-				<div class="p-footer-row-opposite">
-					<ul class="p-footer-linkList">
-						
+    	    	if (document.getElementById("u"+ id))  		
+			document.getElementById("u"+ id).style.display="none";  
 
-						
-							<li><a href="/help/terms/">Terms and rules</a></li>
-						
+		//ajaxform(lettre, id, mobile);
 
-						
-							<li><a href="/help/privacy-policy/">Privacy policy</a></li>
-						
-
-						
-							<li><a href="/help/">Help</a></li>
-						
-
-						
-							<li><a href="https://www.psychonaut.fr/forums/">Portal</a></li>
-						
-
-						<li><a href="/forums/-/index.rss" target="_blank" class="p-footer-rssLink" title="RSS"><span aria-hidden="true"><i class="fa--xf far fa-rss "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1761395885#rss"></use></svg></i><span class="u-srOnly">RSS</span></span></a></li>
-					</ul>
-				</div>
-			</div>
-
-			
-				<div class="p-footer-copyright">
-					
-						<a href="https://xenforo.com" class="u-concealed" dir="ltr" target="_blank" rel="sponsored noopener">Community platform by XenForo<sup>&reg;</sup> <span class="copyright">&copy; 2010-2024 XenForo Ltd.</span></a>
-						
-					
-				</div>
-			
-
-			
-		</div>
-	</footer>
-</div> <!-- closing p-pageWrapper -->
-
-<div class="u-bottomFixer js-bottomFixTarget">
-	
-	
-</div>
-
-<div class="u-navButtons js-navButtons">
-	<a href="javascript:" class="button button--scroll"><span class="button-text"><i class="fa--xf far fa-arrow-left "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1761395885#arrow-left"></use></svg></i><span class="u-srOnly">Back</span></span></a>
-</div>
+		if (lettre =="b") window.location.href = '#postmsgb'+ id;
+		if (lettre =="c") window.location.href = '#postmsgc'+ id;
+            }  
+ 		
+         });
 
 
-	<div class="u-scrollButtons js-scrollButtons" data-trigger-type="up">
-		<a href="#top" class="button button--scroll" data-xf-click="scroll-to"><span class="button-text"><i class="fa--xf far fa-arrow-up "><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" ><use href="/data/local/icons/regular.svg?v=1761395885#arrow-up"></use></svg></i><span class="u-srOnly">Top</span></span></a>
-		
-	</div>
+});
 
 
 
-	<form style="display:none" hidden="hidden">
-		<input type="text" name="_xfClientLoadTime" value="" id="_xfClientLoadTime" title="_xfClientLoadTime" tabindex="-1" />
-	</form>
-
-	
 
 
+$(document).ready(function() 
+{ 
+$('#req_new_password1').keyup(function() 
+{ 
+$('#affichageMessage').html(checkStrength($('#req_new_password1').val())) 
+}) 
+function checkStrength(password) 
+{ 
 
-	<script type="text/template" id="xfReactTooltipTemplate">
-		<div class="tooltip-content-inner">
-			<div class="reactTooltip">
-				
-					<a href="#" class="reaction reaction--1" data-reaction-id="1"><i aria-hidden="true"></i><img src="https://cdn.jsdelivr.net/joypixels/assets/8.0/png/unicode/64/1f44d.png" loading="lazy" width="64" height="64" class="reaction-image reaction-image--emoji js-reaction" alt="Like" title="Like" data-xf-init="tooltip" data-extra-class="tooltip--basic tooltip--noninteractive" /></a>
-				
-					<a href="#" class="reaction reaction--2" data-reaction-id="2"><i aria-hidden="true"></i><img src="/data/assets/reactions/purpleheart_.png"  loading="lazy" class="reaction-image js-reaction" alt="Love" title="Love" data-xf-init="tooltip" data-extra-class="tooltip--basic tooltip--noninteractive" /></a>
-				
-					<a href="#" class="reaction reaction--3" data-reaction-id="3"><i aria-hidden="true"></i><img src="https://cdn.jsdelivr.net/joypixels/assets/8.0/png/unicode/64/1f923.png" loading="lazy" width="64" height="64" class="reaction-image reaction-image--emoji js-reaction" alt="Haha" title="Haha" data-xf-init="tooltip" data-extra-class="tooltip--basic tooltip--noninteractive" /></a>
-				
-					<a href="#" class="reaction reaction--4" data-reaction-id="4"><i aria-hidden="true"></i><img src="https://cdn.jsdelivr.net/joypixels/assets/8.0/png/unicode/64/1f632.png" loading="lazy" width="64" height="64" class="reaction-image reaction-image--emoji js-reaction" alt="Wow" title="Wow" data-xf-init="tooltip" data-extra-class="tooltip--basic tooltip--noninteractive" /></a>
-				
-					<a href="#" class="reaction reaction--5" data-reaction-id="5"><i aria-hidden="true"></i><img src="https://cdn.jsdelivr.net/joypixels/assets/8.0/png/unicode/64/1f641.png" loading="lazy" width="64" height="64" class="reaction-image reaction-image--emoji js-reaction" alt="Sad" title="Sad" data-xf-init="tooltip" data-extra-class="tooltip--basic tooltip--noninteractive" /></a>
-				
-					<a href="#" class="reaction reaction--6" data-reaction-id="6"><i aria-hidden="true"></i><img src="https://cdn.jsdelivr.net/joypixels/assets/8.0/png/unicode/64/1f621.png" loading="lazy" width="64" height="64" class="reaction-image reaction-image--emoji js-reaction" alt="Angry" title="Angry" data-xf-init="tooltip" data-extra-class="tooltip--basic tooltip--noninteractive" /></a>
-				
-					<a href="#" class="reaction reaction--7" data-reaction-id="7"><i aria-hidden="true"></i><img src="/data/assets/reactions/goat-svgrepo-com____.svg.2024_07_09_23_05_09.0.svg"  loading="lazy" class="reaction-image js-reaction" alt="Point Biq" title="Point Biq" data-xf-init="tooltip" data-extra-class="tooltip--basic tooltip--noninteractive" /></a>
-				
-					<a href="#" class="reaction reaction--8" data-reaction-id="8"><i aria-hidden="true"></i><img src="/data/assets/reactions/allo32.png"  loading="lazy" class="reaction-image js-reaction" alt="Allô ?" title="Allô ?" data-xf-init="tooltip" data-extra-class="tooltip--basic tooltip--noninteractive" /></a>
-				
-					<a href="#" class="reaction reaction--15" data-reaction-id="15"><i aria-hidden="true"></i><img src="/data/assets/reactions/bonkreactlolilol____.png"  loading="lazy" class="reaction-image js-reaction" alt="Bonk !" title="Bonk !" data-xf-init="tooltip" data-extra-class="tooltip--basic tooltip--noninteractive" /></a>
-				
-			</div>
-		</div>
-	</script>
+if (password.length > 7) { 
+$('#caractere').removeClass() 
+$('#caractere').addClass('vert') 
+} else {
+$('#caractere').removeClass() 
+}
 
 
+if (password.match(/([!,%,&,@,#,$,^,*,?,_,~])/)) {
+$('#special').removeClass() 
+$('#special').addClass('vert') 
+}else {
+$('#special').removeClass() 
+}
 
+if (password.match(/([0-9])/)) {
+$('#chiffre').removeClass() 
+$('#chiffre').addClass('vert') 
+}else {
+$('#chiffre').removeClass() 
+}
+
+if (password.match(/([a-z])/)) {
+$('#minuscule').removeClass() 
+$('#minuscule').addClass('vert') 
+}else {
+$('#minuscule').removeClass() 
+}
+
+if (password.match(/([A-Z])/)) {
+$('#majuscule').removeClass() 
+$('#majuscule').addClass('vert') 
+} else {
+$('#majuscule').removeClass() 
+}
+
+}
+}); 
+</script> 
+
+</script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-

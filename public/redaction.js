@@ -545,7 +545,38 @@ document.addEventListener('DOMContentLoaded', async () => {
   await loadRecueil();
   await loadDocuments();
   
-  if (documents.length === 0) {
+  // Vérifier si on vient depuis la page analyze avec des paramètres
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.has('id')) {
+    const id = urlParams.get('id');
+    const product = urlParams.get('product') || '';
+    const form = urlParams.get('form') || '';
+    const acquisition = urlParams.get('acquisition') || '';
+    
+    // Créer un nouveau document avec les infos pré-remplies
+    newDocument();
+    
+    // Remplir le titre
+    document.getElementById('doc-title').value = `[${id}]`;
+    
+    // Pré-remplir le template
+    let prefilledTemplate = defaultTemplate;
+    if (product) {
+      prefilledTemplate = prefilledTemplate.replace('Produit présumé : [B][/B]', `Produit présumé : [B]${product}[/B]`);
+    }
+    if (form) {
+      prefilledTemplate = prefilledTemplate.replace('Forme du produit : ', `Forme du produit : ${form}`);
+    }
+    if (acquisition) {
+      prefilledTemplate = prefilledTemplate.replace('Mode d\'acquisition : ', `Mode d'acquisition : ${acquisition}`);
+    }
+    
+    document.getElementById('markdown-editor').value = prefilledTemplate;
+    updateEditorStats();
+    
+    // Nettoyer l'URL
+    window.history.replaceState({}, '', '/redaction.html');
+  } else if (documents.length === 0) {
     newDocument();
   }
   

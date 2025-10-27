@@ -481,6 +481,20 @@ function createCategorySection(title, threads, status) {
         statusText.style.opacity = '0.7';
         idEl.appendChild(statusText);
         
+        // Ajouter bouton "Rédiger" pour les threads avec résultats trouvés (Psychoactif uniquement)
+        if (status === 'open' && title === 'Ouverts avec résultats' && id.psychoFound && id.psychoUrl) {
+          const writeBtn = document.createElement('button');
+          writeBtn.className = 'btn-write-report';
+          writeBtn.innerHTML = '<i data-feather="edit-3"></i> Rédiger';
+          writeBtn.title = 'Rédiger le rendu de ce résultat';
+          writeBtn.onclick = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            redirectToRedaction(id.canonical, id.psychoUrl, thread.title);
+          };
+          idEl.appendChild(writeBtn);
+        }
+        
         idContainer.appendChild(idEl);
       });
       
@@ -516,6 +530,44 @@ el('sort-date')?.addEventListener('change', (e) => {
   currentFilters.sortDate = e.target.value;
   renderDetails();
 });
+
+// Fonction pour rediriger vers la page de rédaction avec infos pré-remplies
+async function redirectToRedaction(canonical, psychoUrl, threadTitle) {
+  try {
+    // Extraire l'ID sans le préfixe PSYCHO
+    const idMatch = canonical.match(/PSYCHO(\d+)/);
+    const numericId = idMatch ? idMatch[1] : canonical;
+    
+    // Récupérer les infos depuis Psychoactif
+    const response = await fetch('/api/forum/fetch-psychoactif-info', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url: psychoUrl })
+    });
+    
+    if (!response.ok) {
+      throw new Error('Erreur lors de la récupération des informations');
+    }
+    
+    const data = await response.json();
+    
+    // Créer l'URL avec les paramètres
+    const params = new URLSearchParams({
+      id: numericId,
+      product: data.product || '',
+      form: data.form || '',
+      acquisition: data.acquisition || ''
+    });
+    
+    // Rediriger vers la page de rédaction
+    window.location.href = `/redaction.html?${params.toString()}`;
+    
+  } catch (error) {
+    console.error('Erreur:', error);
+    if (!notyf) notyf = new Notyf({ duration: 3000, position: { x: 'right', y: 'top' } });
+    notyf.error('Erreur lors de la récupération des informations');
+  }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     feather.replace();
