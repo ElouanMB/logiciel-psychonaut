@@ -1,21 +1,82 @@
-MIT License
+PROPRIETARY LICENSE
 
-Copyright (c) 2025 Elouan MB
+Copyright (c) 2025 Elouan MB. Tous droits réservés.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+TERMES ET CONDITIONS D'UTILISATION
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. DROITS D'AUTEUR ET PROPRIÉTÉ INTELLECTUELLE
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+   Ce logiciel et tous les fichiers associés (le "Logiciel") sont la propriété 
+   exclusive d'Elouan MB. Tous les droits sont réservés.
+
+2. RESTRICTIONS D'UTILISATION
+
+   L'utilisation de ce Logiciel est STRICTEMENT RÉSERVÉE aux personnes ou 
+   organisations explicitement autorisées par écrit par l'auteur.
+
+   SONT INTERDITS sans autorisation écrite préalable :
+   - L'utilisation du Logiciel à des fins personnelles ou professionnelles
+   - La copie, reproduction ou duplication du code source
+   - La modification, adaptation ou création d'œuvres dérivées
+   - La distribution, redistribution ou partage du Logiciel
+   - La vente, location ou sous-licence du Logiciel
+   - L'utilisation commerciale sous quelque forme que ce soit
+   - La publication ou diffusion publique du code source
+   - L'analyse inverse (reverse engineering) du Logiciel
+
+3. AUTORISATION D'UTILISATION
+
+   Pour obtenir une autorisation d'utilisation, vous devez :
+   - Contacter l'auteur et obtenir une autorisation écrite explicite
+   - Respecter les conditions spécifiques de l'autorisation accordée
+   - Utiliser le Logiciel uniquement dans le cadre autorisé
+
+4. CODE SOURCE PUBLIC
+
+   Bien que le code source soit accessible publiquement sur GitHub, cela ne 
+   constitue PAS une autorisation d'utilisation. La publication du code permet 
+   uniquement la consultation et la vérification, mais n'accorde aucun droit 
+   d'utilisation, de modification ou de distribution.
+
+5. FINALITÉ DU LOGICIEL
+
+   Ce Logiciel est destiné exclusivement à des fins de réduction des risques 
+   et d'éducation dans le cadre des activités autorisées. Toute utilisation 
+   contraire aux lois en vigueur est strictement interdite.
+
+6. ABSENCE DE GARANTIE
+
+   LE LOGICIEL EST FOURNI "TEL QUEL", SANS GARANTIE D'AUCUNE SORTE, EXPLICITE 
+   OU IMPLICITE, Y COMPRIS, MAIS SANS S'Y LIMITER, LES GARANTIES DE 
+   COMMERCIALISATION, D'ADAPTATION À UN USAGE PARTICULIER ET D'ABSENCE DE 
+   CONTREFAÇON.
+
+7. LIMITATION DE RESPONSABILITÉ
+
+   EN AUCUN CAS, L'AUTEUR NE POURRA ÊTRE TENU RESPONSABLE DE TOUT DOMMAGE 
+   DIRECT, INDIRECT, ACCESSOIRE, SPÉCIAL, EXEMPLAIRE OU CONSÉCUTIF RÉSULTANT 
+   DE L'UTILISATION OU DE L'IMPOSSIBILITÉ D'UTILISER LE LOGICIEL.
+
+8. VIOLATION DE LA LICENCE
+
+   Toute violation des termes de cette licence entraînera :
+   - La révocation immédiate de toute autorisation accordée
+   - Des poursuites judiciaires pour violation de droits d'auteur
+   - La réclamation de dommages et intérêts
+
+9. JURIDICTION
+
+   Cette licence est régie par les lois françaises. Tout litige relatif à 
+   cette licence sera soumis à la juridiction exclusive des tribunaux français.
+
+10. CONTACT
+
+    Pour toute demande d'autorisation ou question concernant cette licence :
+    GitHub: @ElouanMB
+    Repository: https://github.com/ElouanMB/logiciel-psychonaut
+
+---
+
+AVERTISSEMENT : L'utilisation non autorisée de ce Logiciel constitue une 
+violation de droits d'auteur et peut entraîner des poursuites civiles et 
+pénales conformément au Code de la propriété intellectuelle français.
