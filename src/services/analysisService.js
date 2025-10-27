@@ -20,7 +20,7 @@ class AnalysisService {
         if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
       }
 
-      const args = ['analyze-threads-online.js'];
+      const args = ['scripts/analyze-threads-online.js'];
       if (pages && pages > 0) args.push('--pages', String(pages));
       if (outPath) args.push('--out', outPath);
 
@@ -85,7 +85,7 @@ class AnalysisService {
       if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
     }
 
-    const args = ['analyze-threads-online.js'];
+    const args = ['scripts/analyze-threads-online.js'];
     if (pages && pages > 0) args.push('--pages', String(pages));
     if (outPath) args.push('--out', outPath);
 
