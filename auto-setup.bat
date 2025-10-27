@@ -75,11 +75,17 @@ REM Creation des dossiers necessaires
 if not exist "config" mkdir config
 if not exist "data" mkdir data
 
+echo [INFO] Telechargement et installation des packages...
+echo        Cette operation peut prendre 2-3 minutes selon votre connexion.
+echo        Veuillez patienter...
+echo.
+
 REM Installation des dependances
 call npm install
 if %errorlevel% neq 0 (
     echo.
     echo [ERREUR] L'installation des dependances a echoue.
+    echo Verifiez votre connexion Internet et reessayez.
     pause
     exit /b 1
 )
@@ -94,7 +100,34 @@ echo   ETAPE 3/3 : RACCOURCI BUREAU
 echo ========================================
 echo.
 
-call "%~dp0scripts\create-shortcut.bat"
+echo Creation du raccourci sur le bureau...
+echo.
+
+REM Executer directement le script PowerShell sans passer par create-shortcut.bat
+powershell -ExecutionPolicy Bypass -File "%~dp0scripts\create-shortcut.ps1"
+
+if %errorlevel% neq 0 (
+    echo.
+    echo Tentative avec methode alternative...
+    
+    set SCRIPT_DIR=%CD%\
+    set DESKTOP=%USERPROFILE%\Desktop
+    set SHORTCUT_NAME=Psychonaut Analyzer
+    
+    powershell -Command "$WScriptShell = New-Object -ComObject WScript.Shell; $Shortcut = $WScriptShell.CreateShortcut('%DESKTOP%\%SHORTCUT_NAME%.lnk'); $Shortcut.TargetPath = '%SCRIPT_DIR%scripts\start.bat'; $Shortcut.WorkingDirectory = '%SCRIPT_DIR%'; $Shortcut.IconLocation = '%SCRIPT_DIR%ressources\logo-site.ico'; $Shortcut.Description = 'Psychonaut Analyzer'; $Shortcut.Save()"
+    
+    if !errorlevel! equ 0 (
+        echo.
+        echo [OK] Raccourci cree avec succes !
+    ) else (
+        echo.
+        echo [AVERTISSEMENT] Impossible de creer le raccourci automatiquement.
+        echo Vous pouvez creer un raccourci manuellement vers scripts\start.bat
+    )
+) else (
+    echo.
+    echo [OK] Raccourci cree avec succes !
+)
 
 echo.
 echo ========================================
