@@ -6,6 +6,10 @@ config/.xf-session.json
 data/*
 !data/recueil.json
 node_modules/
+results/
 
 # autre
 note.txt
+
+# Raccourcis Windows (generes localement)
+*.lnk

@@ -15,6 +15,7 @@ const configRoutes = require('./src/routes/config');
 const recueilRoutes = require('./src/routes/recueil');
 const redactionRoutes = require('./src/routes/redaction');
 const forumRoutes = require('./src/routes/forum');
+const updateRoutes = require('./src/routes/update');
 
 const app = express();
 
@@ -34,6 +35,7 @@ app.use('/api', configRoutes);
 app.use('/api/recueil', recueilRoutes);
 app.use('/api/redaction', redactionRoutes);
 app.use('/api/forum', forumRoutes);
+app.use('/api/update', updateRoutes);
 
 // Error handler (must be last)
 app.use(errorHandler);

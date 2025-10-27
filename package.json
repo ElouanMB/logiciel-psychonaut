@@ -5,12 +5,12 @@
   "type": "commonjs",
   "description": "Scripts pour récupérer des pages (publiques/privées) du forum Psychonaut (XenForo)",
   "scripts": {
-    "fetch:public": "node fetch-psychonaut-html.js",
-    "fetch:xenforo": "node xenforo-login-fetch.js",
-    "fetch:demande": "node xenforo-login-fetch.js --target /forums/demandes.160",
-    "analyze:local": "node analyze-threads-local.js --forum ./page-psychonaut.html --psy ./page-psychoactif.html",
-    "analyze:online": "node analyze-threads-online.js --out ./results/demande-report.json",
-    "analyze:online:first": "node analyze-threads-online.js --pages 1 --out ./results/demande-report.json",
+    "fetch:public": "node scripts/fetch-psychonaut-html.js",
+    "fetch:xenforo": "node scripts/xenforo-login-fetch.js",
+    "fetch:demande": "node scripts/xenforo-login-fetch.js --target /forums/demandes.160",
+    "analyze:local": "node scripts/analyze-threads-local.js --forum ./page-psychonaut.html --psy ./page-psychoactif.html",
+    "analyze:online": "node scripts/analyze-threads-online.js --out ./results/demande-report.json",
+    "analyze:online:first": "node scripts/analyze-threads-online.js --pages 1 --out ./results/demande-report.json",
     "start:ui": "node server.js"
   },
   "dependencies": {

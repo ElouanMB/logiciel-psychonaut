@@ -57,7 +57,24 @@
   <div class="container">
     <!-- Configuration -->
     <div class="card">
-      <h2>🔐 Configuration du compte</h2>
+      <div class="card-header">
+        <h2>🔐 Configuration du compte</h2>
+        <button type="button" class="btn btn-update" id="btn-update" title="Mettre à jour le code depuis GitHub">
+          <i data-feather="download-cloud"></i>
+          <span>Mettre à jour</span>
+        </button>
+      </div>
+
+      <!-- Update progress (hidden by default) -->
+      <div id="update-section" class="hidden">
+        <div class="update-progress">
+          <div class="update-status" id="update-status">Mise à jour en cours...</div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <div class="update-log" id="update-log"></div>
+        </div>
+      </div>
       
       <!-- Profile display (hidden by default) -->
       <div id="profile-section" class="hidden">

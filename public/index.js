@@ -133,4 +133,116 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     loadConfig();
+    
+    // Setup update button
+    const btnUpdate = document.getElementById('btn-update');
+    if (btnUpdate) {
+        btnUpdate.addEventListener('click', handleUpdate);
+    }
 });
+
+// Handle git pull update
+async function handleUpdate() {
+    const updateSection = document.getElementById('update-section');
+    const updateStatus = document.getElementById('update-status');
+    const progressFill = document.getElementById('progress-fill');
+    const updateLog = document.getElementById('update-log');
+    const btnUpdate = document.getElementById('btn-update');
+    
+    // Show update section
+    updateSection.classList.remove('hidden');
+    btnUpdate.disabled = true;
+    
+    // Reset progress
+    progressFill.style.width = '0%';
+    updateLog.innerHTML = '';
+    updateStatus.textContent = 'Initialisation de la mise à jour...';
+    
+    try {
+        // Step 1: Check git status
+        progressFill.style.width = '20%';
+        addLog('Vérification du repository Git...', 'info');
+        
+        const response = await fetch('/api/update', {
+            method: 'POST'
+        });
+        
+        if (!response.ok) {
+            throw new Error('Erreur lors de la mise à jour');
+        }
+        
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = '';
+        
+        // Read stream
+        while (true) {
+            const { done, value } = await reader.read();
+            
+            if (done) break;
+            
+            buffer += decoder.decode(value, { stream: true });
+            const lines = buffer.split('\n');
+            buffer = lines.pop(); // Keep incomplete line in buffer
+            
+            for (const line of lines) {
+                if (!line.trim()) continue;
+                
+                try {
+                    const data = JSON.parse(line);
+                    
+                    if (data.progress) {
+                        progressFill.style.width = data.progress + '%';
+                    }
+                    
+                    if (data.status) {
+                        updateStatus.textContent = data.status;
+                    }
+                    
+                    if (data.log) {
+                        addLog(data.log, data.type || 'info');
+                    }
+                    
+                    if (data.success) {
+                        updateStatus.textContent = '✓ Mise à jour terminée avec succès !';
+                        progressFill.style.width = '100%';
+                        notyf.success('Code mis à jour avec succès !');
+                        
+                        // Ask to reload
+                        setTimeout(() => {
+                            if (confirm('Mise à jour terminée ! Recharger la page pour appliquer les changements ?')) {
+                                window.location.reload();
+                            }
+                        }, 1000);
+                    }
+                    
+                    if (data.error) {
+                        throw new Error(data.error);
+                    }
+                } catch (e) {
+                    console.error('Parse error:', e, line);
+                }
+            }
+        }
+        
+    } catch (error) {
+        console.error('Update error:', error);
+        updateStatus.textContent = '✗ Erreur lors de la mise à jour';
+        addLog('Erreur: ' + error.message, 'error');
+        progressFill.style.width = '100%';
+        progressFill.style.background = 'var(--danger)';
+        notyf.error('Échec de la mise à jour: ' + error.message);
+    } finally {
+        btnUpdate.disabled = false;
+        feather.replace();
+    }
+}
+
+function addLog(message, type = 'info') {
+    const updateLog = document.getElementById('update-log');
+    const logLine = document.createElement('div');
+    logLine.className = `log-line log-${type}`;
+    logLine.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+    updateLog.appendChild(logLine);
+    updateLog.scrollTop = updateLog.scrollHeight;
+}
