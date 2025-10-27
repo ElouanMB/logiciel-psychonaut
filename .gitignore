@@ -4,7 +4,6 @@ config/.xf-session.json
 
 # dossiers
 data/*
-!data/.gitkeep
 !data/recueil.json
 node_modules/
 
