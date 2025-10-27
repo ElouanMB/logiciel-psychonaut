@@ -6,77 +6,37 @@ TERMES ET CONDITIONS D'UTILISATION
 
 1. DROITS D'AUTEUR ET PROPRIÉTÉ INTELLECTUELLE
 
-   Ce logiciel et tous les fichiers associés (le "Logiciel") sont la propriété 
-   exclusive d'Elouan MB. Tous les droits sont réservés.
+   Ce logiciel et tous les fichiers associés sont la propriété 
+   exclusive de l'association Psychonaut. Tous les droits sont réservés.
 
 2. RESTRICTIONS D'UTILISATION
 
-   L'utilisation de ce Logiciel est STRICTEMENT RÉSERVÉE aux personnes ou 
-   organisations explicitement autorisées par écrit par l'auteur.
+   L'utilisation de ce Logiciel est réservé aux personnes ou 
+   organisations explicitement autorisées par l'auteur.
 
-   SONT INTERDITS sans autorisation écrite préalable :
-   - L'utilisation du Logiciel à des fins personnelles ou professionnelles
-   - La copie, reproduction ou duplication du code source
-   - La modification, adaptation ou création d'œuvres dérivées
-   - La distribution, redistribution ou partage du Logiciel
-   - La vente, location ou sous-licence du Logiciel
-   - L'utilisation commerciale sous quelque forme que ce soit
-   - La publication ou diffusion publique du code source
-   - L'analyse inverse (reverse engineering) du Logiciel
+3. CODE SOURCE PUBLIC
 
-3. AUTORISATION D'UTILISATION
+   Bien que le code source soit accessible publiquement sur GitHub,
+   il est inutile de téléchargé ce logiciel sans autorisation, il ne fonctionnera pas.
 
-   Pour obtenir une autorisation d'utilisation, vous devez :
-   - Contacter l'auteur et obtenir une autorisation écrite explicite
-   - Respecter les conditions spécifiques de l'autorisation accordée
-   - Utiliser le Logiciel uniquement dans le cadre autorisé
-
-4. CODE SOURCE PUBLIC
-
-   Bien que le code source soit accessible publiquement sur GitHub, cela ne 
-   constitue PAS une autorisation d'utilisation. La publication du code permet 
-   uniquement la consultation et la vérification, mais n'accorde aucun droit 
-   d'utilisation, de modification ou de distribution.
-
-5. FINALITÉ DU LOGICIEL
+4. FINALITÉ DU LOGICIEL
 
    Ce Logiciel est destiné exclusivement à des fins de réduction des risques 
    et d'éducation dans le cadre des activités autorisées. Toute utilisation 
    contraire aux lois en vigueur est strictement interdite.
 
-6. ABSENCE DE GARANTIE
-
-   LE LOGICIEL EST FOURNI "TEL QUEL", SANS GARANTIE D'AUCUNE SORTE, EXPLICITE 
-   OU IMPLICITE, Y COMPRIS, MAIS SANS S'Y LIMITER, LES GARANTIES DE 
-   COMMERCIALISATION, D'ADAPTATION À UN USAGE PARTICULIER ET D'ABSENCE DE 
-   CONTREFAÇON.
-
-7. LIMITATION DE RESPONSABILITÉ
+5. LIMITATION DE RESPONSABILITÉ
 
    EN AUCUN CAS, L'AUTEUR NE POURRA ÊTRE TENU RESPONSABLE DE TOUT DOMMAGE 
    DIRECT, INDIRECT, ACCESSOIRE, SPÉCIAL, EXEMPLAIRE OU CONSÉCUTIF RÉSULTANT 
    DE L'UTILISATION OU DE L'IMPOSSIBILITÉ D'UTILISER LE LOGICIEL.
 
-8. VIOLATION DE LA LICENCE
-
-   Toute violation des termes de cette licence entraînera :
-   - La révocation immédiate de toute autorisation accordée
-   - Des poursuites judiciaires pour violation de droits d'auteur
-   - La réclamation de dommages et intérêts
-
-9. JURIDICTION
-
-   Cette licence est régie par les lois françaises. Tout litige relatif à 
-   cette licence sera soumis à la juridiction exclusive des tribunaux français.
-
-10. CONTACT
+6. CONTACT
 
     Pour toute demande d'autorisation ou question concernant cette licence :
     GitHub: @ElouanMB
+    Mail: elouan.marbais2@gmail.com
     Repository: https://github.com/ElouanMB/logiciel-psychonaut
 
----
 
-AVERTISSEMENT : L'utilisation non autorisée de ce Logiciel constitue une 
-violation de droits d'auteur et peut entraîner des poursuites civiles et 
-pénales conformément au Code de la propriété intellectuelle français.
+

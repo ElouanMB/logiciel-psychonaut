@@ -58,6 +58,13 @@ class ConfigService {
     };
     
     const envContent = `XF_USER=${escapeValue(username)}\nXF_PASS=${escapeValue(newPassword)}\n`;
+    
+    // Ensure config directory exists
+    const { CONFIG_DIR } = require('../config/constants');
+    if (!fs.existsSync(CONFIG_DIR)) {
+      fs.mkdirSync(CONFIG_DIR, { recursive: true });
+    }
+    
     fs.writeFileSync(ENV_FILE, envContent, 'utf8');
     
     return { message: 'Config saved' };
