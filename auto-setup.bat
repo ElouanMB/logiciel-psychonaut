@@ -58,13 +58,34 @@ echo   ETAPE 2/3 : DEPENDANCES
 echo ========================================
 echo.
 
-call "%~dp0scripts\install.bat"
+echo Installation des dependances npm...
+echo Cela peut prendre quelques minutes...
+echo.
+
+REM Verification de npm
+npm --version >nul 2>&1
+if %errorlevel% neq 0 (
+    echo [ERREUR] npm n'est pas disponible.
+    echo Veuillez reinstaller Node.js depuis https://nodejs.org/
+    pause
+    exit /b 1
+)
+
+REM Creation des dossiers necessaires
+if not exist "config" mkdir config
+if not exist "data" mkdir data
+
+REM Installation des dependances
+call npm install
 if %errorlevel% neq 0 (
     echo.
     echo [ERREUR] L'installation des dependances a echoue.
     pause
     exit /b 1
 )
+
+echo.
+echo [OK] Dependances installees avec succes !
 
 REM Etape 3 : Creation raccourci
 echo.
