@@ -181,7 +181,7 @@ function openProductModal(product = null) {
   const nameInput = document.getElementById('product-name');
   const resourcesList = document.getElementById('resources-list');
   
-  title.textContent = product ? 'Modifier le produit' : 'Nouveau produit';
+  title.textContent = product ? 'Modifier la ressource' : 'Nouvelle Ressource';
   nameInput.value = product ? product.name : '';
   resourcesList.innerHTML = '';
   
@@ -282,7 +282,7 @@ function removeResourceForm(id) {
 function saveProduct() {
   const name = document.getElementById('product-name').value.trim();
   if (!name) {
-    notify('Le nom du produit est requis', 'error');
+    notify('Le nom de la ressource est requise', 'error');
     return;
   }
   
@@ -334,12 +334,12 @@ function editProduct(product) {
 
 // Delete product
 function deleteProduct(product) {
-  if (!confirm(`Supprimer le produit "${product.name}" ?`)) return;
+  if (!confirm(`Supprimer la ressource "${product.name}" ?`)) return;
   
   recueilData = recueilData.filter(p => p.id !== product.id);
   saveRecueil();
   renderProducts();
-  notify('Produit supprimé', 'success');
+  notify('ressource supprimée', 'success');
 }
 
 // Export single product to PDF

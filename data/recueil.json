@@ -241,6 +241,96 @@
           "lang": "FR"
         }
       ]
+    },
+    {
+      "id": "1761558202996",
+      "name": "Pas le bon produit",
+      "resources": [
+        {
+          "type": "note",
+          "text": "Malheureusement, il y a bien eu tromperie car c'est de la 2-MMC qui est retrouvée. Celle-ci est néanmoins très pure (plus de 100% hcl) ce qui invite à la prudence sur les dosages. Les effets ne seront pas exactement ceux attendus, mais la 2-MMC reste un produit puissant ! La 2-MMC est bien moins empathogène et hallucinogène et bien plus porté sur la stimulation que la 4-MMC."
+        }
+      ]
+    },
+    {
+      "id": "1761558229998",
+      "name": "Produit très pur",
+      "resources": [
+        {
+          "type": "note",
+          "text": "Inviter à la prudence sur les dosages.\n\nAttention donc aux dosages avec ce produit dont l'intensité des effets peuvent surprendre...\n\n Il s'agit d'une kétamine de grande pureté : attention aux dosages, surtout si tu consommes rarement de la kétamine ou si tu n'en as pas consommé depuis longtemps !\n\nInviter à faire un retour d'expérience en précisant ses dosages et que son produit a été analysé, afin de contribuer à l'objectivité des savoirs expérientiels."
+        }
+      ]
+    },
+    {
+      "id": "1761558284298",
+      "name": "Déjà consommé",
+      "resources": [
+        {
+          "type": "note",
+          "text": "Si la personne a porté un jugement à propos du produit, mettre ce jugement en rapport avec le résultat.\n\nEffectivement, la 2-MMC est connue pour avoir une balance d'effets davantage stimulante et moins empathogène que la 3-MMC.\n\nLa personne à l'origine de l'analyse voulait faire analyser un comprimé de 2C-B car les effets n'étaient pas ceux attendus.  \nLe labo a pourtant bien identifié du 2C-B ! Ce serait intéressant que la personne raconte quelles étaient ses attentes et quels effets elle a eu. Souvent, les comprimés de 2C-B sont sous-dosés, ce qui mène à des déceptions quand les gens s'attendent à des effets psychédéliques. En effet, à faible dose, le 2C-B a surtout des effets stimulants et empathogènes. Vous pouvez consulter notre fiche info sur le 2C-B pour en savoir davantage."
+        }
+      ]
+    },
+    {
+      "id": "1761558372605",
+      "name": "Taz",
+      "resources": [
+        {
+          "type": "note",
+          "text": "Taz de MDMA : ramener le dosage du taz aux échelles de dosage conseillé.\n\nCela est moins que la quantité annoncée, mais 280 reste une dose massive ! Rappelons que la dose maximum conseillée est de 120mg par session. Ce taz serait parfait à consommer en trois fois !"
+        }
+      ]
+    },
+    {
+      "id": "1761558446621",
+      "name": "Research Chemical",
+      "resources": [
+        {
+          "type": "note",
+          "text": "La consommation de RC appelle quelques précautions, notamment au niveau des dosages. Davantage de conseils dans ce [URL='https://www.psychonaut.fr/threads/rc-nps-le-guide-2024.35304/']guide dédié aux RCs[/URL] !\n\n[URL='https://www.psychonaut.fr/threads/liste-rdr-des-shops-de-rc.31396/']liste RDR des shops de RC[/URL]"
+        }
+      ]
+    },
+    {
+      "id": "1761561754959",
+      "name": "Opiacé/opioïde",
+      "resources": [
+        {
+          "type": "note",
+          "text": "Évitez de consommer seul·e, et confiez de la naloxone (l'antidote des opioïdes) à votre sitter. La naloxone ne prend pas beaucoup de place et peut vous sauver la vie, c'est gratuit en CAARUD/CSAPA ou alors une trentaine d'euros en pharmacie. Plus d'informations en suivant ce [URL='https://drugz.fr/naloxone/']lien[/URL] !"
+        }
+      ]
+    },
+    {
+      "id": "1761561819047",
+      "name": "Envoi SINTES",
+      "resources": [
+        {
+          "type": "note",
+          "text": "L'analyse révèle la présence d'une substance qui n'est pas dans la base de donnée du laboratoire. Le produit a donc été envoyé à [URL='https://www.ofdt.fr/dispositif-sintes-systeme-d-identification-national-des-toxiques-et-des-substances-1744']SINTES[/URL] pour analyses complémentaires.  \nMalheureusement, les délais pour avoir une réponse risquent de se compter en semaines. Le plus prudent serait de ne pas consommer ce produit..."
+        }
+      ]
+    },
+    {
+      "id": "1761561874267",
+      "name": "Risque de syndrome sérotoninergique (taz surdosé ...)",
+      "resources": [
+        {
+          "type": "note",
+          "text": "Ce produit à trop haute dose pourrait produire un syndrome sérotoninergique (libération trop importante de sérotonine). Cette affection est rare, mais peut entraîner des séquelles importantes. Soyez attentifs aux symptômes suivants et n'hésitez pas à appeler les urgences si plusieurs d'entre eux apparaissent :\n\n- nausées, diarrhées,\n\n- agitation, hallucinations, confusion, nervosité importante,\n\n- tremblements, rigidité musculaire, \n\n- tachycardie, grosse baisse ou élévation de la pression artérielle, sueurs importantes, hyperthermie (fièvre).\n\n[URL='https://drugz.fr/syndrome-serotoninergique/']Page DRUGZ sur le syndrome sérotoninergique[/URL]"
+        }
+      ]
+    },
+    {
+      "id": "1761561907438",
+      "name": "Produit potent (très pur et se dose bas)",
+      "resources": [
+        {
+          "type": "note",
+          "text": "Il serait dangereux de doser à l’œil avec ce produit. Privilégiez l'utilisation d'une balance précise au millième de gramme (0.001 g). Pour plus d'infos sur les pesées et les dosages, vous pouvez consulter la [URL='https://drugz.fr/dosage/']Page DRUGZ[/URL] sur le dosage"
+        }
+      ]
     }
   ]
 }

@@ -28,6 +28,10 @@
           <i data-feather="book-open"></i>
           <span>Recueil</span>
         </a>
+        <a href="/redaction.html" class="nav-icon-link" title="Rédaction de comptes-rendus">
+          <i data-feather="edit-3"></i>
+          <span>Rédaction</span>
+        </a>
       </nav>
       <nav class="nav-actions">
         <a href="/" class="link">Accueil</a>
@@ -42,7 +46,7 @@
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <h1 class="hero-title">Recueil de Ressources</h1>
-        <p class="hero-sub">Centralisation des ressources documentaires par produit</p>
+        <p class="hero-sub">Centralisation des ressources documentaires</p>
       </div>
     </div>
 
@@ -50,10 +54,10 @@
       <div class="toolbar">
         <div class="search-bar">
           <i data-feather="search"></i>
-          <input type="search" id="search-input" placeholder="Rechercher un produit..." />
+          <input type="search" id="search-input" placeholder="Rechercher une ressource ..." />
         </div>
         <button id="btn-add-product" class="btn btn-primary">
-          <i data-feather="plus"></i> Nouveau produit
+          <i data-feather="plus"></i> Nouvelle ressource
         </button>
         <button id="btn-export-all" class="btn btn-secondary">
           <i data-feather="download"></i> Export PDF complet
@@ -66,9 +70,9 @@
 
       <div id="empty-state" class="empty-state" style="display: none;">
         <i data-feather="book-open"></i>
-        <p>Aucun produit dans le recueil</p>
+        <p>Aucune ressource dans le recueil</p>
         <button class="btn btn-primary" onclick="document.getElementById('btn-add-product').click()">
-          Ajouter le premier produit
+          Ajouter la première ressource
         </button>
       </div>
     </main>
@@ -77,14 +81,14 @@
     <div id="product-modal" class="modal" style="display: none;">
       <div class="modal-content">
         <div class="modal-header">
-          <h2 id="modal-title">Nouveau produit</h2>
+          <h2 id="modal-title">Nouvelle ressource</h2>
           <button class="icon-btn" onclick="closeProductModal()">
             <i data-feather="x"></i>
           </button>
         </div>
         <div class="modal-body">
           <label>
-            Nom du produit <span class="required">*</span>
+            Nom de la ressource <span class="required">*</span>
             <input type="text" id="product-name" placeholder="Ex: MDMA, LSD, 2C-B..." required />
           </label>
           

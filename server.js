@@ -13,6 +13,8 @@ const resultsRoutes = require('./src/routes/results');
 const analysisRoutes = require('./src/routes/analysis');
 const configRoutes = require('./src/routes/config');
 const recueilRoutes = require('./src/routes/recueil');
+const redactionRoutes = require('./src/routes/redaction');
+const forumRoutes = require('./src/routes/forum');
 
 const app = express();
 
@@ -30,6 +32,8 @@ app.use('/api/results', resultsRoutes);
 app.use('/api', analysisRoutes);
 app.use('/api', configRoutes);
 app.use('/api/recueil', recueilRoutes);
+app.use('/api/redaction', redactionRoutes);
+app.use('/api/forum', forumRoutes);
 
 // Error handler (must be last)
 app.use(errorHandler);
@@ -39,4 +43,5 @@ app.listen(PORT, () => {
   console.log(`🚀 Dashboard disponible sur http://localhost:${PORT}`);
   console.log(`📁 Résultats: data/results/`);
   console.log(`📚 Recueil: data/recueil.json`);
+  console.log(`📝 Rédaction: data/redaction.json`);
 });

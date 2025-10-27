@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Psychonaut Analyzer - Rédaction</title>
+    <link rel="icon" type="image/png" href="/ressources/logo-site.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/redaction.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <img src="/ressources/logo.svg" alt="Psychonaut" class="logo" />
+        <div class="brand-text">
+          <div class="title">Psychonaut</div>
+          <div class="subtitle">Rédaction de comptes-rendus</div>
+        </div>
+      </div>
+      <nav class="center-nav">
+        <a href="/analyze.html" class="nav-icon-link" title="Analyse des demandes">
+          <i data-feather="bar-chart-2"></i>
+          <span>Analyse</span>
+        </a>
+        <a href="/recueil.html" class="nav-icon-link" title="Recueil des ressources">
+          <i data-feather="book-open"></i>
+          <span>Recueil</span>
+        </a>
+        <a href="/redaction.html" class="nav-icon-link" title="Rédaction">
+          <i data-feather="edit-3"></i>
+          <span>Rédaction</span>
+        </a>
+      </nav>
+      <nav class="nav-actions">
+        <a href="/" class="link">Accueil</a>
+        <a href="https://www.psychonaut.fr/forums/demandes.160/" target="_blank" class="link">Demandes Psychonaut</a>
+        <a href="https://www.psychoactif.org/forum/analyse-a-distance.php" target="_blank" class="link">Résultats Psychoactif</a>
+        <a href="https://druglab.fr/resultats" target="_blank" class="link">Résultats DrugLab</a>
+        <a href="https://tools.psychonaut.fr/nextcloud/s/gwwkrQ2AFYmK5sM" target="_blank" class="link">Template Rendu</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Rédaction de comptes-rendus</h1>
+        <p class="hero-sub">Éditeur BBCode avec intégration du recueil de ressources</p>
+      </div>
+    </div>
+
+    <main class="container">
+      <div class="layout">
+        <!-- Sidebar avec documents sauvegardés -->
+        <aside class="sidebar">
+          <div class="sidebar-header">
+            <h3>Documents sauvegardés</h3>
+            <div class="sidebar-actions">
+              <button id="btn-config-template" class="icon-btn" title="Configurer le template par défaut">
+                <i data-feather="settings"></i>
+              </button>
+              <button id="btn-new-doc" class="icon-btn" title="Nouveau document">
+                <i data-feather="file-plus"></i>
+              </button>
+            </div>
+          </div>
+          <div id="documents-list" class="documents-list">
+            <!-- Liste des documents -->
+          </div>
+          <div id="empty-docs" class="empty-state" style="display: none;">
+            <i data-feather="file-text"></i>
+            <p>Aucun document</p>
+          </div>
+        </aside>
+
+        <!-- Éditeur principal -->
+        <section class="editor-section">
+          <div class="editor-header">
+            <input type="text" id="doc-title" class="doc-title" placeholder="Titre du document..." />
+            <div class="editor-actions">
+              <button id="btn-insert-resource" class="btn btn-secondary" title="Insérer une ressource du recueil">
+                <i data-feather="plus-circle"></i> Insérer ressource
+              </button>
+              <button id="btn-preview" class="btn btn-secondary" title="Aperçu du rendu">
+                <i data-feather="eye"></i> Aperçu
+              </button>
+              <button id="btn-post-forum" class="btn btn-secondary" title="Aller au rendu">
+                <i data-feather="send"></i> Aller au rendu
+              </button>
+              <button id="btn-save-doc" class="btn btn-primary" title="Sauvegarder le document">
+                <i data-feather="save"></i> Sauvegarder
+              </button>
+            </div>
+          </div>
+
+          <div class="editor-container">
+            <div class="editor-toolbar">
+              <button class="toolbar-btn" data-format="bold" title="Gras [B]texte[/B] (Ctrl+B)">
+                <i data-feather="bold"></i>
+              </button>
+              <button class="toolbar-btn" data-format="italic" title="Italique [I]texte[/I] (Ctrl+I)">
+                <i data-feather="italic"></i>
+              </button>
+              <div class="toolbar-group">
+                <button class="toolbar-btn" data-format="heading" data-level="1" title="Titre H1 [HEADING=1]">
+                  <i data-feather="type"></i>
+                  <span class="heading-level">1</span>
+                </button>
+                <button class="toolbar-btn" data-format="heading" data-level="2" title="Titre H2 [HEADING=2]">
+                  <i data-feather="type"></i>
+                  <span class="heading-level">2</span>
+                </button>
+                <button class="toolbar-btn" data-format="heading" data-level="3" title="Titre H3 [HEADING=3]">
+                  <i data-feather="type"></i>
+                  <span class="heading-level">3</span>
+                </button>
+              </div>
+              <button class="toolbar-btn" data-format="list" title="Liste [*] élément">
+                <i data-feather="list"></i>
+              </button>
+              <button class="toolbar-btn" data-format="link" title="Lien [URL='url']texte[/URL]">
+                <i data-feather="link"></i>
+              </button>
+              <button class="toolbar-btn" data-format="code" title="Code [CODE]texte[/CODE]">
+                <i data-feather="code"></i>
+              </button>
+            </div>
+            <textarea id="markdown-editor" class="markdown-editor" placeholder="Écrivez votre compte-rendu en BBCode ..."></textarea>
+            <div class="editor-info">
+              <button id="btn-copy-markdown" class="btn-copy-small" title="Copier le texte">
+                <i data-feather="copy"></i> Copier
+              </button>
+              <span id="char-count">0 caractères</span>
+              <span id="word-count">0 mots</span>
+              <span id="line-count">0 lignes</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Modal de recherche dans le recueil -->
+    <div id="resource-modal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Insérer une ressource du recueil</h2>
+          <button class="icon-btn" onclick="closeResourceModal()">
+            <i data-feather="x"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="search-bar">
+            <i data-feather="search"></i>
+            <input type="search" id="resource-search" placeholder="Rechercher une molécule..." />
+          </div>
+          <div id="products-list" class="products-list">
+            <!-- Liste des ressources du recueil -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de configuration du template -->
+    <div id="template-modal" class="modal" style="display: none;">
+      <div class="modal-content large">
+        <div class="modal-header">
+          <h2>Configurer le template par défaut</h2>
+          <button class="icon-btn" onclick="closeTemplateModal()">
+            <i data-feather="x"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="modal-description">Modifiez le contenu du template qui sera utilisé pour les nouveaux documents :</p>
+          <textarea id="template-editor" class="template-editor" rows="20"></textarea>
+          <div class="modal-actions">
+            <button class="btn btn-secondary" onclick="closeTemplateModal()">Annuler</button>
+            <button class="btn btn-primary" onclick="saveTemplate()">
+              <i data-feather="save"></i> Enregistrer le template
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal d'aperçu du rendu -->
+    <div id="preview-modal" class="modal" style="display: none;">
+      <div class="modal-content large">
+        <div class="modal-header">
+          <h2>Aperçu du rendu</h2>
+          <button class="icon-btn" onclick="closePreviewModal()">
+            <i data-feather="x"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="preview-content" class="preview-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <script src="/redaction.js"></script>
+  </body>
+</html>
