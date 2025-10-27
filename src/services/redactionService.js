@@ -24,6 +24,12 @@ function loadData() {
 // Sauvegarder toutes les données
 function saveData(documents, template) {
   try {
+    // Créer le dossier data/ s'il n'existe pas
+    const dataDir = path.dirname(REDACTION_FILE);
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true });
+    }
+    
     const data = { documents, template };
     fs.writeFileSync(REDACTION_FILE, JSON.stringify(data, null, 2), 'utf-8');
   } catch (error) {
