@@ -1,8 +1,6 @@
 @echo off
-setlocal enabledelayedexpansion
 cd /d "%~dp0"
 title Installation Automatique - Psychonaut Analyzer
-color 0D
 
 echo.
 echo ========================================
@@ -25,13 +23,13 @@ echo   ETAPE 1/3 : NODE.JS
 echo ========================================
 echo.
 
-node --version >nul 2>&1
-if %errorlevel% neq 0 (
+where node >nul 2>&1
+if errorlevel 1 (
     echo Node.js n'est pas installe.
     echo Installation automatique en cours...
     echo.
     call "%~dp0scripts\check-nodejs.bat"
-    if %errorlevel% neq 0 (
+    if errorlevel 1 (
         echo.
         echo [ERREUR] Impossible d'installer Node.js automatiquement.
         echo Veuillez l'installer manuellement depuis https://nodejs.org/
@@ -44,10 +42,15 @@ if %errorlevel% neq 0 (
     echo        et relancer auto-setup.bat dans un nouveau terminal.
     pause
     exit /b 0
-) else (
-    for /f "tokens=*" %%i in ('node --version') do set NODE_VERSION=%%i
-    echo [OK] Node.js deja installe : !NODE_VERSION!
 )
+
+for /f "tokens=*" %%i in ('node --version 2^>nul') do set NODE_VERSION=%%i
+if "%NODE_VERSION%"=="" (
+    echo [ERREUR] Node.js non detecte
+    pause
+    exit /b 1
+)
+echo [OK] Node.js deja installe : %NODE_VERSION%
 
 echo.
 REM Etape 2 : Installation dependances
@@ -62,8 +65,8 @@ echo Cela peut prendre quelques minutes...
 echo.
 
 REM Verification de npm
-npm --version >nul 2>&1
-if %errorlevel% neq 0 (
+where npm >nul 2>&1
+if errorlevel 1 (
     echo [ERREUR] npm n'est pas disponible.
     echo Veuillez reinstaller Node.js depuis https://nodejs.org/
     pause
@@ -81,7 +84,7 @@ echo.
 
 REM Installation des dependances
 call npm install
-if %errorlevel% neq 0 (
+if errorlevel 1 (
     echo.
     echo [ERREUR] L'installation des dependances a echoue.
     echo Verifiez votre connexion Internet et reessayez.
