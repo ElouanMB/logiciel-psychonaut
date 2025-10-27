@@ -17,7 +17,6 @@ echo   3. Creer un raccourci sur le bureau
 echo.
 echo Appuyez sur une touche pour demarrer...
 pause >nul
-cls
 
 REM Etape 1 : Verification/Installation Node.js
 echo.
